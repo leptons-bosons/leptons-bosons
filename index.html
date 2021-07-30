@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Leptions, Bosons, Quarks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="virtualization, cloud">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Leptions, Bosons, Quarks">
+<meta property="og:url" content="https://username.github.io/leptons-bosons/index.html">
+<meta property="og:site_name" content="Leptions, Bosons, Quarks">
+<meta property="og:description" content="virtualization, cloud">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Henry">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/leptons-bosons/atom.xml" title="Leptions, Bosons, Quarks" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/leptons-bosons/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/leptons-bosons/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/leptons-bosons/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/leptons-bosons/" id="logo">Leptions, Bosons, Quarks</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/leptons-bosons/" id="subtitle">light virt</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/leptons-bosons/">Home</a>
+        
+          <a class="main-nav-link" href="/leptons-bosons/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/leptons-bosons/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://username.github.io/leptons-bosons"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Building-EDK2-Qemu-From-Scratch-On-Raspberry-Pi" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2021/07/29/Building-EDK2-Qemu-From-Scratch-On-Raspberry-Pi/" class="article-date">
+  <time class="dt-published" datetime="2021-07-29T15:23:01.000Z" itemprop="datePublished">2021-07-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/original/">original</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2021/07/29/Building-EDK2-Qemu-From-Scratch-On-Raspberry-Pi/">Building EDK2 Qemu From Scratch On Raspberry Pi</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h3><ul>
+<li>a Raspberry PI 4B</li>
+<li>a SD Card, has installed <a target="_blank" rel="noopener" href="https://ubuntu.com/raspberry-pi">Ubuntu for Raspberry Pi</a></li>
+</ul>
+<h3 id="Building-EDK2"><a href="#Building-EDK2" class="headerlink" title="Building EDK2"></a>Building EDK2</h3><ul>
+<li><p>Install required packages</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential git uuid-dev iasl nasm python</span><br></pre></td></tr></table></figure></li>
+<li><p>Get the latest source for EDKII</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir code; cd code</span><br><span class="line">git clone https://github.com/tianocore/edk2.git</span><br><span class="line">cd edk2; git submodule update --init</span><br></pre></td></tr></table></figure></li>
+<li><p>Config and building</p>
+<ul>
+<li>Compile base tools<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -C BaseTools</span><br></pre></td></tr></table></figure></li>
+<li>Set up build environment<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. ./edksetup.sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Set up build target</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi Conf/target.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>set ACTIVE_PLATFORM = <strong>ArmVirtPkg/ArmVirtQemu.dsc</strong></li>
+<li>set TARGET = <strong>DEBUG</strong></li>
+<li>set TARGET_ARCH = <strong>AARCH64</strong></li>
+<li>set TOOL_CHAIN_TAG = <strong>GCC5</strong></li>
+</ul>
+</li>
+<li><p>Building MdeModulePkg module package</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">build</span><br></pre></td></tr></table></figure>
+<p>  Note: <em>build</em>, whihc is exported by edksetup.sh, is not a system command</p>
+</li>
+<li><p>Get the UEFI bin</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls Build/ArmVirtQemu-AARCH64/DEBUG_GCC5/FV/QEMU_EFI.fd</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Building-Qemu"><a href="#Building-Qemu" class="headerlink" title="Building Qemu"></a>Building Qemu</h3><ul>
+<li><p>Get the latest source for Qemu</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">wget https://download.qemu.org/qemu-6.0.0.tar.xz</span><br><span class="line">tar -xvf qemu-6.0.0.tar.xz</span><br></pre></td></tr></table></figure></li>
+<li><p>Install required packages</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br><span class="line">sudo apt install libaio1 libaio-dev</span><br></pre></td></tr></table></figure></li>
+<li><p>Config and building</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd qemu-6.0.0</span><br><span class="line">./configure --enable-trace-backend=simple --enable-debug --target-list=aarch64-softmmu --prefix=/usr/local --without-default-features --enable-kvm --enable-linux-aio --enable-vhost-net --enable-vhost-vsock --enable-vhost-scsi --enable-vhost-kernel --enable-vnc --enable-tools</span><br><span class="line">make -j 3</span><br></pre></td></tr></table></figure>
+<p>  Note: type <strong>./configure –help</strong> to set your own configurations</p>
+</li>
+<li><p>Get the Qemu bin</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./build/qemu-system-aarch64 --version</span><br><span class="line">./build/qemu-img --version</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/">Install Raspberry Pi OS using Raspberry Pi Imager</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/UEFI/EDK2">Ubuntu EDK2</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/qemu/QEMU">Git Qemu</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2021/07/29/Building-EDK2-Qemu-From-Scratch-On-Raspberry-Pi/" data-id="ckrqkh46i00012ovlgyvf7ufe" data-title="Building EDK2 Qemu From Scratch On Raspberry Pi" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/EDK2/" rel="tag">EDK2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/Qemu/" rel="tag">Qemu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/Raspberry-Pi/" rel="tag">Raspberry Pi</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-infrastructure-architecture" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2021/03/28/infrastructure-architecture/" class="article-date">
+  <time class="dt-published" datetime="2021-03-28T13:23:01.000Z" itemprop="datePublished">2021-03-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/quotes/">quotes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2021/03/28/infrastructure-architecture/">Next Generation of Infrastructure Architecture</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Scenarios-amp-Chanllenges"><a href="#Scenarios-amp-Chanllenges" class="headerlink" title="Scenarios &amp; Chanllenges"></a>Scenarios &amp; Chanllenges</h3><ul>
+<li>Cloud Native: the number of connections grow with thousands times<ul>
+<li>ScaleUp-&gt;ScaleOut-&gt;Mesh, <strong>see references item 1</strong><br><img src="ScaleupsScaleoutMesh.png" alt="ScaleUp-&gt;ScaleOut-&gt;Mesh"></li>
+</ul>
+</li>
+<li>Serverless: IO delay of stateful applications<ul>
+<li>Ephemeral Storage and Serverless Durable Storage, <strong>see references item 2</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  To expand support to stateful applications, serverless frameworks need to provide a way for tasks</span><br><span class="line">to coordinate. For instance, if task A uses task B’s output there must be a way for A to know</span><br><span class="line">when its input is available, even if A and B reside on different nodes. Many protocols aiming to</span><br><span class="line">ensure data consistency also require similar coordination.</span><br><span class="line">  None of the existing cloud storage services come with notification capabilities. While cloud</span><br><span class="line">providers do offer stand-alone notification services, such as SNS [42] and SQS [43], these services</span><br><span class="line">add significant latency, sometimes hundreds of milliseconds. Also, they can be costly when used</span><br><span class="line">for fine grained coordination. There have been some proposed research systems such as Pocket [44]</span><br><span class="line">that do not have many of these drawbacks, but they have not yet been adopted by cloud providers.</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>Security: Zero-Trust</li>
+</ul>
+<h3 id="Key-Technology"><a href="#Key-Technology" class="headerlink" title="Key Technology"></a>Key Technology</h3><ul>
+<li>Live migration for pass-through devices</li>
+<li><a target="_blank" rel="noopener" href="https://www.mellanox.com/files/doc-2020/sb-mellanox-nvme-snap.pdf">NVMe device emulation using a SmartNIC, Mellanox NVMe-SNAP</a></li>
+<li>Standardization: <a target="_blank" rel="noopener" href="http://docs.oasis-open.org/virtio/virtio/">virtio</a>, Michael S. Tsirkin, Cornelia Huck<ul>
+<li><a target="_blank" rel="noopener" href="https://archive.fosdem.org/2018/schedule/event/virtio/attachments/slides/2167/export/events/attachments/virtio/slides/2167/fosdem_virtio1_1.pdf">What’s New in Virtio 1.1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.linux-kvm.org/images/5/55/02x07A-Wei_Wang-Design_of-Vhost-pci.pdf">Design of Vhost-pci</a>: share memory between 2 VMs, security?</li>
+<li>vDPA, Full Offloading, <strong>see references item 3</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Nvidia-DPU-Archtecture-DOCA"><a href="#Nvidia-DPU-Archtecture-DOCA" class="headerlink" title="Nvidia DPU Archtecture, DOCA"></a>Nvidia DPU Archtecture, <a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/programming-the-entire-data-center-infrastructure-with-the-nvidia-doca-sdk/">DOCA</a></h3><ul>
+<li>Functional Diagram, <strong>see references item 4</strong><br><img src="FunctionalDiagram.png" alt="Functional Diagram"></li>
+<li>Network Offload Diagram, <strong>see references item 4</strong><br><img src="NetworkOffload.png" alt="Network Offload Diagram"></li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[1] <a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/networking/products/data-processing-unit/">Nvidia Data Processing Units</a><br>[2] <a target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf">Cloud Programming Simplified: A Berkeley View on Serverless Computing</a><br>[3] <a target="_blank" rel="noopener" href="https://kvmforum2019.sched.com/event/TmxF/virtio-without-the-virt-towards-implementations-in-hardware-michael-tsirkin-red-hat">VirtIO without the Virt</a><br>[4] <a target="_blank" rel="noopener" href="https://docs.mellanox.com/display/BlueFieldSWv25111213/BlueField+Software+Overview">BlueField Software Manual</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2021/03/28/infrastructure-architecture/" data-id="ckrqkh47j00172ovlc32d548l" data-title="Next Generation of Infrastructure Architecture" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/Infrastructure-Architecture/" rel="tag">Infrastructure Architecture</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-papers" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2021/01/13/papers/" class="article-date">
+  <time class="dt-published" datetime="2021-01-13T13:23:01.000Z" itemprop="datePublished">2021-01-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/quotes/">quotes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2021/01/13/papers/">The Papers</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="the-Computer-Architecture"><a href="#the-Computer-Architecture" class="headerlink" title="the Computer Architecture"></a>the Computer Architecture</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://abelgo.cn/cs101/papers/Neumann.pdf">The First Draft Report on the EDVAC</a>, 1945</li>
+<li><a target="_blank" rel="noopener" href="https://cacm.acm.org/magazines/2019/2/234352-a-new-golden-age-for-computer-architecture/fulltext">A New Golden Age for Computer Architecture</a>, 2019</li>
+</ul>
+<h3 id="the-Hypervisor"><a href="#the-Hypervisor" class="headerlink" title="the Hypervisor"></a>the Hypervisor</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://sites.google.com/site/sfma2019eurosys/Program">The Multihype: Virtualizing Heterogeneous-ISA Architectures</a>, 2019<ul>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/2678373.2665692">Harnessing ISA Diversity: Design of a heterogeneous-ISA Chip Multiprocessor</a>, 2014</li>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/2892242.2892246">Building a kvm-based hypervisor for a heterogeneous system architecture compliant system</a>, 2016</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-Cloud"><a href="#the-Cloud" class="headerlink" title="the Cloud"></a>the Cloud</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-28.pdf">Above the Clouds: A Berkeley View of Cloud Computing</a>, 2009</li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/conference/osdi16/technical-sessions/presentation/arnautov">SCONE: Secure Linux Containers with Intel SGX</a>, 2016</li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/conference/atc18/presentation/oakes">SOCK: Rapid Task Provisioning with Serverless-Optimized Containers</a>, 2018</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1807.11248.pdf">Comparison of FaaS Orchestration Systems</a>, 2018</li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/osdi18-klimovic.pdf">Pocket: Elastic Ephemeral Storage for Serverless Analytics</a>, 2018</li>
+<li><a target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf">Cloud Programming Simplified: A Berkeley View on Serverless Computing</a>, 2019</li>
+</ul>
+<h3 id="the-AI"><a href="#the-AI" class="headerlink" title="the AI"></a>the AI</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1712.05855.pdf">A Berkeley View of Systems Challenges for AI</a>, 2017</li>
+</ul>
+<h3 id="the-Industrial-Practice"><a href="#the-Industrial-Practice" class="headerlink" title="the Industrial Practice"></a>the Industrial Practice</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://people.freebsd.org/~lstewart/articles/cpumemory.pdf">What Every Programmer Should Know About Memory</a>, 2007</li>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3292006.3300030">A Practical Intel SGX Setting for Linux Containers in the Cloud</a>, 2019</li>
+</ul>
+<h3 id="SCI-HUB"><a href="#SCI-HUB" class="headerlink" title="SCI-HUB"></a><a target="_blank" rel="noopener" href="https://sci-hub.se/">SCI-HUB</a></h3><ul>
+<li><a target="_blank" rel="noopener" href="https://scholar.google.com/">Google Scholar</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.semanticscholar.org/">SEMANTIC SCHOLAR</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.google.com/search?q=sci+hub&oq=sci+hub&aqs=chrome..69i57j69i60l3j69i65j69i60l3.1655j0j7&sourceid=chrome&ie=UTF-8">try new link of SCI-HUB</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2021/01/13/papers/" data-id="ckrqkh47x001t2ovl35kxcmlm" data-title="The Papers" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/paper/" rel="tag">paper</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-kvm-weather-report" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2020/11/22/kvm-weather-report/" class="article-date">
+  <time class="dt-published" datetime="2020-11-22T11:23:01.000Z" itemprop="datePublished">2020-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/quotes/">quotes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2020/11/22/kvm-weather-report/">The KVM Weather Report</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="The-Reports"><a href="#The-Reports" class="headerlink" title="The Reports"></a>The Reports</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://events.static.linuxfound.org/slides/2011/linuxcon-japan/lcj2011_kvm_weather_report.pdf">The KVM Weather Report, Jes Sorensen, 2011</a></li>
+<li><a target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/cojp13_natapov.pdf">KVM Weather Report, Gleb Natapov, 2013</a></li>
+<li><a target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/cojp13_quintela.pdf">KVM Live Migration: Weather forecast, Juan Quintela, 2013</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.socallinuxexpo.org/sites/default/files/presentations/kvm-weather-report.pdf">KVM Weather Report, Amit Shah, 2016</a></li>
+</ul>
+<h3 id="More-for-aarch64"><a href="#More-for-aarch64" class="headerlink" title="More for aarch64"></a>More for aarch64</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.cs.columbia.edu/~nieh/pubs/asplos2014_kvmarm.pdf">KVM/ARM: The Design and Implementation of the Linux ARM Hypervisor, Christoffer Dall, Jason Nieh, 2014</a></li>
+<li><a target="_blank" rel="noopener" href="https://hkg15.pathable.com/static/attachments/112961/1424963684.pdf?1424963684">KVM/arm64 Architectural Evoluations, Marc Zyngier, 2015</a></li>
+<li><a target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/slides/KoreaLinuxForum2015.pdf">ARM-KVM: Weather Report Korea Linux Forum, Mario Smarduch, 2015</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2020/11/22/kvm-weather-report/" data-id="ckrqkh47l00192ovlf54f6ht4" data-title="The KVM Weather Report" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/KVM/" rel="tag">KVM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-expert-association-map" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2020/10/28/expert-association-map/" class="article-date">
+  <time class="dt-published" datetime="2020-10-28T14:23:01.000Z" itemprop="datePublished">2020-10-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/quotes/">quotes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2020/10/28/expert-association-map/">Expert &amp; Association Map</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Build a map of technical experts and associations, try to stand on the shoulder of giants :)</p>
+<h3 id="Experts"><a href="#Experts" class="headerlink" title="Experts"></a>Experts</h3><ul>
+<li>Computer Scientists<ul>
+<li><a target="_blank" rel="noopener" href="https://scholar.google.com.sg/citations?hl=en&user=tp07xT0AAAAJ">John L. Hennessy</a>: Stanford University, <a target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=John+L.+Hennessy&btnG=">scholar links</a></li>
+<li><a target="_blank" rel="noopener" href="https://scholar.google.com.sg/citations?user=Wj4ZBFIAAAAJ&hl=en&oi=sra">David A. Patterson</a>: Professor of Computer Science, UC Berkeley, <a target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=David+A.+Patterson&btnG=">scholar links</a></li>
+</ul>
+</li>
+<li>Maintainors<ul>
+<li>KVM &amp; Qemu: <a target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=Gleb+Natapov&btnG=">Gleb Natapov</a>, <a target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=Paolo+Bonzini&btnG=">Paolo Bonzini</a></li>
+</ul>
+</li>
+<li>Industry<ul>
+<li>James B. Keller, a Microprocessor Engineer, <a target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=James+B.+Keller&btnG=">scholar links</a></li>
+<li>Gerard Williams III, a Senior Director at Apple and Chief CPU Architect for nearly a decade</li>
+</ul>
+</li>
+<li>Analysts<ul>
+<li><a target="_blank" rel="noopener" href="https://janakiram.com/">JANAKIRAM MSV</a>: Analyst. Advisor. Architect. the convergence of machine intelligence and modern infrastructure.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Associations"><a href="#Associations" class="headerlink" title="Associations"></a>Associations</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://amturing.acm.org/">A.M. Turing Award</a></li>
+<li>General: standard organizations, industry associations and conferences<ul>
+<li><a target="_blank" rel="noopener" href="https://www.acm.org/"><strong>ACM</strong></a>: Association for Computing Machinery, <a target="_blank" rel="noopener" href="https://dl.acm.org/sigs">SIGs</a>, <a target="_blank" rel="noopener" href="https://dl.acm.org/conferences">Conferences</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/"><strong>usenix</strong></a>: the Advanced Computing Systems Association, <a target="_blank" rel="noopener" href="https://www.usenix.org/conference">Conferences</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.linuxfoundation.org/">Linux Foundation</a>: <a target="_blank" rel="noopener" href="https://events.linuxfoundation.org/">Events</a></li>
+<li><a target="_blank" rel="noopener" href="http://ietf.org/">IETF</a>: Internet Engineering Task Force</li>
+<li><a target="_blank" rel="noopener" href="https://www.ieee.org/">IEEE</a>: Institute of Electrical and Electronics Engineers</li>
+<li><a target="_blank" rel="noopener" href="https://www.ccf.org.cn/">CCF</a>: China Computer Federation</li>
+<li><a target="_blank" rel="noopener" href="https://www.linaro.org/events/">Linaro Events</a></li>
+<li><a target="_blank" rel="noopener" href="https://fosdem.org/">FOSDEM</a>: a free event for software developers to meet, share ideas and collaborate.</li>
+</ul>
+</li>
+<li>Network: standard organizations, industry associations and conferences<ul>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/conference/ancs">ACM ANCS</a>: Architecture for Networking and Communications Systems</li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/conferences/byname/178">usenix NSDI Symposia</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tiaonline.org/">TIA</a>: Telecommunications Industry Association</li>
+<li><a target="_blank" rel="noopener" href="http://www.incits.org/">INCITS</a>: the InterNational Committee for Information Technology Standards</li>
+<li><a target="_blank" rel="noopener" href="https://www.oasis-open.org/committees/">OASIS Technical Committees</a>: <a target="_blank" rel="noopener" href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=virtio">virtio</a> etc.</li>
+</ul>
+</li>
+<li>Hypervisor: standard organizations, industry associations and conferences<ul>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/conference/sosp">ACM SOSP</a>: ACM Symposium on Operating Systems Principles</li>
+<li><a target="_blank" rel="noopener" href="http://www.eurosys.org/">ACM EUROSYS</a>: European Conference on Computer Systems</li>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/conference/vee">ACM VEE</a>: ACM SIGPLAN/SIGOPS International Conference on Virtual Execution Environments</li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/conferences/byname/179">usenix OSDI Symposia</a></li>
+<li><a target="_blank" rel="noopener" href="https://events.linuxfoundation.org/events/kvm-forum">KVM Forum</a></li>
+<li><a target="_blank" rel="noopener" href="https://events.docker.com/events/dockercon/">DockerCon</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cncf.io/">CNCF</a>: cloud native computing foundation</li>
+</ul>
+</li>
+<li>Storage: standard organizations, industry associations and conferences<ul>
+<li><a target="_blank" rel="noopener" href="https://nvmexpress.org/">NVMe</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.snia.org/">SNIA</a>: Storage Networking Industry Association</li>
+<li><a target="_blank" rel="noopener" href="https://www.snia.org/events/storage-developer">SDC</a>: Storage Developer Conference</li>
+</ul>
+</li>
+<li>Chips<ul>
+<li><a target="_blank" rel="noopener" href="https://www.hotchips.org/">Hot Chips</a>: A Symposium on High Performance Chips</li>
+</ul>
+</li>
+<li>Startups<ul>
+<li><a target="_blank" rel="noopener" href="https://nuviainc.com/">NUVIA</a> 2019, <a target="_blank" rel="noopener" href="https://nuviainc.com/category/news/blog/">blogs</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Research-Institutes"><a href="#Research-Institutes" class="headerlink" title="Research Institutes"></a>Research Institutes</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.berkeley.edu/">UC Berkeley</a>, <a target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Research/Areas/Centers/">EECS</a><ul>
+<li><a target="_blank" rel="noopener" href="https://rise.cs.berkeley.edu/">RISELab at UC Berkeley</a>, <a target="_blank" rel="noopener" href="https://amplab.cs.berkeley.edu/">AMPLab</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://vt.edu/">Virginia Tech</a>, <a target="_blank" rel="noopener" href="https://www.research.vt.edu/institutes.html">Research Institutes</a> and <a target="_blank" rel="noopener" href="https://www.research.vt.edu/institutes/college-dept-research-centers-labs-groups.html">university research centers</a> <ul>
+<li><a target="_blank" rel="noopener" href="https://www.ssrg.ece.vt.edu/">System Software Research Group</a>: <a target="_blank" rel="noopener" href="https://www.ssrg.ece.vt.edu/projects.html">projects</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.stevens.edu/">Stevens Institute of Technology</a>, <a target="_blank" rel="noopener" href="https://www.stevens.edu/research-entrepreneurship/research-centers-labs">Research Centers &amp; Labs</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2020/10/28/expert-association-map/" data-id="ckrqkh478000k2ovl33ir1yue" data-title="Expert &amp; Association Map" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/association/" rel="tag">association</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/expert/" rel="tag">expert</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-aws-virtualization" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2020/08/02/aws-virtualization/" class="article-date">
+  <time class="dt-published" datetime="2020-08-02T02:23:01.000Z" itemprop="datePublished">2020-08-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/virtualization/">virtualization</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2020/08/02/aws-virtualization/">AWS Virtualization</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="AWS-Virtualization-Evolution-History"><a href="#AWS-Virtualization-Evolution-History" class="headerlink" title="AWS Virtualization Evolution History"></a>AWS Virtualization Evolution History</h3><p>AWS virtualization evolution history: cpu/memory, io(network, storage), hypervisor.<br><img src="aws-ec2-types.png" alt="AWS Virtualization Evolution History"></p>
+<h3 id="AWS-Nitro-System"><a href="#AWS-Nitro-System" class="headerlink" title="AWS Nitro System"></a>AWS Nitro System</h3><p>AWS nitro system: nitro card, nitro security chip, nitro hypervisor.</p>
+<ul>
+<li>Nitro System<br><img src="aws-nitro-three-parts.png" alt="AWS Nitro System"></li>
+<li>Nitro Diagram：simple and clean<br><img src="nitro-diagram.png" alt="AWS Nitro Diagram：simple and clean"></li>
+<li>Nitro hypervisor based on KVM<br><img src="c5-nitro-hypervisor-based-on-kvm-with-custom-vmm.png" alt="Nitro hypervisor"></li>
+<li>Nitro hypervisor jitter：close to bare metal performance<br><img src="nitro-hypervisor-jitter.png" alt="Nitro hypervisor jitter"></li>
+<li>Nitro next: has published Graviton(arm) and amd instance, closed-loop of public cloud ecology</li>
+</ul>
+<h3 id="A-Tip-of-AWS-Ecosystem-Strategy"><a href="#A-Tip-of-AWS-Ecosystem-Strategy" class="headerlink" title="A Tip of AWS Ecosystem Strategy"></a>A Tip of AWS Ecosystem Strategy</h3><ul>
+<li>Alliance with vmware, seize traditional IT customers, and lead the data to AWS(Data is the portal)<br><img src="alliance-with-vmware.png" alt="Alliance with vmware"></li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.brendangregg.com/blog/2017-11-29/aws-ec2-virtualization-2017.html">AWS EC2 Virtualization 2017: Introducing Nitro</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=LabltEXk0VQ">AWS re:Invent 2017: C5 Instances and the Evolution of Amazon EC2 Virtualization (CMP332)</a></li>
+<li><a target="_blank" rel="noopener" href="http://aws-de-media.s3.amazonaws.com/images/AWS_Summit_2018/June7/Alexandria/Introducing-Nitro.pdf">AWS EC2 Virtualization: Introducing Nitro</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=rUY-00yFlE4">AWS re:Invent 2019: Powering next-gen Amazon EC2: Deep dive into the Nitro system (CMP303-R2)</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2020/08/02/aws-virtualization/" data-id="ckrqkh46t00062ovl3dy211fx" data-title="AWS Virtualization" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/aws-nitro/" rel="tag">aws nitro</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/virtualization/" rel="tag">virtualization</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-binary-index-tree" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2020/01/10/binary-index-tree/" class="article-date">
+  <time class="dt-published" datetime="2020-01-10T13:23:01.000Z" itemprop="datePublished">2020-01-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/algorithm/">algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2020/01/10/binary-index-tree/">Binary Index Tree</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Binary-Index-Tree"><a href="#Binary-Index-Tree" class="headerlink" title="Binary Index Tree"></a>Binary Index Tree</h3><p>Binary Indexed Tree also called Fenwick Tree provides a way to represent an array of numbers in an array, allowing prefix sums to be calculated efficiently. For example, an array [2, 3, -1, 0, 6] is given, then the prefix sum of first 3 elements [2, 3, -1] is 2 + 3 + -1 = 4. Calculating prefix sum efficiently is useful in various scenarios. Let’s start with a simple problem.</p>
+<pre><code>Problem:
+Description of GCD Sum
+Function F is defined as,
+F(x) = GCD(1,x) + GCD(2,x) + ... + GCD(x,x)
+where GCD is the Greatest Common Divisor.
+
+Given an array A of size N, there are 2 types of queries:
+1. C X Y : Compute the value of (F(A[X]) + F(A[X+1]) + F(A[X+2]) + ... + F(A[Y])) (mod(10^9 + 7))
+2. U X Y: Update the element of array A[X] = Y
+
+Input:
+First line of input contains integer N, size of the array.
+Next line contains N space separated integers the elements of A.
+Next line contains integer Q, number of queries.
+Next Q lines contains one of the two queries.
+
+Output:
+For each of the first type of query, output the required sum mod(10^9 + 7).
+
+Constraints:
+1&lt;=N&lt;=10^6
+1&lt;=Q&lt;=10^5
+1&lt;=A[i]&lt;=5*10^5
+
+For update,
+1&lt;=X&lt;=N
+1&lt;=Y&lt;5*10^5
+
+For compute,
+1&lt;=X&lt;=Y&lt;=N
+
+SAMPLE INTPU:
+3
+3 4 3
+6
+C 1 2
+C 1 3
+C 3 3
+U 1 4
+C 1 3
+C 1 2
+
+SAMPLE OUTPUT:
+13
+18
+5
+21
+16
+</code></pre>
+<h3 id="Binarty-Index-Tree-Layout"><a href="#Binarty-Index-Tree-Layout" class="headerlink" title="Binarty Index Tree Layout"></a>Binarty Index Tree Layout</h3><p>//for ease, we make sure our given array is 1-based indexed<br>int a[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};<br><img src="binary-index-tree.jpg" alt="Binary Index Tree Layout"></p>
+<h3 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h3><ul>
+<li><p>Main</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdint.h&gt;</span><br><span class="line"></span><br><span class="line">#define V_MAX (500000 + 1)</span><br><span class="line">#define MOD_BASE (1000000000 + 7)</span><br><span class="line"></span><br><span class="line">//#define DBG(f_, ...) do &#123; printf((f_), ##__VA_ARGS__); &#125; while(0)</span><br><span class="line">#define DBG(f_, ...)</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int *arr;</span><br><span class="line">    long long *BIT;</span><br><span class="line">    int i, size, opts, value;</span><br><span class="line">    long long phi[V_MAX], sums[V_MAX];</span><br><span class="line">    char opt;</span><br><span class="line">    int x, y;</span><br><span class="line">    </span><br><span class="line">    scanf(&quot;%d\n&quot;, &amp;size);</span><br><span class="line">    arr = malloc(sizeof(int) * (size + 1));</span><br><span class="line">    if (!arr) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    BIT = malloc(sizeof(long long) * (size + 1));</span><br><span class="line">    if (!BIT) &#123;</span><br><span class="line">        free(arr);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    memset(arr, 0, sizeof(int) * (size + 1));</span><br><span class="line">    memset(BIT, 0, sizeof(int) * (size + 1));</span><br><span class="line">    </span><br><span class="line">    memset(phi, 0, sizeof(phi));</span><br><span class="line">    memset(sums, 0, sizeof(sums));</span><br><span class="line">    SumOfGCDs(sums, phi, V_MAX);</span><br><span class="line">    </span><br><span class="line">    DBG(&quot;Array size %d\n&quot;, size);</span><br><span class="line">    i = 0;</span><br><span class="line">    while ((++i) &lt;= size &amp;&amp; (scanf(&quot;%d&quot;, &amp;value) != EOF)) &#123;</span><br><span class="line">        if (value &gt;= V_MAX) &#123;</span><br><span class="line">            continue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        arr[i] = sums[value];</span><br><span class="line">        Update(BIT, i, arr[i], size);</span><br><span class="line">        </span><br><span class="line">        DBG(&quot;arr[%d] = %d, gcdsum=%d\n&quot;, i, value, arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    scanf(&quot;%d\n&quot;, &amp;opts);</span><br><span class="line">    DBG(&quot;Options %d\n&quot;, opts);</span><br><span class="line">    i = 0;</span><br><span class="line">    while ((++i) &lt;= opts &amp;&amp; (scanf(&quot;%c %d %d\n&quot;, &amp;opt, &amp;x, &amp;y) != EOF)) &#123;</span><br><span class="line">        int nValue;</span><br><span class="line">        </span><br><span class="line">        DBG(&quot;Opt: %c %d %d\n&quot;, opt, x, y);</span><br><span class="line">        switch (opt) &#123;</span><br><span class="line">            case &#x27;C&#x27;:</span><br><span class="line">                printf(&quot;%d\n&quot;, (Query(BIT, y) - Query(BIT, x - 1)) % MOD_BASE);</span><br><span class="line">                break;</span><br><span class="line">            case &#x27;U&#x27;:</span><br><span class="line">                nValue = sums[y];</span><br><span class="line">                Update(BIT, x, -arr[x], size);</span><br><span class="line">                Update(BIT, x, nValue, size);</span><br><span class="line">                arr[x] = nValue;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    free(arr);</span><br><span class="line">    free(BIT);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Construct&amp;Update</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void Update(long long *BIT, int idx, long long diff, int n)</span><br><span class="line">&#123;</span><br><span class="line">    for (; idx &lt;= n; idx += (idx &amp; (-idx))) &#123;</span><br><span class="line">        BIT[idx] += diff;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Query</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">long long Query(long long *BIT, int idx)</span><br><span class="line">&#123;</span><br><span class="line">    long long sum = 0;</span><br><span class="line">    </span><br><span class="line">    for (; idx &gt; 0; idx -= (idx &amp; (-idx))) &#123;</span><br><span class="line">        sum += BIT[idx];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Euler’s Totient function</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">// Precomputation of phi[] numbers. Refer below link </span><br><span class="line">// for details : https://goo.gl/LUqdtY </span><br><span class="line">void ComputeTotient(long long *phi, int size) </span><br><span class="line">&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    </span><br><span class="line">    // Refer https://goo.gl/LUqdtY </span><br><span class="line">    phi[1] = 1; </span><br><span class="line">    for (i = 2; i &lt; size; i++) &#123;</span><br><span class="line">        if (!phi[i]) &#123;</span><br><span class="line">            phi[i] = i - 1; </span><br><span class="line">            </span><br><span class="line">            for (j = (i &lt;&lt; 1); j &lt; size; j += i) &#123;</span><br><span class="line">                if (!phi[j])</span><br><span class="line">                    phi[j] = j;</span><br><span class="line">  </span><br><span class="line">                phi[j] = (phi[j]/i) * (i - 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void SumOfGCDs(long long *sums, long long *phi, int size)</span><br><span class="line">&#123;</span><br><span class="line">    int i, j, k;</span><br><span class="line">    </span><br><span class="line">    ComputeTotient(phi, size);</span><br><span class="line">    </span><br><span class="line">    for (i = 1; i &lt; size; i++) &#123;</span><br><span class="line">        // Iterate throght all the divisors </span><br><span class="line">        // of i. </span><br><span class="line">        for (j = i, k = 1; j &lt; size; j += i, k++) &#123;</span><br><span class="line">            sums[j] += (i*phi[k]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Cautions</p>
+</li>
+</ul>
+<p>– sum overflow, so with long long<br>– index 0 is ommited of BIT array</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.hackerearth.com/zh/practice/">HackerEarth Practice</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.hackerearth.com/zh/practice/algorithms/searching/linear-search/tutorial/">HackerEarth Algorithms</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.hackerearth.com/zh/practice/data-structures/advanced-data-structures/segment-trees/tutorial/">HackerEarth Data Structure</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/summation-gcd-pairs-n/">Summation of GCD of all the pairs up to N</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2020/01/10/binary-index-tree/" data-id="ckrqkh46x00092ovl2gmsg6d7" data-title="Binary Index Tree" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/binary-index-tree/" rel="tag">binary index tree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/fenwick-tree/" rel="tag">fenwick tree</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-segment-tree" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2020/01/05/segment-tree/" class="article-date">
+  <time class="dt-published" datetime="2020-01-05T08:23:01.000Z" itemprop="datePublished">2020-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/algorithm/">algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2020/01/05/segment-tree/">Segment Tree</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Segment-Tree"><a href="#Segment-Tree" class="headerlink" title="Segment Tree"></a>Segment Tree</h3><p>Segment Tree is used in cases where there are multiple range queries on array and modifications of elements of the same array. For example, finding the sum of all the elements in an array from indices  L to R, or finding the minimum (famously known as Range Minumum Query problem) of all the elements in an array from indices L to R. </p>
+<pre><code>Problem:
+Description of Range Minimum Query
+Given an array A of size N, there are two types of queries on this array.
+  1 qlr: In this query you need to print the minimum in the sub-array A[l:r].
+  2 uxy: In this query you need to update A[x]=y.
+
+Input:
+First line of the test case contains two integers, N and Q, size of array A and number of queries.
+Second line contains N space separated integers, elements of A.
+Next Q lines contain one of the two queries.
+
+Output:
+For each type 1 query, print the minimum element in the sub-array A[l:r].
+
+Contraints:
+1&lt;=N,Q,y&lt;=10^5
+1&lt;=l,r,x&lt;=N
+
+SAMPLE INPUT
+5 5
+1 5 2 4 3
+q 1 5
+q 1 3
+q 3 5
+u 3 6
+q 1 5
+
+SAMPLE OUTPUT 
+1
+1
+2
+1
+</code></pre>
+<h3 id="Segment-Tree-Layout"><a href="#Segment-Tree-Layout" class="headerlink" title="Segment Tree Layout"></a>Segment Tree Layout</h3><p><img src="problem-tree.png" alt="Segment Tree Layout"></p>
+<h3 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h3><ul>
+<li><p>Main</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;limits.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int Power2RoundUp(int size)</span><br><span class="line">&#123;</span><br><span class="line">    int cnt = 0;</span><br><span class="line">    </span><br><span class="line">    do &#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        size = (size &gt;&gt; 1);</span><br><span class="line">    &#125; while (size &gt; 0);</span><br><span class="line">    </span><br><span class="line">    return (1 &lt;&lt; (cnt + 1));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void PrintfSegTree(int *st, int size, int init)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;----------\n&quot;);</span><br><span class="line">    for (i = 0; i &lt; size; i++) &#123;</span><br><span class="line">        if (st[i] != init) &#123;</span><br><span class="line">            printf(&quot;%d: %d\n&quot;, i, st[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Write your code here</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int size, roundUp, opts;</span><br><span class="line">    int *arr, *st;</span><br><span class="line">    char opt;</span><br><span class="line">    int x, y;</span><br><span class="line">    </span><br><span class="line">    scanf(&quot;%d %d\n&quot;, &amp;size, &amp;opts);</span><br><span class="line">    if (size &lt;= 0) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    roundUp = Power2RoundUp(size);</span><br><span class="line">    arr = malloc(sizeof(int) * size);</span><br><span class="line">    st = malloc(sizeof(int) * roundUp);</span><br><span class="line">    if (!arr || !st) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    i = 0;</span><br><span class="line">    while ((++i) &lt;= size &amp;&amp; (scanf(&quot;%d&quot;, &amp;arr[i - 1]) != EOF)) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    for (i = 0; i &lt; roundUp; i++) &#123;</span><br><span class="line">        st[i] = INT_MAX;</span><br><span class="line">    &#125;</span><br><span class="line">    ConstructSegTree(st, arr, size);</span><br><span class="line">    //PrintfSegTree(st, roundUp, INT_MAX);</span><br><span class="line">    </span><br><span class="line">    i = 0;</span><br><span class="line">    while ((++i) &lt;= opts &amp;&amp; (scanf(&quot;\n%c %d %d&quot;, &amp;opt, &amp;x, &amp;y) != EOF)) &#123;</span><br><span class="line">        int target;</span><br><span class="line">        </span><br><span class="line">        switch (opt) &#123;</span><br><span class="line">            case &#x27;q&#x27;:</span><br><span class="line">                target = INT_MAX;</span><br><span class="line">                QuerySegTree(st, 1, 0, size - 1, x - 1, y - 1, &amp;target);</span><br><span class="line">                printf(&quot;%d\n&quot;, target);</span><br><span class="line">                break;</span><br><span class="line">            case &#x27;u&#x27;:</span><br><span class="line">                //PrintfSegTree(st, roundUp, INT_MAX);</span><br><span class="line">                UpdateSegTree(st, 1, 0, size - 1, x - 1, y);</span><br><span class="line">                //PrintfSegTree(st, roundUp, INT_MAX);</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    free(arr);</span><br><span class="line">    free(st);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Construct</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void _Construct(int *st, int sti, int *arr, int l, int r)</span><br><span class="line">&#123;</span><br><span class="line">    if (l == r) &#123;</span><br><span class="line">        st[sti] = arr[l];</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    _Construct(st, 2 * sti, arr, l, (l + r) / 2);</span><br><span class="line">    _Construct(st, 2 * sti + 1, arr, (l + r) / 2 + 1, r);</span><br><span class="line">    </span><br><span class="line">    st[sti] = st[2 * sti] &lt; st[2 * sti + 1] ? st[2 * sti] : st[2 * sti + 1] ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ConstructSegTree(int *st, int *arr, int size)</span><br><span class="line">&#123;</span><br><span class="line">    _Construct(st , 1, arr, 0, size - 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Update</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void UpdateSegTree(int *st, int sti, int l, int r, int idx, int value)</span><br><span class="line">&#123;</span><br><span class="line">    if (idx &lt; l || idx &gt; r) &#123; // not in range</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if (l == r &amp;&amp; idx == l) &#123;</span><br><span class="line">        st[sti] = value;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    UpdateSegTree(st, 2 * sti, l, (l + r) / 2, idx, value);</span><br><span class="line">    UpdateSegTree(st, 2 * sti + 1, (l + r) / 2 + 1, r, idx, value);</span><br><span class="line">    </span><br><span class="line">    st[sti] = st[2 * sti] &lt; st[2 * sti + 1] ? st[2 * sti] : st[2 * sti + 1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Query</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void QuerySegTree(int *st, int sti, int l, int r, int ql, int qr, int *target)</span><br><span class="line">&#123;</span><br><span class="line">    if (r &lt; ql || l &gt; qr) &#123; // out query range</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if (ql &lt;= l &amp;&amp; r &lt;= qr) &#123; // in query range</span><br><span class="line">        if (st[sti] &lt; *target) &#123;</span><br><span class="line">            *target = st[sti];</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    QuerySegTree(st, 2 * sti, l, (l + r) / 2, ql, qr, target);</span><br><span class="line">    QuerySegTree(st, 2 * sti + 1, (l + r) / 2 + 1, r, ql, qr, target);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Cautions</p>
+</li>
+</ul>
+<p>– index 0 is ommited of segment tree array</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.hackerearth.com/zh/practice/">HackerEarth Practice</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.hackerearth.com/zh/practice/algorithms/searching/linear-search/tutorial/">HackerEarth Algorithms</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.hackerearth.com/zh/practice/data-structures/advanced-data-structures/segment-trees/tutorial/">HackerEarth Data Structure</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2020/01/05/segment-tree/" data-id="ckrqkh48a00292ovl07xwfk43" data-title="Segment Tree" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/segment-tree/" rel="tag">segment tree</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-algorithm-graph" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2019/12/01/algorithm-graph/" class="article-date">
+  <time class="dt-published" datetime="2019-12-01T06:51:13.000Z" itemprop="datePublished">2019-12-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/original/">original</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2019/12/01/algorithm-graph/">Algorithm: Graph</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="DFS-and-BFS"><a href="#DFS-and-BFS" class="headerlink" title="DFS and BFS"></a>DFS and BFS</h1><p>DFS with recursive, while BFS with queue, caution for loops.</p>
+<p>DFS pseudocode steps:<br>I. if node is Null return<br>II. access node<br>III. access left node, recursive<br>IV. access right node, recursive<br><img src="DFS.png" alt="DFS"></p>
+<p>BFS pseudocode steps:<br>I. create queue<br>II. if node is not Null<br>III. push left/right node in queue<br>IV. pop queue, goto step II<br><img src="BFS.png" alt="BFS"></p>
+<h1 id="Shortest-Path-Algorithm"><a href="#Shortest-Path-Algorithm" class="headerlink" title="Shortest Path Algorithm"></a>Shortest Path Algorithm</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/">Floyd Warshall Algorithm</a></li>
+</ul>
+<p><strong>All Pairs Shortest Path problem</strong><br>We initialize the solution matrix same as the input graph matrix as a first step. Then we update the solution matrix by considering all vertices as an intermediate vertex. The idea is to one by one pick all vertices and updates all shortest paths which include the picked vertex as an intermediate vertex in the shortest path. When we pick vertex number k as an intermediate vertex, we already have considered vertices {0, 1, 2, .. k-1} as intermediate vertices. For every pair (i, j) of the source and destination vertices respectively, there are two possible cases.</p>
+<ol>
+<li>k is not an intermediate vertex in shortest path from i to j. We keep the value of dist[i][j] as it is.</li>
+<li>k is an intermediate vertex in shortest path from i to j. We update the value of dist[i][j] as dist[i][k] + dist[k][j] if dist[i][j] &gt; dist[i][k] + dist[k][j]<br>The following figure shows the above optimal substructure property in the all-pairs shortest path problem.<br>![Floyd Warshall Algorithm](Floyd Warshall Algorithm.jpg)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">// Solves the all-pairs shortest path problem using Floyd Warshall algorithm </span><br><span class="line">void floydWarshall (int graph[][V]) </span><br><span class="line">&#123; </span><br><span class="line">    /* dist[][] will be the output matrix that will finally have the shortest  </span><br><span class="line">      distances between every pair of vertices */</span><br><span class="line">    int dist[V][V], i, j, k; </span><br><span class="line">  </span><br><span class="line">    /* Initialize the solution matrix same as input graph matrix. Or  </span><br><span class="line">       we can say the initial values of shortest distances are based </span><br><span class="line">       on shortest paths considering no intermediate vertex. */</span><br><span class="line">    for (i = 0; i &lt; V; i++) </span><br><span class="line">        for (j = 0; j &lt; V; j++) </span><br><span class="line">            dist[i][j] = graph[i][j]; </span><br><span class="line">  </span><br><span class="line">    /* Add all vertices one by one to the set of intermediate vertices. </span><br><span class="line">      ---&gt; Before start of an iteration, we have shortest distances between all </span><br><span class="line">      pairs of vertices such that the shortest distances consider only the </span><br><span class="line">      vertices in set &#123;0, 1, 2, .. k-1&#125; as intermediate vertices. </span><br><span class="line">      ----&gt; After the end of an iteration, vertex no. k is added to the set of </span><br><span class="line">      intermediate vertices and the set becomes &#123;0, 1, 2, .. k&#125; */</span><br><span class="line">    for (k = 0; k &lt; V; k++) </span><br><span class="line">    &#123; </span><br><span class="line">        // Pick all vertices as source one by one </span><br><span class="line">        for (i = 0; i &lt; V; i++) </span><br><span class="line">        &#123; </span><br><span class="line">            // Pick all vertices as destination for the </span><br><span class="line">            // above picked source </span><br><span class="line">            for (j = 0; j &lt; V; j++) </span><br><span class="line">            &#123; </span><br><span class="line">                // If vertex k is on the shortest path from </span><br><span class="line">                // i to j, then update the value of dist[i][j] </span><br><span class="line">                if (dist[i][k] + dist[k][j] &lt; dist[i][j]) &#123;</span><br><span class="line">                    // here we can add an array to record the path</span><br><span class="line">                    // path[j] = k;</span><br><span class="line">                    dist[i][j] = dist[i][k] + dist[k][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">  </span><br><span class="line">    // Print the shortest distance matrix </span><br><span class="line">    printSolution(dist); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/">Bellman–Ford Algorithm</a></li>
+</ul>
+<p><strong>Single Source Shortest Path</strong></p>
+<ol>
+<li>This step initializes distances from source to all vertices as infinite and distance to source itself as 0. Create an array dist[] of size |V| with all values as infinite except dist[src] where src is source vertex.</li>
+<li>This step calculates shortest distances. Do following |V|-1 times where |V| is the number of vertices in given graph.<br>…..a) Do following for each edge u-v<br>………………If dist[v] &gt; dist[u] + weight of edge uv, then update dist[v]<br>………………….dist[v] = dist[u] + weight of edge uv</li>
+<li>This step reports if there is a negative weight cycle in graph. Do following for each edge u-v<br>……If dist[v] &gt; dist[u] + weight of edge uv, then “Graph contains negative weight cycle”<br>The idea of step 3 is, step 2 guarantees shortest distances if graph doesn’t contain negative weight cycle. If we iterate through all edges one more time and get a shorter path for any vertex, then there is a negative weight cycle<br>How does this work? Like other Dynamic Programming Problems, the algorithm calculate shortest paths in bottom-up manner. It first calculates the shortest distances which have at-most one edge in the path. Then, it calculates shortest paths with at-most 2 edges, and so on. After the i-th iteration of outer loop, the shortest paths with at most i edges are calculated. There can be maximum |V| – 1 edges in any simple path, that is why the outer loop runs |v| – 1 times. The idea is, assuming that there is no negative weight cycle, if we have calculated shortest paths with at most i edges, then an iteration over all edges guarantees to give shortest path with at-most (i+1) edges (Proof is simple, you can refer <a target="_blank" rel="noopener" href="http://courses.csail.mit.edu/6.006/spring11/lectures/lec15.pdf">this</a> or <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ttezuzs39nk">MIT Video Lecture</a>)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">// The main function that finds shortest distances from src to </span><br><span class="line">// all other vertices using Bellman-Ford algorithm.  The function </span><br><span class="line">// also detects negative weight cycle </span><br><span class="line">void BellmanFord(struct Graph* graph, int src) </span><br><span class="line">&#123; </span><br><span class="line">    int V = graph-&gt;V; </span><br><span class="line">    int E = graph-&gt;E; </span><br><span class="line">    int dist[V]; </span><br><span class="line">  </span><br><span class="line">    // Step 1: Initialize distances from src to all other vertices </span><br><span class="line">    // as INFINITE </span><br><span class="line">    for (int i = 0; i &lt; V; i++) </span><br><span class="line">        dist[i] = INT_MAX; </span><br><span class="line">    dist[src] = 0; </span><br><span class="line">  </span><br><span class="line">    // Step 2: Relax all edges |V| - 1 times. A simple shortest </span><br><span class="line">    // path from src to any other vertex can have at-most |V| - 1 </span><br><span class="line">    // edges </span><br><span class="line">    for (int i = 1; i &lt;= V - 1; i++) &#123; </span><br><span class="line">        for (int j = 0; j &lt; E; j++) &#123; </span><br><span class="line">            int u = graph-&gt;edge[j].src; </span><br><span class="line">            int v = graph-&gt;edge[j].dest; </span><br><span class="line">            int weight = graph-&gt;edge[j].weight; </span><br><span class="line">            if (dist[u] != INT_MAX &amp;&amp; dist[u] + weight &lt; dist[v]) &#123;</span><br><span class="line">                // here we can add an array to record the path</span><br><span class="line">                // path[v] = u;</span><br><span class="line">                dist[v] = dist[u] + weight;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">  </span><br><span class="line">    // Step 3: check for negative-weight cycles.  The above step </span><br><span class="line">    // guarantees shortest distances if graph doesn&#x27;t contain </span><br><span class="line">    // negative weight cycle.  If we get a shorter path, then there </span><br><span class="line">    // is a cycle. </span><br><span class="line">    for (int i = 0; i &lt; E; i++) &#123; </span><br><span class="line">        int u = graph-&gt;edge[i].src; </span><br><span class="line">        int v = graph-&gt;edge[i].dest; </span><br><span class="line">        int weight = graph-&gt;edge[i].weight; </span><br><span class="line">        if (dist[u] != INT_MAX &amp;&amp; dist[u] + weight &lt; dist[v]) &#123; </span><br><span class="line">            printf(&quot;Graph contains negative weight cycle&quot;); </span><br><span class="line">            return; // If negative cycle is detected, simply return </span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">  </span><br><span class="line">    printArr(dist, V); </span><br><span class="line">  </span><br><span class="line">    return; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/">Dijkstra’s shortest path algorithm</a></li>
+</ul>
+<h1 id="Detect-Cycle"><a href="#Detect-Cycle" class="headerlink" title="Detect Cycle"></a>Detect Cycle</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/">Kahn’s algorithm</a><br>Steps involved in finding the topological ordering of a DAG(Directed Acyclic Graph):</li>
+</ul>
+<p><em>Step-1:</em> Compute in-degree (number of incoming edges) for each of the vertex present in the DAG and initialize the count of visited nodes as 0.<br><em>Step-2:</em> Pick all the vertices with in-degree as 0 and add them into a queue (Enqueue operation)<br><em>Step-3:</em> Remove a vertex from the queue (Dequeue operation) and then.</p>
+<ul>
+<li>Increment count of visited nodes by 1.</li>
+<li>Decrease in-degree by 1 for all its neighboring nodes.</li>
+<li>If in-degree of a neighboring nodes is reduced to zero, then add it to the queue.</li>
+</ul>
+<p>  <em>Step 5:</em> Repeat Step 3 until the queue is empty.<br>  <em>Step 5:</em> If count of visited nodes is not equal to the number of nodes in the graph then the topological sort is not possible for the given graph. <em>There is a loop when the queue size not equal the vertices.</em></p>
+<ul>
+<li>union–find data structure<br>A disjoint-set data structure is a data structure that keeps track of a set of elements partitioned into a number of disjoint (non-overlapping) subsets. A union-find algorithm is an algorithm that performs two useful operations on such a data structure:<br>Find: Determine which subset a particular element is in. This can be used for determining if two elements are in the same subset.<br>Union: Join two subsets into a single subset.</li>
+</ul>
+<ul>
+<li>naive way<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">// A utility function to find the subset of an element i </span><br><span class="line">int find(int parent[], int i) </span><br><span class="line">&#123; </span><br><span class="line">    if (parent[i] == -1) </span><br><span class="line">        return i; </span><br><span class="line">    return find(parent, parent[i]); </span><br><span class="line">&#125; </span><br><span class="line">  </span><br><span class="line">// A utility function to do union of two subsets  </span><br><span class="line">void Union(int parent[], int x, int y) </span><br><span class="line">&#123; </span><br><span class="line">    int xset = find(parent, x); </span><br><span class="line">    int yset = find(parent, y); </span><br><span class="line">    if(xset!=yset)&#123; </span><br><span class="line">       parent[xset] = yset; </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br><span class="line">  </span><br><span class="line">// The main function to check whether a given graph contains  </span><br><span class="line">// cycle or not </span><br><span class="line">int isCycle( struct Graph* graph ) </span><br><span class="line">&#123; </span><br><span class="line">    // Allocate memory for creating V subsets </span><br><span class="line">    int *parent = (int*) malloc( graph-&gt;V * sizeof(int) ); </span><br><span class="line">  </span><br><span class="line">    // Initialize all subsets as single element sets </span><br><span class="line">    memset(parent, -1, sizeof(int) * graph-&gt;V); </span><br><span class="line">  </span><br><span class="line">    // Iterate through all edges of graph, find subset of both </span><br><span class="line">    // vertices of every edge, if both subsets are same, then  </span><br><span class="line">    // there is cycle in graph. </span><br><span class="line">    for(int i = 0; i &lt; graph-&gt;E; ++i) </span><br><span class="line">    &#123; </span><br><span class="line">        int x = find(parent, graph-&gt;edge[i].src); </span><br><span class="line">        int y = find(parent, graph-&gt;edge[i].dest); </span><br><span class="line">  </span><br><span class="line">        if (x == y) </span><br><span class="line">            return 1; </span><br><span class="line">  </span><br><span class="line">        Union(parent, x, y); </span><br><span class="line">    &#125; </span><br><span class="line">    return 0; </span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure></li>
+<li>optimize with rank and path compression<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">struct subset </span><br><span class="line">&#123; </span><br><span class="line">    int parent; </span><br><span class="line">    int rank; </span><br><span class="line">&#125;; </span><br><span class="line">  </span><br><span class="line">// Creates a graph with V vertices and E edges </span><br><span class="line">struct Graph* createGraph(int V, int E) </span><br><span class="line">&#123; </span><br><span class="line">    struct Graph* graph = (struct Graph*) malloc( sizeof(struct Graph) ); </span><br><span class="line">    graph-&gt;V = V; </span><br><span class="line">    graph-&gt;E = E; </span><br><span class="line">  </span><br><span class="line">    graph-&gt;edge = (struct Edge*) malloc( graph-&gt;E * sizeof( struct Edge ) ); </span><br><span class="line">  </span><br><span class="line">    return graph; </span><br><span class="line">&#125; </span><br><span class="line">  </span><br><span class="line">// A utility function to find set of an element i </span><br><span class="line">// (uses path compression technique) </span><br><span class="line">int find(struct subset subsets[], int i) </span><br><span class="line">&#123; </span><br><span class="line">    // find root and make root as parent of i (path compression) </span><br><span class="line">    if (subsets[i].parent != i) </span><br><span class="line">        subsets[i].parent = find(subsets, subsets[i].parent); </span><br><span class="line">  </span><br><span class="line">    return subsets[i].parent; </span><br><span class="line">&#125; </span><br><span class="line">  </span><br><span class="line">// A function that does union of two sets of x and y </span><br><span class="line">// (uses union by rank) </span><br><span class="line">void Union(struct subset subsets[], int x, int y) </span><br><span class="line">&#123; </span><br><span class="line">    int xroot = find(subsets, x); </span><br><span class="line">    int yroot = find(subsets, y); </span><br><span class="line">  </span><br><span class="line">    // Attach smaller rank tree under root of high rank tree </span><br><span class="line">    // (Union by Rank) </span><br><span class="line">    if (subsets[xroot].rank &lt; subsets[yroot].rank) </span><br><span class="line">        subsets[xroot].parent = yroot; </span><br><span class="line">    else if (subsets[xroot].rank &gt; subsets[yroot].rank) </span><br><span class="line">        subsets[yroot].parent = xroot; </span><br><span class="line">  </span><br><span class="line">    // If ranks are same, then make one as root and increment </span><br><span class="line">    // its rank by one </span><br><span class="line">    else</span><br><span class="line">    &#123; </span><br><span class="line">        subsets[yroot].parent = xroot; </span><br><span class="line">        subsets[xroot].rank++; </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/">Geeks Algorithms</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2019/12/01/algorithm-graph/" data-id="ckrqkh46o00042ovlaxj25z4a" data-title="Algorithm: Graph" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/graph/" rel="tag">graph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/shortest-path/" rel="tag">shortest path</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-virtualization-aarch64-vs-x86_64" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2019/10/05/virtualization-aarch64-vs-x86_64/" class="article-date">
+  <time class="dt-published" datetime="2019-10-05T03:06:13.000Z" itemprop="datePublished">2019-10-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/original/">original</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/leptons-bosons/2019/10/05/virtualization-aarch64-vs-x86_64/">Virtualization: aarch64 vs x86_64</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Virtualization-Generations"><a href="#Virtualization-Generations" class="headerlink" title="Virtualization Generations"></a>Virtualization Generations</h1><p>Full-virtualization -&gt; Para-virtualization -&gt; Hardware-assisted virtualization -&gt; Hardware-offload virtualization -&gt; ?</p>
+<h1 id="Types-of-virtualization"><a href="#Types-of-virtualization" class="headerlink" title="Types of virtualization"></a>Types of virtualization</h1><p>To understand virtualization, hpervisor should be addressed firtst. Hypervisor enables communication between hardware and a virtual machine so that the virtualizaion accomplished with this abstraction layer(hypervisor). While there is another word virtual machine monitor(VMM), those two terms are typically treated as synonyms. But there is a slightly distinction, a virtual machine monitor is a software that mnages CPU, memory, I/O data transfer, interrupt, and the instruction set on a given virtualized environment, a hypervisor may refer to an operating system(OS) with the VMM.</p>
+<p>Typically, a hypervisor can be divided into two Type 1 and Type 2 hypervisor based on the different level of implementation. Type 1 is sitting on hardware and the communication between hardware and virtual machine is direct, somtime called ‘bare metal hypervisor’. Type 2 hypervisor is on the operating system to manage virtual machine easily with the support of hardware configuration from operating system.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Types</th>
+<th align="left">Level of Implementation</th>
+<th align="left">Typical Hypervisor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Type 1</td>
+<td align="left">bare metal</td>
+<td align="left">ESXi, XEN, Hyper-V</td>
+</tr>
+<tr>
+<td align="left">Type 2</td>
+<td align="left">with OS</td>
+<td align="left">Virtual Box, KVM</td>
+</tr>
+</tbody></table>
+<p>Virtualization also divided into full virtualizaton, para-virtualization and hardware-assited virtualization(direct access to resources without binary translation or emulation) from the view of GuestOS.</p>
+<h1 id="Virtualization-overhead-and-micro-benchmark"><a href="#Virtualization-overhead-and-micro-benchmark" class="headerlink" title="Virtualization overhead and micro-benchmark"></a>Virtualization overhead and micro-benchmark</h1><p>The hypervisor introduces overheads in emulating inter-processor interrupts (IPIs), TLB invalidation(TLB flush IPI), and transitions to/from idle modes, among others. Semantic gap between the guest OS and hypervisor also causes double scheduling, where the guest and host-level CPU schedulers make independent, but inefficient, scheduling decisions.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Descripton</th>
+<th align="left">Measure method</th>
+<th align="left">Measure Tool</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Hypercall</td>
+<td align="left">Transition freom VM to hypervisor and return to VM without doing any work in the hypervisor.</td>
+<td align="left">Measures bidirectional base trasition cost of hypervisor operatons.</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">Interrupt Controller Trap</td>
+<td align="left">Trap from VM to emulated interrupt controller then return to VM.</td>
+<td align="left">Measures a frequent operation for many device drivers and baseline for accessing I/O devices emulated in the hypervisor.</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">Virtual IPI</td>
+<td align="left">Issure a virtual IPI freom a vCPU to another vCPU running on a different pCPU, both pCPUs executing VM code.</td>
+<td align="left">Measures time between sending the virtual IPI until the receiveing vCPU handles it, a frequent operation in multi-core OSes that affects many workloads.</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">Virtual IRQ Completion</td>
+<td align="left">VM acknowledging and completing a virtual interrupt.</td>
+<td align="left">Measures a frequent operation taht happerns for every injected virtual interrupt.</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">VM Switch</td>
+<td align="left">Switching freom one VM to another on the same physical core.</td>
+<td align="left">Measures a central cost when over-subscribing physical CPUs.</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">I/O Latency In</td>
+<td align="left">Measures latency between a driver in the VM signaling the virtual I/O device in the hypervisor and the virtual I/O device receiving the signal.</td>
+<td align="left">For KVM , this involves trapping to the host kernel. For xen, this involves trapping to xen then raising a virtual interrupt to Dom0</td>
+<td align="left">NA</td>
+</tr>
+<tr>
+<td align="left">I/O Latentcy Out</td>
+<td align="left">Measures latency between the virtual I/O device in the hypervisor signaling the VM and the VM receiving the corresponding virtual interrupt.</td>
+<td align="left">For KVM , this involves signaling the vCPU thread and injecting a virtual interrupt for the virtio device. For XEN, this involves trapping to Xen then raising a virtual interrupt to DomU.</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+<p>All measures unit in cycles by call tsc(Time Stamp Counter).</p>
+<h1 id="Hardware-assisted-virtualization-technology"><a href="#Hardware-assisted-virtualization-technology" class="headerlink" title="Hardware-assisted virtualization technology"></a>Hardware-assisted virtualization technology</h1><ul>
+<li><p>CPU Virtualization</p>
+<ul>
+<li>VHE and VTx<ul>
+<li>aarch64, Virtualization Host Extensions(VHE), vmid/asid<br><img src="arch64-vhe.png" alt="Virtualization Host Extensions(VHE)"></li>
+<li>x86_64 VTx: vmcs, root and non-root mode, vpid.<br><img src="x86_64-vt-x_cpu-virtualization.png" alt="x86_64 CPU Virtualization with VT-x"></li>
+</ul>
+</li>
+<li>Privilege levels<ul>
+<li>aarch64 excpetion level, EL 0(userspace applications), EL 1(guest kernel), EL 2(host kernel/hypervisor), EL 3(secure)</li>
+<li>x86_64 ring, ring 0(hypervisor under root mode, guest under non-root mode), ring 1, ring 2, ring3(applications)<br><img src="x86_64-ring.png" alt="x86_64 rings"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Memory Virtualization</p>
+<ul>
+<li>GVA to PHA translation<ul>
+<li>aarch64, stage 2 translation, GVA –mmu-&gt; IPA/GPA –mmu-&gt; HPA<br><img src="arch64-stage-2.png" alt="Stage 2 translation"></li>
+<li>x86_64, extended page tables(EPT)<br><img src="x86_64-ept.png" alt="EPT"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IO &amp; Timers &amp; Interrupt  Virtualization</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">types</th>
+<th align="left">x86_64</th>
+<th align="left">aarch64</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">IO</td>
+<td align="left">IOMMU(vIOMMU)</td>
+<td align="left">SMMU(vSMMU)</td>
+</tr>
+<tr>
+<td align="left">Timers</td>
+<td align="left">pmtimer</td>
+<td align="left">the generic timers</td>
+</tr>
+<tr>
+<td align="left">Virtual interrupt</td>
+<td align="left">APIC(vAPIC)</td>
+<td align="left">GIC(vGIC)</td>
+</tr>
+</tbody></table>
+<pre><code>Timers Notes:
+    Real time is expressed in nanoseconds passed since machine boot and is maintained to the accuracy of the processor’s cycle counter and can be frequency-locked to an external time source (for example, via NTP).
+    A domain’s virtual time only advances while it is executing: this is typically used by the guest OS scheduler to ensure correct sharing of its timeslice between application processes.
+    Finally, wall-clock time is specified as an offset to be added to the current real time. This allows the wall-clock time to be adjusted without affecting the forward progress of real time.
+</code></pre>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.arm.com/architectures/learn-the-architecture/armv8-a-virtualization">Learn the architecture of armv8 virtualization</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.html">Intel® 64 and IA-32 Architectures Developer’s Manual</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/system/files/conference/atc17/atc17-dall.pdf">Optimizing the Design and Implementation of the Linux ARM Hypervisor</a>, 2017 USENIX Annual Technical Conference</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2019/10/05/virtualization-aarch64-vs-x86_64/" data-id="ckrqkh49d006a2ovlclrodwuc" data-title="Virtualization: aarch64 vs x86_64" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/aarch64/" rel="tag">aarch64</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/virtualization/" rel="tag">virtualization</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/x86-64/" rel="tag">x86_64</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/leptons-bosons/page/2/">2</a><a class="page-number" href="/leptons-bosons/page/3/">3</a><a class="page-number" href="/leptons-bosons/page/4/">4</a><a class="extend next" rel="next" href="/leptons-bosons/page/2/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/algorithm/">algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/original/">original</a></li><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/quotes/">quotes</a></li><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/reference/">reference</a></li><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/virtualization/">virtualization</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Driver/" rel="tag">Driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/EDK2/" rel="tag">EDK2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Infrastructure-Architecture/" rel="tag">Infrastructure Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/KVM/" rel="tag">KVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Open-vSwitch/" rel="tag">Open vSwitch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/OpenStack/" rel="tag">OpenStack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Path-MTU/" rel="tag">Path MTU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Qemu/" rel="tag">Qemu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Raspberry-Pi/" rel="tag">Raspberry Pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/aarch64/" rel="tag">aarch64</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/acceleration/" rel="tag">acceleration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/analyst/" rel="tag">analyst</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/association/" rel="tag">association</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/aws-nitro/" rel="tag">aws nitro</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/binary-index-tree/" rel="tag">binary index tree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/binary-search/" rel="tag">binary search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/block-io/" rel="tag">block io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/bookmark/" rel="tag">bookmark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/breadth-first-search/" rel="tag">breadth-first search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/bridge/" rel="tag">bridge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/calling-conventions/" rel="tag">calling conventions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/conntrack/" rel="tag">conntrack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/demo/" rel="tag">demo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/design-patterns/" rel="tag">design patterns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/dijkstra/" rel="tag">dijkstra</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/dynamic-programing/" rel="tag">dynamic programing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/ethernet/" rel="tag">ethernet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/expert/" rel="tag">expert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/fenwick-tree/" rel="tag">fenwick tree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/fibre-channel/" rel="tag">fibre channel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/flow-offload/" rel="tag">flow offload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/flow-table/" rel="tag">flow table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/graph/" rel="tag">graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/greedy/" rel="tag">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/hardware/" rel="tag">hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/industry/" rel="tag">industry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/infiniband/" rel="tag">infiniband</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/interface/" rel="tag">interface</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/k-nearest-neighbors/" rel="tag">k-nearest-neighbors</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/kvm/" rel="tag">kvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/memory-layout/" rel="tag">memory layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/more-algorithms/" rel="tag">more algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/netfilter/" rel="tag">netfilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/netlink/" rel="tag">netlink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/nic/" rel="tag">nic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/ofprot-trace/" rel="tag">ofprot/trace</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/ovs-sandbox/" rel="tag">ovs-sandbox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/paper/" rel="tag">paper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/pcie/" rel="tag">pcie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/program/" rel="tag">program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/protocol/" rel="tag">protocol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/protocols/" rel="tag">protocols</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/qemu/" rel="tag">qemu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/quick-sort/" rel="tag">quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/segment-tree/" rel="tag">segment tree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/selection-sort/" rel="tag">selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/shortest-path/" rel="tag">shortest path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/simple-search/" rel="tag">simple search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/storage/" rel="tag">storage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/tcp-syn/" rel="tag">tcp syn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/tcp-ip/" rel="tag">tcp/ip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/uml/" rel="tag">uml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/virtualization/" rel="tag">virtualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/vpn/" rel="tag">vpn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/website/" rel="tag">website</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/wubi/" rel="tag">wubi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/x86-64/" rel="tag">x86_64</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/leptons-bosons/tags/Driver/" style="font-size: 10px;">Driver</a> <a href="/leptons-bosons/tags/EDK2/" style="font-size: 10px;">EDK2</a> <a href="/leptons-bosons/tags/Infrastructure-Architecture/" style="font-size: 10px;">Infrastructure Architecture</a> <a href="/leptons-bosons/tags/KVM/" style="font-size: 10px;">KVM</a> <a href="/leptons-bosons/tags/Open-vSwitch/" style="font-size: 17.5px;">Open vSwitch</a> <a href="/leptons-bosons/tags/OpenStack/" style="font-size: 10px;">OpenStack</a> <a href="/leptons-bosons/tags/Path-MTU/" style="font-size: 10px;">Path MTU</a> <a href="/leptons-bosons/tags/Qemu/" style="font-size: 10px;">Qemu</a> <a href="/leptons-bosons/tags/Raspberry-Pi/" style="font-size: 10px;">Raspberry Pi</a> <a href="/leptons-bosons/tags/aarch64/" style="font-size: 10px;">aarch64</a> <a href="/leptons-bosons/tags/acceleration/" style="font-size: 10px;">acceleration</a> <a href="/leptons-bosons/tags/algorithm/" style="font-size: 20px;">algorithm</a> <a href="/leptons-bosons/tags/analyst/" style="font-size: 10px;">analyst</a> <a href="/leptons-bosons/tags/association/" style="font-size: 10px;">association</a> <a href="/leptons-bosons/tags/aws-nitro/" style="font-size: 10px;">aws nitro</a> <a href="/leptons-bosons/tags/binary-index-tree/" style="font-size: 10px;">binary index tree</a> <a href="/leptons-bosons/tags/binary-search/" style="font-size: 10px;">binary search</a> <a href="/leptons-bosons/tags/block-io/" style="font-size: 10px;">block io</a> <a href="/leptons-bosons/tags/bookmark/" style="font-size: 10px;">bookmark</a> <a href="/leptons-bosons/tags/breadth-first-search/" style="font-size: 10px;">breadth-first search</a> <a href="/leptons-bosons/tags/bridge/" style="font-size: 10px;">bridge</a> <a href="/leptons-bosons/tags/calling-conventions/" style="font-size: 10px;">calling conventions</a> <a href="/leptons-bosons/tags/conntrack/" style="font-size: 10px;">conntrack</a> <a href="/leptons-bosons/tags/demo/" style="font-size: 10px;">demo</a> <a href="/leptons-bosons/tags/design-patterns/" style="font-size: 10px;">design patterns</a> <a href="/leptons-bosons/tags/dijkstra/" style="font-size: 10px;">dijkstra</a> <a href="/leptons-bosons/tags/dynamic-programing/" style="font-size: 10px;">dynamic programing</a> <a href="/leptons-bosons/tags/ethernet/" style="font-size: 10px;">ethernet</a> <a href="/leptons-bosons/tags/expert/" style="font-size: 10px;">expert</a> <a href="/leptons-bosons/tags/fenwick-tree/" style="font-size: 10px;">fenwick tree</a> <a href="/leptons-bosons/tags/fibre-channel/" style="font-size: 10px;">fibre channel</a> <a href="/leptons-bosons/tags/flow-offload/" style="font-size: 10px;">flow offload</a> <a href="/leptons-bosons/tags/flow-table/" style="font-size: 10px;">flow table</a> <a href="/leptons-bosons/tags/graph/" style="font-size: 10px;">graph</a> <a href="/leptons-bosons/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/leptons-bosons/tags/hardware/" style="font-size: 12.5px;">hardware</a> <a href="/leptons-bosons/tags/industry/" style="font-size: 12.5px;">industry</a> <a href="/leptons-bosons/tags/infiniband/" style="font-size: 10px;">infiniband</a> <a href="/leptons-bosons/tags/interface/" style="font-size: 10px;">interface</a> <a href="/leptons-bosons/tags/k-nearest-neighbors/" style="font-size: 10px;">k-nearest-neighbors</a> <a href="/leptons-bosons/tags/kernel/" style="font-size: 12.5px;">kernel</a> <a href="/leptons-bosons/tags/kvm/" style="font-size: 10px;">kvm</a> <a href="/leptons-bosons/tags/memory-layout/" style="font-size: 10px;">memory layout</a> <a href="/leptons-bosons/tags/more-algorithms/" style="font-size: 10px;">more algorithms</a> <a href="/leptons-bosons/tags/netfilter/" style="font-size: 10px;">netfilter</a> <a href="/leptons-bosons/tags/netlink/" style="font-size: 10px;">netlink</a> <a href="/leptons-bosons/tags/network/" style="font-size: 15px;">network</a> <a href="/leptons-bosons/tags/nic/" style="font-size: 10px;">nic</a> <a href="/leptons-bosons/tags/ofprot-trace/" style="font-size: 10px;">ofprot/trace</a> <a href="/leptons-bosons/tags/ovs-sandbox/" style="font-size: 10px;">ovs-sandbox</a> <a href="/leptons-bosons/tags/paper/" style="font-size: 10px;">paper</a> <a href="/leptons-bosons/tags/pcie/" style="font-size: 10px;">pcie</a> <a href="/leptons-bosons/tags/program/" style="font-size: 10px;">program</a> <a href="/leptons-bosons/tags/protocol/" style="font-size: 10px;">protocol</a> <a href="/leptons-bosons/tags/protocols/" style="font-size: 12.5px;">protocols</a> <a href="/leptons-bosons/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/leptons-bosons/tags/quick-sort/" style="font-size: 10px;">quick sort</a> <a href="/leptons-bosons/tags/segment-tree/" style="font-size: 10px;">segment tree</a> <a href="/leptons-bosons/tags/selection-sort/" style="font-size: 10px;">selection sort</a> <a href="/leptons-bosons/tags/shortest-path/" style="font-size: 10px;">shortest path</a> <a href="/leptons-bosons/tags/simple-search/" style="font-size: 10px;">simple search</a> <a href="/leptons-bosons/tags/storage/" style="font-size: 12.5px;">storage</a> <a href="/leptons-bosons/tags/tcp-syn/" style="font-size: 10px;">tcp syn</a> <a href="/leptons-bosons/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/leptons-bosons/tags/tool/" style="font-size: 20px;">tool</a> <a href="/leptons-bosons/tags/uml/" style="font-size: 10px;">uml</a> <a href="/leptons-bosons/tags/vim/" style="font-size: 10px;">vim</a> <a href="/leptons-bosons/tags/virtualization/" style="font-size: 15px;">virtualization</a> <a href="/leptons-bosons/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/leptons-bosons/tags/website/" style="font-size: 10px;">website</a> <a href="/leptons-bosons/tags/wubi/" style="font-size: 10px;">wubi</a> <a href="/leptons-bosons/tags/x86-64/" style="font-size: 10px;">x86_64</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/leptons-bosons/2021/07/29/Building-EDK2-Qemu-From-Scratch-On-Raspberry-Pi/">Building EDK2 Qemu From Scratch On Raspberry Pi</a>
+          </li>
+        
+          <li>
+            <a href="/leptons-bosons/2021/03/28/infrastructure-architecture/">Next Generation of Infrastructure Architecture</a>
+          </li>
+        
+          <li>
+            <a href="/leptons-bosons/2021/01/13/papers/">The Papers</a>
+          </li>
+        
+          <li>
+            <a href="/leptons-bosons/2020/11/22/kvm-weather-report/">The KVM Weather Report</a>
+          </li>
+        
+          <li>
+            <a href="/leptons-bosons/2020/10/28/expert-association-map/">Expert &amp; Association Map</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Henry<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/leptons-bosons/" class="mobile-nav-link">Home</a>
+  
+    <a href="/leptons-bosons/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/leptons-bosons/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/leptons-bosons/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/leptons-bosons/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

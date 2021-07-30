@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Design Patterns and UML | Leptions, Bosons, Quarks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Princinples The Open Closed Princinple(OCP)A module should be open for extension but closed for modification. In other words, modules can be extened, without requiring them to be modified in existing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design Patterns and UML">
+<meta property="og:url" content="https://username.github.io/leptons-bosons/2019/10/02/design-patterns/index.html">
+<meta property="og:site_name" content="Leptions, Bosons, Quarks">
+<meta property="og:description" content="Princinples The Open Closed Princinple(OCP)A module should be open for extension but closed for modification. In other words, modules can be extened, without requiring them to be modified in existing">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://username.github.io/leptons-bosons/2019/10/02/design-patterns/07-relationships-between-classes.png">
+<meta property="og:image" content="https://username.github.io/leptons-bosons/2019/10/02/design-patterns/17-class-diagram-example-order-system.png">
+<meta property="og:image" content="https://username.github.io/leptons-bosons/2019/10/02/design-patterns/18-uml-class-diagram-example-gui.png">
+<meta property="article:published_time" content="2019-10-02T06:43:13.000Z">
+<meta property="article:modified_time" content="2020-02-09T04:13:34.850Z">
+<meta property="article:author" content="Henry">
+<meta property="article:tag" content="design patterns">
+<meta property="article:tag" content="uml">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://username.github.io/leptons-bosons/2019/10/02/design-patterns/07-relationships-between-classes.png">
+  
+    <link rel="alternate" href="/leptons-bosons/atom.xml" title="Leptions, Bosons, Quarks" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/leptons-bosons/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/leptons-bosons/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/leptons-bosons/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/leptons-bosons/" id="logo">Leptions, Bosons, Quarks</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/leptons-bosons/" id="subtitle">light virt</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/leptons-bosons/">Home</a>
+        
+          <a class="main-nav-link" href="/leptons-bosons/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/leptons-bosons/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://username.github.io/leptons-bosons"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-design-patterns" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/leptons-bosons/2019/10/02/design-patterns/" class="article-date">
+  <time class="dt-published" datetime="2019-10-02T06:43:13.000Z" itemprop="datePublished">2019-10-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/leptons-bosons/categories/original/">original</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Design Patterns and UML
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Princinples"><a href="#Princinples" class="headerlink" title="Princinples"></a>Princinples</h1><ul>
+<li><p>The Open Closed Princinple(OCP)<br>A module should be open for extension but closed for modification. In other words, modules can be extened, without requiring them to be modified in existing source codes. This means that, with a llitle forethought, wd can add new features to existing code, without changing the existing code and by only adding new code. Symptoms of Rotting Design, rigidity, fragility, immobility, vicosity.</p>
+</li>
+<li><p>The Liskov Substitution Princile(LSP)<br>Subclasses should be substitutable for their base classes. It alse derives freom the concept of Design by Contract(DBC), e.g. circle/ellipse dilemma.</p>
+</li>
+<li><p>The Dependency Inversion Principle(DIP)<br>Denpand upon abstractions, do not depend upon concretions.</p>
+</li>
+<li><p>The Interface Segregation Principle(ISP)<br>Many client specific interfaces are better than on general purpose interface.</p>
+</li>
+<li><p>Principles of Package architecture</p>
+</li>
+</ul>
+<p>– The release reuse equivalency principle(REP), the granule of reuse is the granule of release.<br>– The common closure principle(CCP), classes that change together, belong together.<br>– The common reuse principle(CRP), classed that are not reused together should not be grouped together.<br>– The acyclic dependencies principle(ADP), the dependencies between packages must not form cycles.<br>– The stable dependencies principle(SDP), depend in the direction of stability.</p>
+<h1 id="Patterns-of-Object-Oriented-Architecture"><a href="#Patterns-of-Object-Oriented-Architecture" class="headerlink" title="Patterns of Object Oriented Architecture"></a>Patterns of Object Oriented Architecture</h1><ul>
+<li><p>Creational Patterns</p>
+<ul>
+<li>Abstract Factory, Factory Method<br>The DIP strongly recommends that modules not depend upon concrete classed. However, in order to create an instane fo a class, you must depend upon the concrete class. Abstract factory is a pattern that allows that dependency upon the concreate class to exist in on, and only one, place.</li>
+<li>Template(extend), Builder(implement)</li>
+<li>Singleton<br>Avoid creating an object everytime.</li>
+<li>Decorator, Prototype</li>
+</ul>
+</li>
+<li><p>Structural Patterns</p>
+<ul>
+<li>Adapter, Facade<br>When inserting an abstract interface is infeasible because the server is third party software, or is so heavily depended upon that it can not easily be changed, and ADAPTER can be used to bind the abstract interface to the server.<br>The adapter is an object that implements the abstract interface to delegate to the server. Every methon of the adpater simply translates and then delegates.</li>
+<li>Bridge<br>One of the problems with implementing an abstract class with inheritance is that the derived class is so tightly coupled to the base classes. This can lead to problems when other clients want to use the derived class functions without draging along the bagae of the base hiearchy, decouple an abstraction from its implementation.<br>Adapter makes things work after they’re designed, bridge makes them work before they are.</li>
+<li>Proxy, Abstract Server<br>When a client depends directly on a server, the DIP is violated. Changes to the server will propogate to the client, and the client will be unable to easily use similar servers. This can be recified by inserting an interface between the client and the server, to produce a unified interface for a number of underlying and unrelated objects.</li>
+<li>Flyweight, Composite, Decorator</li>
+</ul>
+</li>
+<li><p>Behavioral Patterns</p>
+<ul>
+<li>Observer<br>It often occurs that one element of a design needs to take some form of action when another element in the design dicovers that an event has occurred. However, we frequently donot want the detector to know about the actor.</li>
+<li>Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Mememnto</li>
+<li>State, Strategy, Visitor</li>
+<li>Template Method</li>
+</ul>
+</li>
+</ul>
+<h1 id="UML-Unified-Modeling-Language"><a href="#UML-Unified-Modeling-Language" class="headerlink" title="UML(Unified Modeling Language)"></a>UML(Unified Modeling Language)</h1><ul>
+<li>UML Diagrams</li>
+</ul>
+<p>– Behavioral UML Diagram: Sequence Diagram: Activity diagram, Use Case diagram, Interaction Overview Diagram, Timing Diagram, State Machine Diagram, Communication Diagram, Sequence Diagram<br>– Structural UML Diagram: Class Diagram, Object Diagram, Component Diagram, Composite Structure Diagram, Deployment Diagram, Deployment Diagram, Profile Diagram</p>
+<ul>
+<li>UML Notations</li>
+</ul>
+<p>– Relationships: Dependency Notation, Association Notation, Generalization Notation, Extensibility Notation<br>– Relationships between classes<br><img src="07-relationships-between-classes.png" alt="Relationships between classes"><br>– Class Diagram Example: Order System<br><img src="17-class-diagram-example-order-system.png" alt="Class Diagram Example: Order System"><br>– Class Diagram Example: GUI<br><img src="18-uml-class-diagram-example-gui.png" alt="Class Diagram Example: GUI"></p>
+<h1 id="Referencs"><a href="#Referencs" class="headerlink" title="Referencs"></a>Referencs</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/">UML Class Diagram Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://tallyfy.com/uml-diagram/#composite-structure-diagram">All You Need to Know About UML Diagrams: Types and 5+ Examples</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://username.github.io/leptons-bosons/2019/10/02/design-patterns/" data-id="ckrqkh471000e2ovl14uc1xk1" data-title="Design Patterns and UML" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/design-patterns/" rel="tag">design patterns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leptons-bosons/tags/uml/" rel="tag">uml</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/leptons-bosons/2019/10/05/virtualization-aarch64-vs-x86_64/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Virtualization: aarch64 vs x86_64
+        
+      </div>
+    </a>
+  
+  
+    <a href="/leptons-bosons/2018/12/26/function-calling-conventions/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Function Calling Conventions</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/algorithm/">algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/original/">original</a></li><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/quotes/">quotes</a></li><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/reference/">reference</a></li><li class="category-list-item"><a class="category-list-link" href="/leptons-bosons/categories/virtualization/">virtualization</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Driver/" rel="tag">Driver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/EDK2/" rel="tag">EDK2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Infrastructure-Architecture/" rel="tag">Infrastructure Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/KVM/" rel="tag">KVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Open-vSwitch/" rel="tag">Open vSwitch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/OpenStack/" rel="tag">OpenStack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Path-MTU/" rel="tag">Path MTU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Qemu/" rel="tag">Qemu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/Raspberry-Pi/" rel="tag">Raspberry Pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/aarch64/" rel="tag">aarch64</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/acceleration/" rel="tag">acceleration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/analyst/" rel="tag">analyst</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/association/" rel="tag">association</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/aws-nitro/" rel="tag">aws nitro</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/binary-index-tree/" rel="tag">binary index tree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/binary-search/" rel="tag">binary search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/block-io/" rel="tag">block io</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/bookmark/" rel="tag">bookmark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/breadth-first-search/" rel="tag">breadth-first search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/bridge/" rel="tag">bridge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/calling-conventions/" rel="tag">calling conventions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/conntrack/" rel="tag">conntrack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/demo/" rel="tag">demo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/design-patterns/" rel="tag">design patterns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/dijkstra/" rel="tag">dijkstra</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/dynamic-programing/" rel="tag">dynamic programing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/ethernet/" rel="tag">ethernet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/expert/" rel="tag">expert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/fenwick-tree/" rel="tag">fenwick tree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/fibre-channel/" rel="tag">fibre channel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/flow-offload/" rel="tag">flow offload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/flow-table/" rel="tag">flow table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/graph/" rel="tag">graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/greedy/" rel="tag">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/hardware/" rel="tag">hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/industry/" rel="tag">industry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/infiniband/" rel="tag">infiniband</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/interface/" rel="tag">interface</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/k-nearest-neighbors/" rel="tag">k-nearest-neighbors</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/kvm/" rel="tag">kvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/memory-layout/" rel="tag">memory layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/more-algorithms/" rel="tag">more algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/netfilter/" rel="tag">netfilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/netlink/" rel="tag">netlink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/nic/" rel="tag">nic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/ofprot-trace/" rel="tag">ofprot/trace</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/ovs-sandbox/" rel="tag">ovs-sandbox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/paper/" rel="tag">paper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/pcie/" rel="tag">pcie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/program/" rel="tag">program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/protocol/" rel="tag">protocol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/protocols/" rel="tag">protocols</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/qemu/" rel="tag">qemu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/quick-sort/" rel="tag">quick sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/segment-tree/" rel="tag">segment tree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/selection-sort/" rel="tag">selection sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/shortest-path/" rel="tag">shortest path</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/simple-search/" rel="tag">simple search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/storage/" rel="tag">storage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/tcp-syn/" rel="tag">tcp syn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/tcp-ip/" rel="tag">tcp/ip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/uml/" rel="tag">uml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/virtualization/" rel="tag">virtualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/vpn/" rel="tag">vpn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/website/" rel="tag">website</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/wubi/" rel="tag">wubi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leptons-bosons/tags/x86-64/" rel="tag">x86_64</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/leptons-bosons/tags/Driver/" style="font-size: 10px;">Driver</a> <a href="/leptons-bosons/tags/EDK2/" style="font-size: 10px;">EDK2</a> <a href="/leptons-bosons/tags/Infrastructure-Architecture/" style="font-size: 10px;">Infrastructure Architecture</a> <a href="/leptons-bosons/tags/KVM/" style="font-size: 10px;">KVM</a> <a href="/leptons-bosons/tags/Open-vSwitch/" style="font-size: 17.5px;">Open vSwitch</a> <a href="/leptons-bosons/tags/OpenStack/" style="font-size: 10px;">OpenStack</a> <a href="/leptons-bosons/tags/Path-MTU/" style="font-size: 10px;">Path MTU</a> <a href="/leptons-bosons/tags/Qemu/" style="font-size: 10px;">Qemu</a> <a href="/leptons-bosons/tags/Raspberry-Pi/" style="font-size: 10px;">Raspberry Pi</a> <a href="/leptons-bosons/tags/aarch64/" style="font-size: 10px;">aarch64</a> <a href="/leptons-bosons/tags/acceleration/" style="font-size: 10px;">acceleration</a> <a href="/leptons-bosons/tags/algorithm/" style="font-size: 20px;">algorithm</a> <a href="/leptons-bosons/tags/analyst/" style="font-size: 10px;">analyst</a> <a href="/leptons-bosons/tags/association/" style="font-size: 10px;">association</a> <a href="/leptons-bosons/tags/aws-nitro/" style="font-size: 10px;">aws nitro</a> <a href="/leptons-bosons/tags/binary-index-tree/" style="font-size: 10px;">binary index tree</a> <a href="/leptons-bosons/tags/binary-search/" style="font-size: 10px;">binary search</a> <a href="/leptons-bosons/tags/block-io/" style="font-size: 10px;">block io</a> <a href="/leptons-bosons/tags/bookmark/" style="font-size: 10px;">bookmark</a> <a href="/leptons-bosons/tags/breadth-first-search/" style="font-size: 10px;">breadth-first search</a> <a href="/leptons-bosons/tags/bridge/" style="font-size: 10px;">bridge</a> <a href="/leptons-bosons/tags/calling-conventions/" style="font-size: 10px;">calling conventions</a> <a href="/leptons-bosons/tags/conntrack/" style="font-size: 10px;">conntrack</a> <a href="/leptons-bosons/tags/demo/" style="font-size: 10px;">demo</a> <a href="/leptons-bosons/tags/design-patterns/" style="font-size: 10px;">design patterns</a> <a href="/leptons-bosons/tags/dijkstra/" style="font-size: 10px;">dijkstra</a> <a href="/leptons-bosons/tags/dynamic-programing/" style="font-size: 10px;">dynamic programing</a> <a href="/leptons-bosons/tags/ethernet/" style="font-size: 10px;">ethernet</a> <a href="/leptons-bosons/tags/expert/" style="font-size: 10px;">expert</a> <a href="/leptons-bosons/tags/fenwick-tree/" style="font-size: 10px;">fenwick tree</a> <a href="/leptons-bosons/tags/fibre-channel/" style="font-size: 10px;">fibre channel</a> <a href="/leptons-bosons/tags/flow-offload/" style="font-size: 10px;">flow offload</a> <a href="/leptons-bosons/tags/flow-table/" style="font-size: 10px;">flow table</a> <a href="/leptons-bosons/tags/graph/" style="font-size: 10px;">graph</a> <a href="/leptons-bosons/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/leptons-bosons/tags/hardware/" style="font-size: 12.5px;">hardware</a> <a href="/leptons-bosons/tags/industry/" style="font-size: 12.5px;">industry</a> <a href="/leptons-bosons/tags/infiniband/" style="font-size: 10px;">infiniband</a> <a href="/leptons-bosons/tags/interface/" style="font-size: 10px;">interface</a> <a href="/leptons-bosons/tags/k-nearest-neighbors/" style="font-size: 10px;">k-nearest-neighbors</a> <a href="/leptons-bosons/tags/kernel/" style="font-size: 12.5px;">kernel</a> <a href="/leptons-bosons/tags/kvm/" style="font-size: 10px;">kvm</a> <a href="/leptons-bosons/tags/memory-layout/" style="font-size: 10px;">memory layout</a> <a href="/leptons-bosons/tags/more-algorithms/" style="font-size: 10px;">more algorithms</a> <a href="/leptons-bosons/tags/netfilter/" style="font-size: 10px;">netfilter</a> <a href="/leptons-bosons/tags/netlink/" style="font-size: 10px;">netlink</a> <a href="/leptons-bosons/tags/network/" style="font-size: 15px;">network</a> <a href="/leptons-bosons/tags/nic/" style="font-size: 10px;">nic</a> <a href="/leptons-bosons/tags/ofprot-trace/" style="font-size: 10px;">ofprot/trace</a> <a href="/leptons-bosons/tags/ovs-sandbox/" style="font-size: 10px;">ovs-sandbox</a> <a href="/leptons-bosons/tags/paper/" style="font-size: 10px;">paper</a> <a href="/leptons-bosons/tags/pcie/" style="font-size: 10px;">pcie</a> <a href="/leptons-bosons/tags/program/" style="font-size: 10px;">program</a> <a href="/leptons-bosons/tags/protocol/" style="font-size: 10px;">protocol</a> <a href="/leptons-bosons/tags/protocols/" style="font-size: 12.5px;">protocols</a> <a href="/leptons-bosons/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/leptons-bosons/tags/quick-sort/" style="font-size: 10px;">quick sort</a> <a href="/leptons-bosons/tags/segment-tree/" style="font-size: 10px;">segment tree</a> <a href="/leptons-bosons/tags/selection-sort/" style="font-size: 10px;">selection sort</a> <a href="/leptons-bosons/tags/shortest-path/" style="font-size: 10px;">shortest path</a> <a href="/leptons-bosons/tags/simple-search/" style="font-size: 10px;">simple search</a> <a href="/leptons-bosons/tags/storage/" style="font-size: 12.5px;">storage</a> <a href="/leptons-bosons/tags/tcp-syn/" style="font-size: 10px;">tcp syn</a> <a href="/leptons-bosons/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/leptons-bosons/tags/tool/" style="font-size: 20px;">tool</a> <a href="/leptons-bosons/tags/uml/" style="font-size: 10px;">uml</a> <a href="/leptons-bosons/tags/vim/" style="font-size: 10px;">vim</a> <a href="/leptons-bosons/tags/virtualization/" style="font-size: 15px;">virtualization</a> <a href="/leptons-bosons/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/leptons-bosons/tags/website/" style="font-size: 10px;">website</a> <a href="/leptons-bosons/tags/wubi/" style="font-size: 10px;">wubi</a> <a href="/leptons-bosons/tags/x86-64/" style="font-size: 10px;">x86_64</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leptons-bosons/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/leptons-bosons/2021/07/29/Building-EDK2-Qemu-From-Scratch-On-Raspberry-Pi/">Building EDK2 Qemu From Scratch On Raspberry Pi</a>
+          </li>
+        
+          <li>
+            <a href="/leptons-bosons/2021/03/28/infrastructure-architecture/">Next Generation of Infrastructure Architecture</a>
+          </li>
+        
+          <li>
+            <a href="/leptons-bosons/2021/01/13/papers/">The Papers</a>
+          </li>
+        
+          <li>
+            <a href="/leptons-bosons/2020/11/22/kvm-weather-report/">The KVM Weather Report</a>
+          </li>
+        
+          <li>
+            <a href="/leptons-bosons/2020/10/28/expert-association-map/">Expert &amp; Association Map</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Henry<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/leptons-bosons/" class="mobile-nav-link">Home</a>
+  
+    <a href="/leptons-bosons/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/leptons-bosons/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/leptons-bosons/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/leptons-bosons/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
