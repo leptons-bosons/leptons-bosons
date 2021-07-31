@@ -188,20 +188,20 @@
 
         <div class="article-content markdown-body">
             <h3 id="Openstack-Bridge-Oview"><a href="#Openstack-Bridge-Oview" class="headerlink" title="Openstack Bridge Oview"></a>Openstack Bridge Oview</h3><ul>
-<li>Bridge Overview<br><img src="Bridge-Overview.jpg" alt="Bridge Overview"></li>
+<li>Bridge Overview<br><img src="/leptons-bosons/Bridge-Overview.jpg" alt="Bridge Overview"></li>
 </ul>
 <h3 id="Packet-Travel-Path-I"><a href="#Packet-Travel-Path-I" class="headerlink" title="Packet Travel Path I"></a>Packet Travel Path I</h3><ul>
 <li>Packet From Uplink to GuestOS<br>![Packet From Uplink to GuestOS](Packet-From Uplink-to-VM.jpg)</li>
 </ul>
 <h3 id="Packet-Travel-Path-II"><a href="#Packet-Travel-Path-II" class="headerlink" title="Packet Travel Path II"></a>Packet Travel Path II</h3><ul>
-<li>Packet From GuestOS to Uplink<br><img src="Packet-From-VM-to-Uplink.jpg" alt="Packet From GuestOS to Uplink"></li>
+<li>Packet From GuestOS to Uplink<br><img src="/leptons-bosons/Packet-From-VM-to-Uplink.jpg" alt="Packet From GuestOS to Uplink"></li>
 </ul>
 <h3 id="Packet-Travel-Path-III"><a href="#Packet-Travel-Path-III" class="headerlink" title="Packet Travel Path III"></a>Packet Travel Path III</h3><ul>
-<li>Vxlan Packet Receive Flow<br><img src="Vxlan-Receive-Flow.jpg" alt="Vxlan Packet Receive Flow"></li>
+<li>Vxlan Packet Receive Flow<br><img src="/leptons-bosons/Vxlan-Receive-Flow.jpg" alt="Vxlan Packet Receive Flow"></li>
 <li>Create VxLAN Port<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ovs-vsctl add-br br0</span><br><span class="line">$ ovs-vsctl add-port br0 vxlan1 -- set interface vxlan1 type=vxlan \</span><br><span class="line">    options:remote_ip=192.168.1.2 options:key=flow options:dst_port=8472</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Packet-Travel-Path-IV"><a href="#Packet-Travel-Path-IV" class="headerlink" title="Packet Travel Path IV"></a>Packet Travel Path IV</h3><ul>
-<li>Virtio net Front-end xmit<br><img src="front-end-xmit.png" alt="Virtio net Front-end xmit"></li>
+<li>Virtio net Front-end xmit<br><img src="/leptons-bosons/front-end-xmit.png" alt="Virtio net Front-end xmit"></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a class="link"   target="_blank" rel="noopener" href="https://developer.openstack.org/firstapp-libcloud/networking.html" >OpenStack Networking<i class="fas fa-external-link-alt"></i></a></li>

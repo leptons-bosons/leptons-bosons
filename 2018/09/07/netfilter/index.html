@@ -200,11 +200,11 @@
 <li><a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_register_net_hook"><em>nf_register_net_hook()</em></a>, in the old kernel version <em>nf_register_hook</em> is defined.</li>
 </ul>
 <h3 id="Netfilter-Hooks-and-Tables"><a href="#Netfilter-Hooks-and-Tables" class="headerlink" title="Netfilter Hooks and Tables"></a>Netfilter Hooks and Tables</h3><ul>
-<li><p>Netfilter Hooks in Kernel<br><img src="hooks-in-kernel.png" alt="Netfilter Hooks in Kernel"></p>
+<li><p>Netfilter Hooks in Kernel<br><img src="/leptons-bosons/hooks-in-kernel.png" alt="Netfilter Hooks in Kernel"></p>
 </li>
-<li><p>Tables in Netfilter Hooks<br><img src="tables-in-hook.png" alt="Tables in Netfilter Hooks"><br>Note: Dnat table in LOCAL_OUT actually is POST_RETOUING, but after modifty destination address/port called <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ip_route_me_harder"><em>ip_route_me_harder()</em></a>, used by iptable_nat and iptable_mangle + ip_queue, in <em>function nf_nat_ipv4_local_fn()</em>.</p>
+<li><p>Tables in Netfilter Hooks<br><img src="/leptons-bosons/tables-in-hook.png" alt="Tables in Netfilter Hooks"><br>Note: Dnat table in LOCAL_OUT actually is POST_RETOUING, but after modifty destination address/port called <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ip_route_me_harder"><em>ip_route_me_harder()</em></a>, used by iptable_nat and iptable_mangle + ip_queue, in <em>function nf_nat_ipv4_local_fn()</em>.</p>
 </li>
-<li><p>Detail of Connection Tracking Hooks<br><img src="conntrack-hooks.png" alt="Detail of Connection Tracking Hooks"><br>For packet received, routing decision is done by <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ip_mkroute_input"><em>ip_mkroute_input()</em></a> called by <em>ip_rcv_finish()</em>, while the local out packet routing is <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/__mkroute_output"><em>__mkroute_output()</em></a>.</p>
+<li><p>Detail of Connection Tracking Hooks<br><img src="/leptons-bosons/conntrack-hooks.png" alt="Detail of Connection Tracking Hooks"><br>For packet received, routing decision is done by <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ip_mkroute_input"><em>ip_mkroute_input()</em></a> called by <em>ip_rcv_finish()</em>, while the local out packet routing is <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/__mkroute_output"><em>__mkroute_output()</em></a>.</p>
 </li>
 <li><p>Transport Layer Trace(CentOS 7.4.1708 kernel-3.10.0.693)<br>inet_init(): struct net_protocol inet_protos[MAX_INET_PROTOS], e.g. udp_protocol, tcp_protocol, igmp_protocol, icmp_protocol.</p>
 <ul>
