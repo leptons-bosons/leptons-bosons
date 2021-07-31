@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Leptions, Bosons, Quarks">
 <meta property="og:description" content="The netlink protocol is a socket-based Inter Process Communication (IPC) mechanism, based on RFC 3549, “Linux Netlink as an IP Services Protocol.” It provides a bidirectional communication channel bet">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//2018/04/19/netlink/netlink-flow.jpg">
+<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//netlink-flow.jpg">
 <meta property="article:published_time" content="2018-04-19T13:27:59.000Z">
 <meta property="article:modified_time" content="2018-08-28T14:58:19.558Z">
 <meta property="article:author" content="Henry">
@@ -21,7 +21,7 @@
 <meta property="article:tag" content="Open vSwitch">
 <meta property="article:tag" content="netlink">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://username.github.io/leptons-bosons/.io//2018/04/19/netlink/netlink-flow.jpg">
+<meta name="twitter:image" content="https://username.github.io/leptons-bosons/.io//netlink-flow.jpg">
   
     <link rel="alternate" href="/leptons-bosons/atom.xml" title="Leptions, Bosons, Quarks" type="application/atom+xml">
   
@@ -130,7 +130,7 @@
 <p>One-to-one correspondence with netlink sock’s id.</p>
 <h3 id="Netlink-message-layout"><a href="#Netlink-message-layout" class="headerlink" title="Netlink message layout"></a>Netlink message layout</h3><h4 id="layout-illustrate"><a href="#layout-illustrate" class="headerlink" title="layout illustrate"></a>layout illustrate</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> *  &lt;------- NLA_HDRLEN ------&gt; &lt;-- NLA_ALIGN(payload)--&gt;</span><br><span class="line"> * +---------------------+- - -+- - - - - - - - - -+- - -+</span><br><span class="line"> * |        Header       | Pad |     Payload       | Pad |</span><br><span class="line"> * |   (struct nlattr)   | ing |                   | ing |</span><br><span class="line"> * +---------------------+- - -+- - - - - - - - - -+- - -+</span><br><span class="line"> *  &lt;-------------- nlattr-&gt;nla_len --------------&gt;</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
 <h3 id="Summary-with-flow-chart"><a href="#Summary-with-flow-chart" class="headerlink" title="Summary with flow chart"></a>Summary with flow chart</h3><ul>
-<li>generic netlink flow chart in OvS<br><img src="/leptons-bosons/.io//2018/04/19/netlink/netlink-flow.jpg" alt="generic netlink flow chart in OvS"></li>
+<li>generic netlink flow chart in OvS<br><img src="/leptons-bosons/.io//netlink-flow.jpg" alt="generic netlink flow chart in OvS"></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a target="_blank" rel="noopener" href="https://wiki.linuxfoundation.org/networking/generic_netlink_howto">generic netlink howto</a></p>
 <h3 id="Append-generic-netlink-example-code"><a href="#Append-generic-netlink-example-code" class="headerlink" title="Append: generic netlink example code"></a>Append: generic netlink example code</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── kernel</span><br><span class="line">│   └── netlink_instance.c</span><br><span class="line">├── Makefile</span><br><span class="line">├── pub</span><br><span class="line">│   └── genl_ins_pub.h</span><br><span class="line">└── user</span><br><span class="line">    └── user_netlink.c</span><br></pre></td></tr></table></figure>
@@ -146,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://username.github.io/leptons-bosons/2018/04/19/netlink/" data-id="ckrrx4690006d54vle401fmd4" data-title="Generic Netlink used in OvS" class="article-share-link">Share</a>
+      <a data-url="https://username.github.io/leptons-bosons/2018/04/19/netlink/" data-id="ckrrxh5gq006l9svlbkka5wf6" data-title="Generic Netlink used in OvS" class="article-share-link">Share</a>
       
       
       

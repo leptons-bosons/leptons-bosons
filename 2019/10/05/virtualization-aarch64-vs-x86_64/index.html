@@ -13,11 +13,11 @@
 <meta property="og:site_name" content="Leptions, Bosons, Quarks">
 <meta property="og:description" content="Virtualization GenerationsFull-virtualization -&gt; Para-virtualization -&gt; Hardware-assisted virtualization -&gt; Hardware-offload virtualization -&gt; ? Types of virtualizationTo understand virtua">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/arch64-vhe.png">
-<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-vt-x_cpu-virtualization.png">
-<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ring.png">
-<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/arch64-stage-2.png">
-<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ept.png">
+<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//arch64-vhe.png">
+<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//x86_64-vt-x_cpu-virtualization.png">
+<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//x86_64-ring.png">
+<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//arch64-stage-2.png">
+<meta property="og:image" content="https://username.github.io/leptons-bosons/.io//x86_64-ept.png">
 <meta property="article:published_time" content="2019-10-05T03:06:13.000Z">
 <meta property="article:modified_time" content="2021-03-28T17:06:15.897Z">
 <meta property="article:author" content="Henry">
@@ -25,7 +25,7 @@
 <meta property="article:tag" content="aarch64">
 <meta property="article:tag" content="x86_64">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://username.github.io/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/arch64-vhe.png">
+<meta name="twitter:image" content="https://username.github.io/leptons-bosons/.io//arch64-vhe.png">
   
     <link rel="alternate" href="/leptons-bosons/atom.xml" title="Leptions, Bosons, Quarks" type="application/atom+xml">
   
@@ -193,13 +193,13 @@
 <li><p>CPU Virtualization</p>
 <ul>
 <li>VHE and VTx<ul>
-<li>aarch64, Virtualization Host Extensions(VHE), vmid/asid<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/arch64-vhe.png" alt="Virtualization Host Extensions(VHE)"></li>
-<li>x86_64 VTx: vmcs, root and non-root mode, vpid.<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-vt-x_cpu-virtualization.png" alt="x86_64 CPU Virtualization with VT-x"></li>
+<li>aarch64, Virtualization Host Extensions(VHE), vmid/asid<br><img src="/leptons-bosons/.io//arch64-vhe.png" alt="Virtualization Host Extensions(VHE)"></li>
+<li>x86_64 VTx: vmcs, root and non-root mode, vpid.<br><img src="/leptons-bosons/.io//x86_64-vt-x_cpu-virtualization.png" alt="x86_64 CPU Virtualization with VT-x"></li>
 </ul>
 </li>
 <li>Privilege levels<ul>
 <li>aarch64 excpetion level, EL 0(userspace applications), EL 1(guest kernel), EL 2(host kernel/hypervisor), EL 3(secure)</li>
-<li>x86_64 ring, ring 0(hypervisor under root mode, guest under non-root mode), ring 1, ring 2, ring3(applications)<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ring.png" alt="x86_64 rings"></li>
+<li>x86_64 ring, ring 0(hypervisor under root mode, guest under non-root mode), ring 1, ring 2, ring3(applications)<br><img src="/leptons-bosons/.io//x86_64-ring.png" alt="x86_64 rings"></li>
 </ul>
 </li>
 </ul>
@@ -207,8 +207,8 @@
 <li><p>Memory Virtualization</p>
 <ul>
 <li>GVA to PHA translation<ul>
-<li>aarch64, stage 2 translation, GVA –mmu-&gt; IPA/GPA –mmu-&gt; HPA<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/arch64-stage-2.png" alt="Stage 2 translation"></li>
-<li>x86_64, extended page tables(EPT)<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ept.png" alt="EPT"></li>
+<li>aarch64, stage 2 translation, GVA –mmu-&gt; IPA/GPA –mmu-&gt; HPA<br><img src="/leptons-bosons/.io//arch64-stage-2.png" alt="Stage 2 translation"></li>
+<li>x86_64, extended page tables(EPT)<br><img src="/leptons-bosons/.io//x86_64-ept.png" alt="EPT"></li>
 </ul>
 </li>
 </ul>
@@ -254,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://username.github.io/leptons-bosons/2019/10/05/virtualization-aarch64-vs-x86_64/" data-id="ckrrx468u006454vlc4ee7qwz" data-title="Virtualization: aarch64 vs x86_64" class="article-share-link">Share</a>
+      <a data-url="https://username.github.io/leptons-bosons/2019/10/05/virtualization-aarch64-vs-x86_64/" data-id="ckrrxh5fa002p9svlfepncyoc" data-title="Virtualization: aarch64 vs x86_64" class="article-share-link">Share</a>
       
       
       
