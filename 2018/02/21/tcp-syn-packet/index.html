@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -181,8 +187,8 @@
         <div class="article-content markdown-body">
             <p>Except the purpose to establish the connection, some other important information in tcp SYN packet but usually be ignored. </p>
 <h3 id="Example-of-SYN-packet-tcp-header"><a href="#Example-of-SYN-packet-tcp-header" class="headerlink" title="Example of SYN packet tcp header"></a>Example of SYN packet tcp header</h3><ul>
-<li>TCP Header Layout<br><img src="/leptons-bosons/tcp-header-layout.jpg" alt="TCP Header Layout"></li>
-<li>TCP SYN Packet Parsed by wireshark<br><img src="/leptons-bosons/tcp-syn-packet.jpg" alt="TCP SYN Packet"></li>
+<li>TCP Header Layout<br><img src="/leptons-bosons/.io//tcp-header-layout.jpg" alt="TCP Header Layout"></li>
+<li>TCP SYN Packet Parsed by wireshark<br><img src="/leptons-bosons/.io//tcp-syn-packet.jpg" alt="TCP SYN Packet"></li>
 </ul>
 <h3 id="Summary-of-tcp-header-options-up-to-40-Bytes"><a href="#Summary-of-tcp-header-options-up-to-40-Bytes" class="headerlink" title="Summary of tcp header options(up to 40 Bytes)"></a>Summary of tcp header options(up to 40 Bytes)</h3><table>
 <thead>
@@ -198,77 +204,77 @@
 <td align="left">0</td>
 <td align="left">1</td>
 <td align="left">EOL</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc793.txt" >RFC0793<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc793.txt">RFC0793<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">End of Option List</td>
 </tr>
 <tr>
 <td align="left">1</td>
 <td align="left">1</td>
 <td align="left">NOP</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc793.txt" >RFC0793<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc793.txt">RFC0793<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">No Operation(used for padding/alignment)</td>
 </tr>
 <tr>
 <td align="left">2</td>
 <td align="left">4</td>
 <td align="left">MSS</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc793.txt" >RFC0793<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc793.txt">RFC0793<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">Maximum Segemnt Size</td>
 </tr>
 <tr>
 <td align="left">3</td>
 <td align="left">3</td>
 <td align="left">WSOPT</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc1323.txt" >RFC1323<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc1323.txt">RFC1323<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">Window Scaling Factor(left-shift amount on window)</td>
 </tr>
 <tr>
 <td align="left">4</td>
 <td align="left">2</td>
 <td align="left">SACK-Permitted</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2018.txt" >RFC2018<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2018.txt">RFC2018<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">Sender supports SACK options</td>
 </tr>
 <tr>
 <td align="left">5</td>
 <td align="left">Var.</td>
 <td align="left">SACK</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2018.txt" >RFC2018<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc2018.txt">RFC2018<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">SACK block(out-of-order data received)</td>
 </tr>
 <tr>
 <td align="left">8</td>
 <td align="left">10</td>
 <td align="left">TSOPT</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc1323.txt" >RFC1323<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc1323.txt">RFC1323<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">Timestamps option</td>
 </tr>
 <tr>
 <td align="left">28</td>
 <td align="left">4</td>
 <td align="left">UTO</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc5482.txt" >RFC5482<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc5482.txt">RFC5482<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">User Timeout(abort after idle time)</td>
 </tr>
 <tr>
 <td align="left">29</td>
 <td align="left">Var.</td>
 <td align="left">TCP-AO</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc5925.txt" >RFC5925<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc5925.txt">RFC5925<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">Authentication option(using various algorithms)</td>
 </tr>
 <tr>
 <td align="left">253</td>
 <td align="left">Var.</td>
 <td align="left">Experimental</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc4727.txt" >RFC4727<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc4727.txt">RFC4727<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">Reserved for experimental use</td>
 </tr>
 <tr>
 <td align="left">254</td>
 <td align="left">Var.</td>
 <td align="left">Experimental</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc4727.txt" >RFC4727<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc4727.txt">RFC4727<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">Reserved for experimental use</td>
 </tr>
 </tbody></table>
@@ -411,6 +417,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -427,6 +462,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -182,80 +188,80 @@
             <p>Build a map of technical experts and associations, try to stand on the shoulder of giants :)</p>
 <h3 id="Experts"><a href="#Experts" class="headerlink" title="Experts"></a>Experts</h3><ul>
 <li>Computer Scientists<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://scholar.google.com.sg/citations?hl=en&user=tp07xT0AAAAJ" >John L. Hennessy<i class="fas fa-external-link-alt"></i></a>: Stanford University, <a class="link"   target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=John+L.+Hennessy&btnG=" >scholar links<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://scholar.google.com.sg/citations?user=Wj4ZBFIAAAAJ&hl=en&oi=sra" >David A. Patterson<i class="fas fa-external-link-alt"></i></a>: Professor of Computer Science, UC Berkeley, <a class="link"   target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=David+A.+Patterson&btnG=" >scholar links<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://scholar.google.com.sg/citations?hl=en&user=tp07xT0AAAAJ">John L. Hennessy<i class="fas fa-external-link-alt"></i></a>: Stanford University, <a class="link" target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=John+L.+Hennessy&btnG=">scholar links<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://scholar.google.com.sg/citations?user=Wj4ZBFIAAAAJ&hl=en&oi=sra">David A. Patterson<i class="fas fa-external-link-alt"></i></a>: Professor of Computer Science, UC Berkeley, <a class="link" target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=David+A.+Patterson&btnG=">scholar links<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 </li>
 <li>Maintainors<ul>
-<li>KVM &amp; Qemu: <a class="link"   target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=Gleb+Natapov&btnG=" >Gleb Natapov<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=Paolo+Bonzini&btnG=" >Paolo Bonzini<i class="fas fa-external-link-alt"></i></a></li>
+<li>KVM &amp; Qemu: <a class="link" target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=Gleb+Natapov&btnG=">Gleb Natapov<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=Paolo+Bonzini&btnG=">Paolo Bonzini<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 </li>
 <li>Industry<ul>
-<li>James B. Keller, a Microprocessor Engineer, <a class="link"   target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=James+B.+Keller&btnG=" >scholar links<i class="fas fa-external-link-alt"></i></a></li>
+<li>James B. Keller, a Microprocessor Engineer, <a class="link" target="_blank" rel="noopener" href="https://scholar.google.com.sg/scholar?hl=en&as_sdt=0,5&q=James+B.+Keller&btnG=">scholar links<i class="fas fa-external-link-alt"></i></a></li>
 <li>Gerard Williams III, a Senior Director at Apple and Chief CPU Architect for nearly a decade</li>
 </ul>
 </li>
 <li>Analysts<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://janakiram.com/" >JANAKIRAM MSV<i class="fas fa-external-link-alt"></i></a>: Analyst. Advisor. Architect. the convergence of machine intelligence and modern infrastructure.</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://janakiram.com/">JANAKIRAM MSV<i class="fas fa-external-link-alt"></i></a>: Analyst. Advisor. Architect. the convergence of machine intelligence and modern infrastructure.</li>
 </ul>
 </li>
 </ul>
 <h3 id="Associations"><a href="#Associations" class="headerlink" title="Associations"></a>Associations</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://amturing.acm.org/" >A.M. Turing Award<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://amturing.acm.org/">A.M. Turing Award<i class="fas fa-external-link-alt"></i></a></li>
 <li>General: standard organizations, industry associations and conferences<ul>
-<li><a target="_blank" rel="noopener" href="https://www.acm.org/"><strong>ACM</strong></a>: Association for Computing Machinery, <a class="link"   target="_blank" rel="noopener" href="https://dl.acm.org/sigs" >SIGs<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://dl.acm.org/conferences" >Conferences<i class="fas fa-external-link-alt"></i></a></li>
-<li><a target="_blank" rel="noopener" href="https://www.usenix.org/"><strong>usenix</strong></a>: the Advanced Computing Systems Association, <a class="link"   target="_blank" rel="noopener" href="https://www.usenix.org/conference" >Conferences<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.linuxfoundation.org/" >Linux Foundation<i class="fas fa-external-link-alt"></i></a>: <a class="link"   target="_blank" rel="noopener" href="https://events.linuxfoundation.org/" >Events<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://ietf.org/" >IETF<i class="fas fa-external-link-alt"></i></a>: Internet Engineering Task Force</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.ieee.org/" >IEEE<i class="fas fa-external-link-alt"></i></a>: Institute of Electrical and Electronics Engineers</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.ccf.org.cn/" >CCF<i class="fas fa-external-link-alt"></i></a>: China Computer Federation</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.linaro.org/events/" >Linaro Events<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://fosdem.org/" >FOSDEM<i class="fas fa-external-link-alt"></i></a>: a free event for software developers to meet, share ideas and collaborate.</li>
+<li><a target="_blank" rel="noopener" href="https://www.acm.org/"><strong>ACM</strong></a>: Association for Computing Machinery, <a class="link" target="_blank" rel="noopener" href="https://dl.acm.org/sigs">SIGs<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://dl.acm.org/conferences">Conferences<i class="fas fa-external-link-alt"></i></a></li>
+<li><a target="_blank" rel="noopener" href="https://www.usenix.org/"><strong>usenix</strong></a>: the Advanced Computing Systems Association, <a class="link" target="_blank" rel="noopener" href="https://www.usenix.org/conference">Conferences<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.linuxfoundation.org/">Linux Foundation<i class="fas fa-external-link-alt"></i></a>: <a class="link" target="_blank" rel="noopener" href="https://events.linuxfoundation.org/">Events<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://ietf.org/">IETF<i class="fas fa-external-link-alt"></i></a>: Internet Engineering Task Force</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.ieee.org/">IEEE<i class="fas fa-external-link-alt"></i></a>: Institute of Electrical and Electronics Engineers</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.ccf.org.cn/">CCF<i class="fas fa-external-link-alt"></i></a>: China Computer Federation</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.linaro.org/events/">Linaro Events<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://fosdem.org/">FOSDEM<i class="fas fa-external-link-alt"></i></a>: a free event for software developers to meet, share ideas and collaborate.</li>
 </ul>
 </li>
 <li>Network: standard organizations, industry associations and conferences<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://dl.acm.org/conference/ancs" >ACM ANCS<i class="fas fa-external-link-alt"></i></a>: Architecture for Networking and Communications Systems</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.usenix.org/conferences/byname/178" >usenix NSDI Symposia<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.tiaonline.org/" >TIA<i class="fas fa-external-link-alt"></i></a>: Telecommunications Industry Association</li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://www.incits.org/" >INCITS<i class="fas fa-external-link-alt"></i></a>: the InterNational Committee for Information Technology Standards</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.oasis-open.org/committees/" >OASIS Technical Committees<i class="fas fa-external-link-alt"></i></a>: <a class="link"   target="_blank" rel="noopener" href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=virtio" >virtio<i class="fas fa-external-link-alt"></i></a> etc.</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://dl.acm.org/conference/ancs">ACM ANCS<i class="fas fa-external-link-alt"></i></a>: Architecture for Networking and Communications Systems</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.usenix.org/conferences/byname/178">usenix NSDI Symposia<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.tiaonline.org/">TIA<i class="fas fa-external-link-alt"></i></a>: Telecommunications Industry Association</li>
+<li><a class="link" target="_blank" rel="noopener" href="http://www.incits.org/">INCITS<i class="fas fa-external-link-alt"></i></a>: the InterNational Committee for Information Technology Standards</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.oasis-open.org/committees/">OASIS Technical Committees<i class="fas fa-external-link-alt"></i></a>: <a class="link" target="_blank" rel="noopener" href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=virtio">virtio<i class="fas fa-external-link-alt"></i></a> etc.</li>
 </ul>
 </li>
 <li>Hypervisor: standard organizations, industry associations and conferences<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://dl.acm.org/conference/sosp" >ACM SOSP<i class="fas fa-external-link-alt"></i></a>: ACM Symposium on Operating Systems Principles</li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://www.eurosys.org/" >ACM EUROSYS<i class="fas fa-external-link-alt"></i></a>: European Conference on Computer Systems</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://dl.acm.org/conference/vee" >ACM VEE<i class="fas fa-external-link-alt"></i></a>: ACM SIGPLAN/SIGOPS International Conference on Virtual Execution Environments</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.usenix.org/conferences/byname/179" >usenix OSDI Symposia<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://events.linuxfoundation.org/events/kvm-forum" >KVM Forum<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://events.docker.com/events/dockercon/" >DockerCon<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.cncf.io/" >CNCF<i class="fas fa-external-link-alt"></i></a>: cloud native computing foundation</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://dl.acm.org/conference/sosp">ACM SOSP<i class="fas fa-external-link-alt"></i></a>: ACM Symposium on Operating Systems Principles</li>
+<li><a class="link" target="_blank" rel="noopener" href="http://www.eurosys.org/">ACM EUROSYS<i class="fas fa-external-link-alt"></i></a>: European Conference on Computer Systems</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://dl.acm.org/conference/vee">ACM VEE<i class="fas fa-external-link-alt"></i></a>: ACM SIGPLAN/SIGOPS International Conference on Virtual Execution Environments</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.usenix.org/conferences/byname/179">usenix OSDI Symposia<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://events.linuxfoundation.org/events/kvm-forum">KVM Forum<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://events.docker.com/events/dockercon/">DockerCon<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.cncf.io/">CNCF<i class="fas fa-external-link-alt"></i></a>: cloud native computing foundation</li>
 </ul>
 </li>
 <li>Storage: standard organizations, industry associations and conferences<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://nvmexpress.org/" >NVMe<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.snia.org/" >SNIA<i class="fas fa-external-link-alt"></i></a>: Storage Networking Industry Association</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.snia.org/events/storage-developer" >SDC<i class="fas fa-external-link-alt"></i></a>: Storage Developer Conference</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://nvmexpress.org/">NVMe<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.snia.org/">SNIA<i class="fas fa-external-link-alt"></i></a>: Storage Networking Industry Association</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.snia.org/events/storage-developer">SDC<i class="fas fa-external-link-alt"></i></a>: Storage Developer Conference</li>
 </ul>
 </li>
 <li>Chips<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.hotchips.org/" >Hot Chips<i class="fas fa-external-link-alt"></i></a>: A Symposium on High Performance Chips</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.hotchips.org/">Hot Chips<i class="fas fa-external-link-alt"></i></a>: A Symposium on High Performance Chips</li>
 </ul>
 </li>
 <li>Startups<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://nuviainc.com/" >NUVIA<i class="fas fa-external-link-alt"></i></a> 2019, <a class="link"   target="_blank" rel="noopener" href="https://nuviainc.com/category/news/blog/" >blogs<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://nuviainc.com/">NUVIA<i class="fas fa-external-link-alt"></i></a> 2019, <a class="link" target="_blank" rel="noopener" href="https://nuviainc.com/category/news/blog/">blogs<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 </li>
 </ul>
 <h3 id="Research-Institutes"><a href="#Research-Institutes" class="headerlink" title="Research Institutes"></a>Research Institutes</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.berkeley.edu/" >UC Berkeley<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Research/Areas/Centers/" >EECS<i class="fas fa-external-link-alt"></i></a><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://rise.cs.berkeley.edu/" >RISELab at UC Berkeley<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://amplab.cs.berkeley.edu/" >AMPLab<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.berkeley.edu/">UC Berkeley<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Research/Areas/Centers/">EECS<i class="fas fa-external-link-alt"></i></a><ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://rise.cs.berkeley.edu/">RISELab at UC Berkeley<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://amplab.cs.berkeley.edu/">AMPLab<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 </li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://vt.edu/" >Virginia Tech<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://www.research.vt.edu/institutes.html" >Research Institutes<i class="fas fa-external-link-alt"></i></a> and <a class="link"   target="_blank" rel="noopener" href="https://www.research.vt.edu/institutes/college-dept-research-centers-labs-groups.html" >university research centers<i class="fas fa-external-link-alt"></i></a> <ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.ssrg.ece.vt.edu/" >System Software Research Group<i class="fas fa-external-link-alt"></i></a>: <a class="link"   target="_blank" rel="noopener" href="https://www.ssrg.ece.vt.edu/projects.html" >projects<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://vt.edu/">Virginia Tech<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://www.research.vt.edu/institutes.html">Research Institutes<i class="fas fa-external-link-alt"></i></a> and <a class="link" target="_blank" rel="noopener" href="https://www.research.vt.edu/institutes/college-dept-research-centers-labs-groups.html">university research centers<i class="fas fa-external-link-alt"></i></a> <ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.ssrg.ece.vt.edu/">System Software Research Group<i class="fas fa-external-link-alt"></i></a>: <a class="link" target="_blank" rel="noopener" href="https://www.ssrg.ece.vt.edu/projects.html">projects<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 </li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.stevens.edu/" >Stevens Institute of Technology<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://www.stevens.edu/research-entrepreneurship/research-centers-labs" >Research Centers &amp; Labs<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.stevens.edu/">Stevens Institute of Technology<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://www.stevens.edu/research-entrepreneurship/research-centers-labs">Research Centers &amp; Labs<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -396,6 +402,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -412,6 +447,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

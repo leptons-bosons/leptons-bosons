@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -185,15 +191,15 @@
         <div class="article-content markdown-body">
             <h3 id="Backgroud"><a href="#Backgroud" class="headerlink" title="Backgroud"></a>Backgroud</h3><p>Choose 25g nic or 40g nic in server?</p>
 <h3 id="About-PCIe-full-duplex-communication"><a href="#About-PCIe-full-duplex-communication" class="headerlink" title="About PCIe, full-duplex communication"></a>About PCIe, full-duplex communication</h3><ul>
-<li><p>Lanes and Links<br><img src="/leptons-bosons/pcie-lanes-and-links-.jpg" alt="Lanes and Links"></p>
+<li><p>Lanes and Links<br><img src="/leptons-bosons/.io//pcie-lanes-and-links-.jpg" alt="Lanes and Links"></p>
 </li>
-<li><p>PCI Express link performance, each direction<br><img src="/leptons-bosons/PCI-Express-link-performance-.jpg" alt="PCI Express link performance, each direction"></p>
+<li><p>PCI Express link performance, each direction<br><img src="/leptons-bosons/.io//PCI-Express-link-performance-.jpg" alt="PCI Express link performance, each direction"></p>
 </li>
 </ul>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>For PCIe 3.0x8, 25G dual-ports NIC is better for PCIe bandwidth efficient.</p>
 <h3 id="Append"><a href="#Append" class="headerlink" title="Append"></a>Append</h3><ul>
-<li>PCIe Standard: <a class="link"   target="_blank" rel="noopener" href="https://pcisig.com/" >PCI-SIG<i class="fas fa-external-link-alt"></i></a></li>
-<li>PCIe Roadmap<br><img src="/leptons-bosons/pcie-roadmap.png" alt="PCIe Roadmap"></li>
+<li>PCIe Standard: <a class="link" target="_blank" rel="noopener" href="https://pcisig.com/">PCI-SIG<i class="fas fa-external-link-alt"></i></a></li>
+<li>PCIe Roadmap<br><img src="/leptons-bosons/.io//pcie-roadmap.png" alt="PCIe Roadmap"></li>
 </ul>
 
         </div>
@@ -334,6 +340,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -350,6 +385,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

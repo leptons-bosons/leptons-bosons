@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -209,9 +215,9 @@
 <h3 id="quick-sort"><a href="#quick-sort" class="headerlink" title="quick sort"></a>quick sort</h3><p>Another typical recursive example.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">static int array[] = &#123;15, 9, 23, 21, 111, 101, 98, 101, 0, 1&#125;;</span><br><span class="line">static int asize = sizeof(array) / sizeof(int);</span><br><span class="line"></span><br><span class="line">static void dump_array(int array[], int size, const char *prefix)</span><br><span class="line">&#123;</span><br><span class="line">  int i;</span><br><span class="line"></span><br><span class="line">  if (NULL != prefix) &#123;</span><br><span class="line">    printf(&quot;%s: &quot;, prefix);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  for (i = 0; i &lt; asize; i++) &#123;</span><br><span class="line">    printf(&quot;%d &quot;, array[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">  return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static int partition(int array[], int size)</span><br><span class="line">&#123;</span><br><span class="line">  int i, pivot;</span><br><span class="line">  int s;</span><br><span class="line"></span><br><span class="line">  pivot = size / 2;</span><br><span class="line"></span><br><span class="line">  for (i = 0; i &lt; size; i++) &#123;</span><br><span class="line">    if (i == pivot) continue;</span><br><span class="line"></span><br><span class="line">    if (array[i] &lt; array[pivot]) &#123; /* if &lt; pivot, and on the right */</span><br><span class="line">      if (i == (pivot + 1)) &#123;</span><br><span class="line">        s = array[pivot];</span><br><span class="line">        array[pivot] = array[i];</span><br><span class="line">        array[i] = s;</span><br><span class="line"></span><br><span class="line">        pivot = i;</span><br><span class="line">      &#125; else if (i &gt; pivot) &#123;</span><br><span class="line">        s = array[i];</span><br><span class="line">        array[i] = array[pivot + 1];</span><br><span class="line">        array[pivot + 1] = array[pivot];</span><br><span class="line">        array[pivot] = s;</span><br><span class="line"></span><br><span class="line">        pivot += 1;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; else if (array[i] &gt; array[pivot]) &#123; /* if &gt; pivot, and on the left */</span><br><span class="line">      if (i &lt; pivot) &#123;</span><br><span class="line">        s = array[pivot];</span><br><span class="line">        array[pivot] = array[i];</span><br><span class="line">        array[i] = s;</span><br><span class="line"></span><br><span class="line">        pivot = i;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return pivot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void qsort(int array[], int size)</span><br><span class="line">&#123;</span><br><span class="line">  int pivot;</span><br><span class="line"></span><br><span class="line">  if (size &lt; 2) return;</span><br><span class="line"></span><br><span class="line">  pivot = partition(array, size);</span><br><span class="line"></span><br><span class="line">  qsort(&amp;array[0], pivot);</span><br><span class="line">  qsort(&amp;array[pivot + 1], size - pivot - 1);</span><br><span class="line"></span><br><span class="line">  return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">  dump_array(array, asize, &quot;Before sort&quot;);</span><br><span class="line"></span><br><span class="line">  qsort(array, asize);</span><br><span class="line"></span><br><span class="line">  dump_array(array, asize, &quot; After sort&quot;);</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="Pascal’s-triangle"><a href="#Pascal’s-triangle" class="headerlink" title="Pascal’s triangle"></a><a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pascal%27s_triangle" >Pascal’s triangle<i class="fas fa-external-link-alt"></i></a></h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="Pascal’s-triangle"><a href="#Pascal’s-triangle" class="headerlink" title="Pascal’s triangle"></a><a class="link" target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">Pascal’s triangle<i class="fas fa-external-link-alt"></i></a></h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li>程序员的数学（日 结城浩）</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://algs4.cs.princeton.edu/home/" >Algorithms, 4th Edition<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://algs4.cs.princeton.edu/home/">Algorithms, 4th Edition<i class="fas fa-external-link-alt"></i></a></li>
 <li>Grokking Algorithms: An illustrated guide for programmers and other curious people</li>
 </ul>
 
@@ -353,6 +359,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -369,6 +404,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

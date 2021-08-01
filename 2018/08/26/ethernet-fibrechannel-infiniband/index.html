@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -201,7 +207,7 @@
 </thead>
 <tbody><tr>
 <td align="left">Ethernet</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://ethernetalliance.org/" >IEEE<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://ethernetalliance.org/">IEEE<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">200Gb</td>
 <td align="left">Y1999</td>
 <td align="left">1.5K/9k</td>
@@ -209,7 +215,7 @@
 </tr>
 <tr>
 <td align="left">Fibre Channel</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://fibrechannel.org/" >ANSI<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://fibrechannel.org/">ANSI<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">128Gb</td>
 <td align="left">Y1988</td>
 <td align="left">2K</td>
@@ -217,16 +223,16 @@
 </tr>
 <tr>
 <td align="left">InfiniBand</td>
-<td align="left"><a class="link"   target="_blank" rel="noopener" href="https://www.infinibandta.org/" >InfiniBand Trade Association<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left"><a class="link" target="_blank" rel="noopener" href="https://www.infinibandta.org/">InfiniBand Trade Association<i class="fas fa-external-link-alt"></i></a></td>
 <td align="left">600Gb</td>
 <td align="left">Y2001</td>
 <td align="left">4K</td>
 <td align="left">IO Area Network(IAN)</td>
 </tr>
 </tbody></table>
-<p>Network Technology Choices in the Data Center(bandwidth, latency and reliability):<br><img src="/leptons-bosons/datacenter_choice.png" alt=" Network Technology Choices in the Data Center"></p>
+<p>Network Technology Choices in the Data Center(bandwidth, latency and reliability):<br><img src="/leptons-bosons/.io//datacenter_choice.png" alt=" Network Technology Choices in the Data Center"></p>
 <h3 id="RoadMap"><a href="#RoadMap" class="headerlink" title="RoadMap"></a>RoadMap</h3><ul>
-<li><p>Fibre Channel RoadMap<br><img src="/leptons-bosons/fibrechannle_roadmap.png" alt="Fibre Channel RoadMap"></p>
+<li><p>Fibre Channel RoadMap<br><img src="/leptons-bosons/.io//fibrechannle_roadmap.png" alt="Fibre Channel RoadMap"></p>
 </li>
 <li><p>Fibre Channel is doomed:</p>
 <ul>
@@ -235,17 +241,17 @@
 <li>Flash: Fast Storage Needs Fast Networking, but speed of FC’s improvement is slower than ethernet</li>
 </ul>
 </li>
-<li><p>Ethernet RoadMap<br><img src="/leptons-bosons/ethernet_roadmap.png" alt="Ethernet RoadMap"></p>
+<li><p>Ethernet RoadMap<br><img src="/leptons-bosons/.io//ethernet_roadmap.png" alt="Ethernet RoadMap"></p>
 </li>
-<li><p>InfiniBand RoadMap<br><img src="/leptons-bosons/InfiniBand_roadmap.jpg" alt="InfiniBand RoadMap"></p>
+<li><p>InfiniBand RoadMap<br><img src="/leptons-bosons/.io//InfiniBand_roadmap.jpg" alt="InfiniBand RoadMap"></p>
 </li>
 </ul>
 <h3 id="Reliability-congestion-control-over-subscription-or-over-commit"><a href="#Reliability-congestion-control-over-subscription-or-over-commit" class="headerlink" title="Reliability, congestion control, over-subscription or over-commit"></a>Reliability, congestion control, over-subscription or over-commit</h3><ul>
-<li><p>Fibre Channel, Lossless data delivery with buffer to buffer credit, congestion strategy is “pause it”.<br><img src="/leptons-bosons/fibrechannel_cogestion.png" alt="Fibre Channel Congestion Bandwidth"></p>
+<li><p>Fibre Channel, Lossless data delivery with buffer to buffer credit, congestion strategy is “pause it”.<br><img src="/leptons-bosons/.io//fibrechannel_cogestion.png" alt="Fibre Channel Congestion Bandwidth"></p>
 </li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://fibrechannel.org/wp-content/uploads/2018/02/FCIA_Fibre_Channel_Performance_Congestion_Slowdrain_and_Over_Utilization_Final.pdf" >Fibre Channel Performance: Congestion, Slow Drain, and Over Utilization<i class="fas fa-external-link-alt"></i></a></p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://fibrechannel.org/wp-content/uploads/2018/02/FCIA_Fibre_Channel_Performance_Congestion_Slowdrain_and_Over_Utilization_Final.pdf">Fibre Channel Performance: Congestion, Slow Drain, and Over Utilization<i class="fas fa-external-link-alt"></i></a></p>
 </li>
-<li><p>Ethernet, based on Transport Layer Protocols, congestion strategy is “drop it”.<br><img src="/leptons-bosons/ethernet_congestion_control.jpg" alt="TCP Congestion Bandwidth Utiliztion"></p>
+<li><p>Ethernet, based on Transport Layer Protocols, congestion strategy is “drop it”.<br><img src="/leptons-bosons/.io//ethernet_congestion_control.jpg" alt="TCP Congestion Bandwidth Utiliztion"></p>
 </li>
 </ul>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>There are a variety of switched fabrics and networks to apply to the problem of server I/O. The selection of the “best” technology depends on particular situations, legacy installations, and the desired application. The Ethernet technologies are well suited for client-server connections in a LAN environment, and Fibre Channel technology is the well suited for storage applications in a SAN. InfiniBand is a new technology well suited for interconnection of CPU-memory complexes to I/O in an IAN. A fabric-based IAN enables clustering as well as connections to I/O controllers.</p>
@@ -257,13 +263,13 @@
 <p>With fibre channel, in-order guaranteed latency is possible, and scalable to larger amounts of systems.</p>
 <p>Ultimately, with Ethernet you can find yourself with multiple drop-frames and other issues during a production. </p>
 <h3 id="Alliances-or-Standards"><a href="#Alliances-or-Standards" class="headerlink" title="Alliances or Standards"></a>Alliances or Standards</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://ethernetalliance.org/" >Ethernet Alliance<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.openfabrics.org/" >Open Fabric Alliance<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.infinibandta.org/" >InfiniBand Association<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://fibrechannel.org/" >Fibre Channel Industry Association<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://ethernetalliance.org/">Ethernet Alliance<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.openfabrics.org/">Open Fabric Alliance<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.infinibandta.org/">InfiniBand Association<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://fibrechannel.org/">Fibre Channel Industry Association<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <h3 id="Forum"><a href="#Forum" class="headerlink" title="Forum"></a>Forum</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://edgeoptic.com/" >Edge Optic<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://edgeoptic.com/">Edge Optic<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -404,6 +410,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -420,6 +455,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

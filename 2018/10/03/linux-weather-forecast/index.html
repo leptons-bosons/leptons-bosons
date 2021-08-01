@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -175,18 +181,18 @@
         
 
         <div class="article-content markdown-body">
-            <p><a class="link"   target="_blank" rel="noopener" href="https://www.linux.com/news/category/linux-kernel" >Weather Forcast<i class="fas fa-external-link-alt"></i></a></p>
+            <p><a class="link" target="_blank" rel="noopener" href="https://www.linux.com/news/category/linux-kernel">Weather Forcast<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="Short-term-Forcast"><a href="#Short-term-Forcast" class="headerlink" title="Short-term Forcast"></a>Short-term Forcast</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://lwn.net/Articles/748879/" >Time-based packet transmission<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://lwn.net/Articles/758353/" >CAKE queueing discipline<i class="fas fa-external-link-alt"></i></a>: offers significantly better networking performance, especially in home or small-business settings.</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://lwn.net/Articles/758963/" >The block I/O latency controller<i class="fas fa-external-link-alt"></i></a>: allows an administrator to provide block (disk) I/O response-time guarantees to specific processes.</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://lwn.net/Articles/748879/">Time-based packet transmission<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://lwn.net/Articles/758353/">CAKE queueing discipline<i class="fas fa-external-link-alt"></i></a>: offers significantly better networking performance, especially in home or small-business settings.</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://lwn.net/Articles/758963/">The block I/O latency controller<i class="fas fa-external-link-alt"></i></a>: allows an administrator to provide block (disk) I/O response-time guarantees to specific processes.</li>
 </ul>
 <h3 id="Kernel-4-18"><a href="#Kernel-4-18" class="headerlink" title="Kernel-4.18"></a>Kernel-4.18</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://lwn.net/Articles/747551/" >bpfilter<i class="fas fa-external-link-alt"></i></a>: expected to be the base on which the next generation of kernel firewalling systems is built.</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://lwn.net/Articles/754681/" >A reworked TCP zero-copy receive API<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://lwn.net/Articles/750845/" >Accelerating networking with AF_XDP<i class="fas fa-external-link-alt"></i></a>: a larger effort to win back users of user-space networking stacks by providing better facilities in the kernel.</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://lwn.net/Articles/760690/" >Statistics from the 4.18 development cycle<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.linux.com/news/2018/9/linux-weather-forecast" >Linux Weather Forecast 2018.09<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://lwn.net/Articles/747551/">bpfilter<i class="fas fa-external-link-alt"></i></a>: expected to be the base on which the next generation of kernel firewalling systems is built.</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://lwn.net/Articles/754681/">A reworked TCP zero-copy receive API<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://lwn.net/Articles/750845/">Accelerating networking with AF_XDP<i class="fas fa-external-link-alt"></i></a>: a larger effort to win back users of user-space networking stacks by providing better facilities in the kernel.</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://lwn.net/Articles/760690/">Statistics from the 4.18 development cycle<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.linux.com/news/2018/9/linux-weather-forecast">Linux Weather Forecast 2018.09<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -327,6 +333,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -343,6 +378,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -179,10 +185,10 @@
         
 
         <div class="article-content markdown-body">
-            <p>Path MTU Discovery (PMTUD) is a standardized technique in computer networking for determining the maximum transmission unit (MTU) size on the network path between two Internet Protocol (IP) hosts, usually with the goal of avoiding IP fragmentation. IPv4 <a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1191" >RFC1191<i class="fas fa-external-link-alt"></i></a> and IPv6 <a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1981" >RFC1981<i class="fas fa-external-link-alt"></i></a>.</p>
+            <p>Path MTU Discovery (PMTUD) is a standardized technique in computer networking for determining the maximum transmission unit (MTU) size on the network path between two Internet Protocol (IP) hosts, usually with the goal of avoiding IP fragmentation. IPv4 <a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1191">RFC1191<i class="fas fa-external-link-alt"></i></a> and IPv6 <a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1981">RFC1981<i class="fas fa-external-link-alt"></i></a>.</p>
 <h3 id="Path-MTU-Discovery-with-UDP"><a href="#Path-MTU-Discovery-with-UDP" class="headerlink" title="Path MTU Discovery with UDP"></a>Path MTU Discovery with UDP</h3><p>For a protocol such as UDP, in which the calling application is generally in control of the outgoing datagram size, it is useful if there is some way to determine an appropriate datagram size if fragmentation is to be avoided. Conventional PMTUD uses ICMP PTB messages in determining the largest packet size along a routing path that can be used without inducing fragmentation. These messages are typically processed below the UDP layer and are not directly visible to an application, so either an API call is used for the application to learn the best current estimate of the path MTU size for each destination with which it has communicated, or the IP layer can perform PMTUD independently without the application knowing. The IP layer often caches PMTUD information on a per-destination basis and times it out if it is not refreshed.</p>
 <h3 id="Path-MTU-Discovery-with-TCP"><a href="#Path-MTU-Discovery-with-TCP" class="headerlink" title="Path MTU Discovery with TCP"></a>Path MTU Discovery with TCP</h3><p>How PMTUD is used by TCP? TCP’s regular PMTUD process operates as follows: When a connection is established, TCP uses the minimum of the MTU of the outgoing interface, or the MSS announced by the other end, as the basis for selecting its send maximum segment size (SMSS). PMTUD does not allow TCP to exceed the MSS announced by the other end. If the other end does not specify an MSS, the sender assumes a default of 536 bytes, but this situation is now rare. It is also possible for an implementation to save path MTU information on a per-destination basis to help in selecting its segment size. <em>Note that the path MTU in each direction of a connection could be different</em>.</p>
-<p>Once the initial SMSS is chosen, all IPv4 datagrams sent by TCP on that connection have the IPv4 DF bit field set. For TCP/IPv6, this is not necessary because there is no DF bit field; all datagrams are assumed to have it set implicitly. If a PTB(packet too big) is received, TCP decreases the segment size and retransmits using a different segment size. If the PTB contains the suggested next-hop MTU, the segment size can be set to the next-hop MTU minus the sizes of the IPv4 (or IPv6) and TCP headers. If the next-hop MTU value is not present (e.g., an older ICMP error was returned that lacks this information), the sender may try a variety of values (e.g., binary search for a usable value). This also affects TCP’s congestion control management. For PLPMTUD(Packetization Layer Path MTU Discovery), <a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4821" >RFC4821<i class="fas fa-external-link-alt"></i></a>, the situation is similar, except PTB messages are not used. Instead, the protocol performing PMTUD must be able to detect message discards quickly and perform its own datagram size adjustments.<br>Because routes can change dynamically, when some time has passed since the last decrease of the segment size, a larger value (up to the initial SMSS) can be tried. Guidance in <a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1191" >RFC1191<i class="fas fa-external-link-alt"></i></a> and <a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1981" >RFC1981<i class="fas fa-external-link-alt"></i></a> recommends that this time interval be about 10 minutes.</p>
+<p>Once the initial SMSS is chosen, all IPv4 datagrams sent by TCP on that connection have the IPv4 DF bit field set. For TCP/IPv6, this is not necessary because there is no DF bit field; all datagrams are assumed to have it set implicitly. If a PTB(packet too big) is received, TCP decreases the segment size and retransmits using a different segment size. If the PTB contains the suggested next-hop MTU, the segment size can be set to the next-hop MTU minus the sizes of the IPv4 (or IPv6) and TCP headers. If the next-hop MTU value is not present (e.g., an older ICMP error was returned that lacks this information), the sender may try a variety of values (e.g., binary search for a usable value). This also affects TCP’s congestion control management. For PLPMTUD(Packetization Layer Path MTU Discovery), <a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4821">RFC4821<i class="fas fa-external-link-alt"></i></a>, the situation is similar, except PTB messages are not used. Instead, the protocol performing PMTUD must be able to detect message discards quickly and perform its own datagram size adjustments.<br>Because routes can change dynamically, when some time has passed since the last decrease of the segment size, a larger value (up to the initial SMSS) can be tried. Guidance in <a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1191">RFC1191<i class="fas fa-external-link-alt"></i></a> and <a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1981">RFC1981<i class="fas fa-external-link-alt"></i></a> recommends that this time interval be about 10 minutes.</p>
 <h3 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h3><p>Many network security devices block all ICMP messages for perceived security benefits, including the errors that are necessary for the proper operation of PMTUD. This can result in connections that complete the TCP three-way handshake correctly, but then hang when data is transferred. This state is referred to as a <em>black hole</em> connection.</p>
 
         </div>
@@ -323,6 +329,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -339,6 +374,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

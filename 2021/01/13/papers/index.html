@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -176,35 +182,35 @@
 
         <div class="article-content markdown-body">
             <h3 id="the-Computer-Architecture"><a href="#the-Computer-Architecture" class="headerlink" title="the Computer Architecture"></a>the Computer Architecture</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="http://abelgo.cn/cs101/papers/Neumann.pdf" >The First Draft Report on the EDVAC<i class="fas fa-external-link-alt"></i></a>, 1945</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://cacm.acm.org/magazines/2019/2/234352-a-new-golden-age-for-computer-architecture/fulltext" >A New Golden Age for Computer Architecture<i class="fas fa-external-link-alt"></i></a>, 2019</li>
+<li><a class="link" target="_blank" rel="noopener" href="http://abelgo.cn/cs101/papers/Neumann.pdf">The First Draft Report on the EDVAC<i class="fas fa-external-link-alt"></i></a>, 1945</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://cacm.acm.org/magazines/2019/2/234352-a-new-golden-age-for-computer-architecture/fulltext">A New Golden Age for Computer Architecture<i class="fas fa-external-link-alt"></i></a>, 2019</li>
 </ul>
 <h3 id="the-Hypervisor"><a href="#the-Hypervisor" class="headerlink" title="the Hypervisor"></a>the Hypervisor</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://sites.google.com/site/sfma2019eurosys/Program" >The Multihype: Virtualizing Heterogeneous-ISA Architectures<i class="fas fa-external-link-alt"></i></a>, 2019<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/2678373.2665692" >Harnessing ISA Diversity: Design of a heterogeneous-ISA Chip Multiprocessor<i class="fas fa-external-link-alt"></i></a>, 2014</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/2892242.2892246" >Building a kvm-based hypervisor for a heterogeneous system architecture compliant system<i class="fas fa-external-link-alt"></i></a>, 2016</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://sites.google.com/site/sfma2019eurosys/Program">The Multihype: Virtualizing Heterogeneous-ISA Architectures<i class="fas fa-external-link-alt"></i></a>, 2019<ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/2678373.2665692">Harnessing ISA Diversity: Design of a heterogeneous-ISA Chip Multiprocessor<i class="fas fa-external-link-alt"></i></a>, 2014</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/2892242.2892246">Building a kvm-based hypervisor for a heterogeneous system architecture compliant system<i class="fas fa-external-link-alt"></i></a>, 2016</li>
 </ul>
 </li>
 </ul>
 <h3 id="the-Cloud"><a href="#the-Cloud" class="headerlink" title="the Cloud"></a>the Cloud</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-28.pdf" >Above the Clouds: A Berkeley View of Cloud Computing<i class="fas fa-external-link-alt"></i></a>, 2009</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.usenix.org/conference/osdi16/technical-sessions/presentation/arnautov" >SCONE: Secure Linux Containers with Intel SGX<i class="fas fa-external-link-alt"></i></a>, 2016</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.usenix.org/conference/atc18/presentation/oakes" >SOCK: Rapid Task Provisioning with Serverless-Optimized Containers<i class="fas fa-external-link-alt"></i></a>, 2018</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/1807.11248.pdf" >Comparison of FaaS Orchestration Systems<i class="fas fa-external-link-alt"></i></a>, 2018</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.usenix.org/system/files/osdi18-klimovic.pdf" >Pocket: Elastic Ephemeral Storage for Serverless Analytics<i class="fas fa-external-link-alt"></i></a>, 2018</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf" >Cloud Programming Simplified: A Berkeley View on Serverless Computing<i class="fas fa-external-link-alt"></i></a>, 2019</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-28.pdf">Above the Clouds: A Berkeley View of Cloud Computing<i class="fas fa-external-link-alt"></i></a>, 2009</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.usenix.org/conference/osdi16/technical-sessions/presentation/arnautov">SCONE: Secure Linux Containers with Intel SGX<i class="fas fa-external-link-alt"></i></a>, 2016</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.usenix.org/conference/atc18/presentation/oakes">SOCK: Rapid Task Provisioning with Serverless-Optimized Containers<i class="fas fa-external-link-alt"></i></a>, 2018</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/1807.11248.pdf">Comparison of FaaS Orchestration Systems<i class="fas fa-external-link-alt"></i></a>, 2018</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.usenix.org/system/files/osdi18-klimovic.pdf">Pocket: Elastic Ephemeral Storage for Serverless Analytics<i class="fas fa-external-link-alt"></i></a>, 2018</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf">Cloud Programming Simplified: A Berkeley View on Serverless Computing<i class="fas fa-external-link-alt"></i></a>, 2019</li>
 </ul>
 <h3 id="the-AI"><a href="#the-AI" class="headerlink" title="the AI"></a>the AI</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/pdf/1712.05855.pdf" >A Berkeley View of Systems Challenges for AI<i class="fas fa-external-link-alt"></i></a>, 2017</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://arxiv.org/pdf/1712.05855.pdf">A Berkeley View of Systems Challenges for AI<i class="fas fa-external-link-alt"></i></a>, 2017</li>
 </ul>
 <h3 id="the-Industrial-Practice"><a href="#the-Industrial-Practice" class="headerlink" title="the Industrial Practice"></a>the Industrial Practice</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://people.freebsd.org/~lstewart/articles/cpumemory.pdf" >What Every Programmer Should Know About Memory<i class="fas fa-external-link-alt"></i></a>, 2007</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3292006.3300030" >A Practical Intel SGX Setting for Linux Containers in the Cloud<i class="fas fa-external-link-alt"></i></a>, 2019</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://people.freebsd.org/~lstewart/articles/cpumemory.pdf">What Every Programmer Should Know About Memory<i class="fas fa-external-link-alt"></i></a>, 2007</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3292006.3300030">A Practical Intel SGX Setting for Linux Containers in the Cloud<i class="fas fa-external-link-alt"></i></a>, 2019</li>
 </ul>
-<h3 id="SCI-HUB"><a href="#SCI-HUB" class="headerlink" title="SCI-HUB"></a><a class="link"   target="_blank" rel="noopener" href="https://sci-hub.se/" >SCI-HUB<i class="fas fa-external-link-alt"></i></a></h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://scholar.google.com/" >Google Scholar<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.semanticscholar.org/" >SEMANTIC SCHOLAR<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.google.com/search?q=sci+hub&oq=sci+hub&aqs=chrome..69i57j69i60l3j69i65j69i60l3.1655j0j7&sourceid=chrome&ie=UTF-8" >try new link of SCI-HUB<i class="fas fa-external-link-alt"></i></a></li>
+<h3 id="SCI-HUB"><a href="#SCI-HUB" class="headerlink" title="SCI-HUB"></a><a class="link" target="_blank" rel="noopener" href="https://sci-hub.se/">SCI-HUB<i class="fas fa-external-link-alt"></i></a></h3><ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://scholar.google.com/">Google Scholar<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.semanticscholar.org/">SEMANTIC SCHOLAR<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.google.com/search?q=sci+hub&oq=sci+hub&aqs=chrome..69i57j69i60l3j69i65j69i60l3.1655j0j7&sourceid=chrome&ie=UTF-8">try new link of SCI-HUB<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -345,6 +351,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -361,6 +396,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

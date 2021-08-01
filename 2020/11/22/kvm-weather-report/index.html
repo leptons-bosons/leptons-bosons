@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -176,15 +182,15 @@
 
         <div class="article-content markdown-body">
             <h3 id="The-Reports"><a href="#The-Reports" class="headerlink" title="The Reports"></a>The Reports</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://events.static.linuxfound.org/slides/2011/linuxcon-japan/lcj2011_kvm_weather_report.pdf" >The KVM Weather Report, Jes Sorensen, 2011<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/cojp13_natapov.pdf" >KVM Weather Report, Gleb Natapov, 2013<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/cojp13_quintela.pdf" >KVM Live Migration: Weather forecast, Juan Quintela, 2013<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.socallinuxexpo.org/sites/default/files/presentations/kvm-weather-report.pdf" >KVM Weather Report, Amit Shah, 2016<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://events.static.linuxfound.org/slides/2011/linuxcon-japan/lcj2011_kvm_weather_report.pdf">The KVM Weather Report, Jes Sorensen, 2011<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/cojp13_natapov.pdf">KVM Weather Report, Gleb Natapov, 2013<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/cojp13_quintela.pdf">KVM Live Migration: Weather forecast, Juan Quintela, 2013<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.socallinuxexpo.org/sites/default/files/presentations/kvm-weather-report.pdf">KVM Weather Report, Amit Shah, 2016<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <h3 id="More-for-aarch64"><a href="#More-for-aarch64" class="headerlink" title="More for aarch64"></a>More for aarch64</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="http://www.cs.columbia.edu/~nieh/pubs/asplos2014_kvmarm.pdf" >KVM/ARM: The Design and Implementation of the Linux ARM Hypervisor, Christoffer Dall, Jason Nieh, 2014<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://hkg15.pathable.com/static/attachments/112961/1424963684.pdf?1424963684" >KVM/arm64 Architectural Evoluations, Marc Zyngier, 2015<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/slides/KoreaLinuxForum2015.pdf" >ARM-KVM: Weather Report Korea Linux Forum, Mario Smarduch, 2015<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://www.cs.columbia.edu/~nieh/pubs/asplos2014_kvmarm.pdf">KVM/ARM: The Design and Implementation of the Linux ARM Hypervisor, Christoffer Dall, Jason Nieh, 2014<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://hkg15.pathable.com/static/attachments/112961/1424963684.pdf?1424963684">KVM/arm64 Architectural Evoluations, Marc Zyngier, 2015<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://events.static.linuxfound.org/sites/events/files/slides/KoreaLinuxForum2015.pdf">ARM-KVM: Weather Report Korea Linux Forum, Mario Smarduch, 2015<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -325,6 +331,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -341,6 +376,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -264,13 +270,13 @@
 <li><p>CPU Virtualization</p>
 <ul>
 <li>VHE and VTx<ul>
-<li>aarch64, Virtualization Host Extensions(VHE), vmid/asid<br><img src="/leptons-bosons/arch64-vhe.png" alt="Virtualization Host Extensions(VHE)"></li>
-<li>x86_64 VTx: vmcs, root and non-root mode, vpid.<br><img src="/leptons-bosons/x86_64-vt-x_cpu-virtualization.png" alt="x86_64 CPU Virtualization with VT-x"></li>
+<li>aarch64, Virtualization Host Extensions(VHE), vmid/asid<br><img src="/leptons-bosons/.io//arch64-vhe.png" alt="Virtualization Host Extensions(VHE)"></li>
+<li>x86_64 VTx: vmcs, root and non-root mode, vpid.<br><img src="/leptons-bosons/.io//x86_64-vt-x_cpu-virtualization.png" alt="x86_64 CPU Virtualization with VT-x"></li>
 </ul>
 </li>
 <li>Privilege levels<ul>
 <li>aarch64 excpetion level, EL 0(userspace applications), EL 1(guest kernel), EL 2(host kernel/hypervisor), EL 3(secure)</li>
-<li>x86_64 ring, ring 0(hypervisor under root mode, guest under non-root mode), ring 1, ring 2, ring3(applications)<br><img src="/leptons-bosons/x86_64-ring.png" alt="x86_64 rings"></li>
+<li>x86_64 ring, ring 0(hypervisor under root mode, guest under non-root mode), ring 1, ring 2, ring3(applications)<br><img src="/leptons-bosons/.io//x86_64-ring.png" alt="x86_64 rings"></li>
 </ul>
 </li>
 </ul>
@@ -278,8 +284,8 @@
 <li><p>Memory Virtualization</p>
 <ul>
 <li>GVA to PHA translation<ul>
-<li>aarch64, stage 2 translation, GVA –mmu-&gt; IPA/GPA –mmu-&gt; HPA<br><img src="/leptons-bosons/arch64-stage-2.png" alt="Stage 2 translation"></li>
-<li>x86_64, extended page tables(EPT)<br><img src="/leptons-bosons/x86_64-ept.png" alt="EPT"></li>
+<li>aarch64, stage 2 translation, GVA –mmu-&gt; IPA/GPA –mmu-&gt; HPA<br><img src="/leptons-bosons/.io//arch64-stage-2.png" alt="Stage 2 translation"></li>
+<li>x86_64, extended page tables(EPT)<br><img src="/leptons-bosons/.io//x86_64-ept.png" alt="EPT"></li>
 </ul>
 </li>
 </ul>
@@ -317,9 +323,9 @@
     Finally, wall-clock time is specified as an offset to be added to the current real time. This allows the wall-clock time to be adjusted without affecting the forward progress of real time.
 </code></pre>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://developer.arm.com/architectures/learn-the-architecture/armv8-a-virtualization" >Learn the architecture of armv8 virtualization<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.html" >Intel® 64 and IA-32 Architectures Developer’s Manual<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.usenix.org/system/files/conference/atc17/atc17-dall.pdf" >Optimizing the Design and Implementation of the Linux ARM Hypervisor<i class="fas fa-external-link-alt"></i></a>, 2017 USENIX Annual Technical Conference</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://developer.arm.com/architectures/learn-the-architecture/armv8-a-virtualization">Learn the architecture of armv8 virtualization<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.html">Intel® 64 and IA-32 Architectures Developer’s Manual<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.usenix.org/system/files/conference/atc17/atc17-dall.pdf">Optimizing the Design and Implementation of the Linux ARM Hypervisor<i class="fas fa-external-link-alt"></i></a>, 2017 USENIX Annual Technical Conference</li>
 </ul>
 
         </div>
@@ -460,6 +466,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -476,6 +511,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

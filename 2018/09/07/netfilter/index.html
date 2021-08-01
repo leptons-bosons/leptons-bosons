@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -179,20 +185,20 @@
         
 
         <div class="article-content markdown-body">
-            <p><a class="link"   target="_blank" rel="noopener" href="http://ipset.netfilter.org/" >IP sets<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="http://www.linuxvirtualserver.org/" >ipvs<i class="fas fa-external-link-alt"></i></a> all based on the Linux kernel <a class="link"   target="_blank" rel="noopener" href="https://www.netfilter.org/" >netfilter<i class="fas fa-external-link-alt"></i></a> subsystem.</p>
+            <p><a class="link" target="_blank" rel="noopener" href="http://ipset.netfilter.org/">IP sets<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="http://www.linuxvirtualserver.org/">ipvs<i class="fas fa-external-link-alt"></i></a> all based on the Linux kernel <a class="link" target="_blank" rel="noopener" href="https://www.netfilter.org/">netfilter<i class="fas fa-external-link-alt"></i></a> subsystem.</p>
 <h3 id="Key-Structures-Variables-and-Functions"><a href="#Key-Structures-Variables-and-Functions" class="headerlink" title="Key Structures, Variables and Functions"></a>Key Structures, Variables and Functions</h3><ul>
 <li>net/netfilter/core.c: <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_hooks_needed">struct static_key <em>nf_hooks_needed[][]</em></a>, in the old kernel version <em>nf_hooks[][]</em> is defined.</li>
 <li>include/uapi/linux/netfilter.h: <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_inet_hooks">enum <em>nf_inet_hooks</em></a></li>
 <li>include/uapi/linux/netfilter.h: <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/NFPROTO_NUMPROTO"><em>NFPROTO_NUMPROTO</em></a></li>
 <li>include/uapi/linux/netfilter_ipv4.h: <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_ip_hook_priorities">enum <em>nf_iphook_priorities</em></a>, list the most common tables(priority from high to low):<ul>
-<li>NF_IP_PRI_RAW(-300), <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/packet_raw" >packet_raw<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_CONNTRACK(-200), <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_conntrack_l3proto_ipv4_init" >nf_conntrack_l3proto_ipv4_init<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops" >ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_MANGLE(-150), <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/packet_mangler" >packet_mangler<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_NAT_DST(-100), <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_table" >nf_nat_ipv4_table<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_ops" >nf_nat_ipv4_ops<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_FILTER(0), <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/packet_filter" >packet_filter<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_NAT_SRC(100), <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_table" >nf_nat_ipv4_table<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_ops" >nf_nat_ipv4_ops<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_CONNTRACK_HELPER(300), <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops" >ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_CONNTRACK_CONFIRM(INT_MAX), <a class="link"   target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops" >ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_RAW(-300), <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/packet_raw">packet_raw<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_CONNTRACK(-200), <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_conntrack_l3proto_ipv4_init">nf_conntrack_l3proto_ipv4_init<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops">ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_MANGLE(-150), <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/packet_mangler">packet_mangler<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_NAT_DST(-100), <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_table">nf_nat_ipv4_table<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_ops">nf_nat_ipv4_ops<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_FILTER(0), <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/packet_filter">packet_filter<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_NAT_SRC(100), <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_table">nf_nat_ipv4_table<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_ops">nf_nat_ipv4_ops<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_CONNTRACK_HELPER(300), <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops">ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_CONNTRACK_CONFIRM(INT_MAX), <a class="link" target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops">ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/NF_HOOK"><em>NF_HOOK()</em></a></li>
@@ -200,11 +206,11 @@
 <li><a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/nf_register_net_hook"><em>nf_register_net_hook()</em></a>, in the old kernel version <em>nf_register_hook</em> is defined.</li>
 </ul>
 <h3 id="Netfilter-Hooks-and-Tables"><a href="#Netfilter-Hooks-and-Tables" class="headerlink" title="Netfilter Hooks and Tables"></a>Netfilter Hooks and Tables</h3><ul>
-<li><p>Netfilter Hooks in Kernel<br><img src="/leptons-bosons/hooks-in-kernel.png" alt="Netfilter Hooks in Kernel"></p>
+<li><p>Netfilter Hooks in Kernel<br><img src="/leptons-bosons/.io//hooks-in-kernel.png" alt="Netfilter Hooks in Kernel"></p>
 </li>
-<li><p>Tables in Netfilter Hooks<br><img src="/leptons-bosons/tables-in-hook.png" alt="Tables in Netfilter Hooks"><br>Note: Dnat table in LOCAL_OUT actually is POST_RETOUING, but after modifty destination address/port called <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ip_route_me_harder"><em>ip_route_me_harder()</em></a>, used by iptable_nat and iptable_mangle + ip_queue, in <em>function nf_nat_ipv4_local_fn()</em>.</p>
+<li><p>Tables in Netfilter Hooks<br><img src="/leptons-bosons/.io//tables-in-hook.png" alt="Tables in Netfilter Hooks"><br>Note: Dnat table in LOCAL_OUT actually is POST_RETOUING, but after modifty destination address/port called <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ip_route_me_harder"><em>ip_route_me_harder()</em></a>, used by iptable_nat and iptable_mangle + ip_queue, in <em>function nf_nat_ipv4_local_fn()</em>.</p>
 </li>
-<li><p>Detail of Connection Tracking Hooks<br><img src="/leptons-bosons/conntrack-hooks.png" alt="Detail of Connection Tracking Hooks"><br>For packet received, routing decision is done by <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ip_mkroute_input"><em>ip_mkroute_input()</em></a> called by <em>ip_rcv_finish()</em>, while the local out packet routing is <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/__mkroute_output"><em>__mkroute_output()</em></a>.</p>
+<li><p>Detail of Connection Tracking Hooks<br><img src="/leptons-bosons/.io//conntrack-hooks.png" alt="Detail of Connection Tracking Hooks"><br>For packet received, routing decision is done by <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/ip_mkroute_input"><em>ip_mkroute_input()</em></a> called by <em>ip_rcv_finish()</em>, while the local out packet routing is <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/__mkroute_output"><em>__mkroute_output()</em></a>.</p>
 </li>
 <li><p>Transport Layer Trace(CentOS 7.4.1708 kernel-3.10.0.693)<br>inet_init(): struct net_protocol inet_protos[MAX_INET_PROTOS], e.g. udp_protocol, tcp_protocol, igmp_protocol, icmp_protocol.</p>
 <ul>
@@ -215,8 +221,8 @@
 </ul>
 <h3 id="Userspace-Tools"><a href="#Userspace-Tools" class="headerlink" title="Userspace Tools"></a>Userspace Tools</h3><ul>
 <li>iptables, ip6tables, arptables, ebtables</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://lwn.net/Articles/564095/" >nftables<i class="fas fa-external-link-alt"></i></a></li>
-<li>bpfilter, <a class="link"   target="_blank" rel="noopener" href="https://lwn.net/Articles/747551/" >BPF comes to firewalls<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://lwn.net/Articles/564095/">nftables<i class="fas fa-external-link-alt"></i></a></li>
+<li>bpfilter, <a class="link" target="_blank" rel="noopener" href="https://lwn.net/Articles/747551/">BPF comes to firewalls<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li>Linux Kernel Networking: Implemetation and Theory</li>
@@ -360,6 +366,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -376,6 +411,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

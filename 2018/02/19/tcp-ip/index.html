@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -184,11 +190,11 @@
 </li>
 <li><p>Keepalive timer<br>Under some circumstances, it is useful for a client or server to become aware of the termination or loss of connection with its peer. In other circumstances, it is desirable to keep a minimal amount of data flowing over a connection, even if the applications do not have any to exchange. TCP keepalive provides a capability useful for both cases. Keepalive is a method for TCP to probe its peer without affecting the content of the data stream. It is driven by a keepalive timer. When the timer fires, a keepalive probe (keepalive for short) is sent, and the peer receiving the probe responds with an ACK.</p>
 </li>
-<li><p>Persist timer in zero-window scenario<br>If an acknowledgment (containing a window update) is lost, we could end up with both sides waiting for the other: the receiver waiting to receive data (because it provided the sender with a nonzero window and expects to see incoming data) and the sender waiting to <em>receive the window update</em> allowing it to send. To prevent this form of deadlock from occurring, the sender uses a <em>persist timer</em> to query the receiver periodically, to find out if the window size has increased. The persist timer triggers the transmission of <em>window probes</em>. Also see in <a class="link"   target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc1122.txt" >RFC1122<i class="fas fa-external-link-alt"></i></a>.</p>
+<li><p>Persist timer in zero-window scenario<br>If an acknowledgment (containing a window update) is lost, we could end up with both sides waiting for the other: the receiver waiting to receive data (because it provided the sender with a nonzero window and expects to see incoming data) and the sender waiting to <em>receive the window update</em> allowing it to send. To prevent this form of deadlock from occurring, the sender uses a <em>persist timer</em> to query the receiver periodically, to find out if the window size has increased. The persist timer triggers the transmission of <em>window probes</em>. Also see in <a class="link" target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc1122.txt">RFC1122<i class="fas fa-external-link-alt"></i></a>.</p>
 </li>
 </ul>
 <h3 id="TCP-Sliding-Windows"><a href="#TCP-Sliding-Windows" class="headerlink" title="TCP Sliding Windows"></a>TCP Sliding Windows</h3><ul>
-<li>TCP Sliding Windows<br><img src="/leptons-bosons/sliding-window.jpg" alt="TCP Sliding Windows"></li>
+<li>TCP Sliding Windows<br><img src="/leptons-bosons/.io//sliding-window.jpg" alt="TCP Sliding Windows"></li>
 </ul>
 <h3 id="TCP-Congestion-Control"><a href="#TCP-Congestion-Control" class="headerlink" title="TCP Congestion Control"></a>TCP Congestion Control</h3><ul>
 <li><p>Self-Clock based on ACK</p>
@@ -197,7 +203,7 @@
 </li>
 <li><p>High Bandwidth-Delay-Product, with scaling window size</p>
 </li>
-<li><p>Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery Algorithms, <a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2001" >RFC2001<i class="fas fa-external-link-alt"></i></a></p>
+<li><p>Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery Algorithms, <a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2001">RFC2001<i class="fas fa-external-link-alt"></i></a></p>
 <ul>
 <li><p>Slow start: each time an ACK is received, the congestion window is increased by one segment. The sender can transmit up to the minimum of the congestion window and the advertised window.</p>
 </li>
@@ -216,27 +222,27 @@
 </ul>
 <p>Congestion avoidance dictates that cwnd be incremented by segsize*segsize/cwnd each time an ACK is received, where segsize is the segment size and cwnd is maintained in bytes. This is a <em>linear growth</em> of cwnd, compared to slow start’s <em>exponential growth</em>.</p>
 <ul>
-<li><p>TCP Congestion Control illustrate<br><img src="/leptons-bosons/congestion_control.jpg" alt="TCP Congestion Control illustrate"></p>
+<li><p>TCP Congestion Control illustrate<br><img src="/leptons-bosons/.io//congestion_control.jpg" alt="TCP Congestion Control illustrate"></p>
 </li>
-<li><p>Bandwith Utilization of Competion Between Multiple-Flows<br><img src="/leptons-bosons/competion-between-multiple-flows.jpg" alt="Bandwith Utilization of Competion Between Multiple-Flows"></p>
+<li><p>Bandwith Utilization of Competion Between Multiple-Flows<br><img src="/leptons-bosons/.io//competion-between-multiple-flows.jpg" alt="Bandwith Utilization of Competion Between Multiple-Flows"></p>
 </li>
 </ul>
 <h3 id="TCP-Connection-Establishment-and-Termination"><a href="#TCP-Connection-Establishment-and-Termination" class="headerlink" title="TCP Connection Establishment and Termination"></a>TCP Connection Establishment and Termination</h3><ul>
-<li>Connection Set-Up: Three-Way Handshake<br><img src="/leptons-bosons/tcpopen3way.png" alt="Connection Set-Up: Three-Way Handshake"></li>
-<li>Connection Close: Modified Three-Way Handshake<br><img src="/leptons-bosons/tcpclose.png" alt="Connection Close: Modified Three-Way Handshake"></li>
-<li>TCP State Machine<br><img src="/leptons-bosons/tcpfsm.png" alt="TCP State Transition"></li>
+<li>Connection Set-Up: Three-Way Handshake<br><img src="/leptons-bosons/.io//tcpopen3way.png" alt="Connection Set-Up: Three-Way Handshake"></li>
+<li>Connection Close: Modified Three-Way Handshake<br><img src="/leptons-bosons/.io//tcpclose.png" alt="Connection Close: Modified Three-Way Handshake"></li>
+<li>TCP State Machine<br><img src="/leptons-bosons/.io//tcpfsm.png" alt="TCP State Transition"></li>
 </ul>
 <h3 id="Some-Problems"><a href="#Some-Problems" class="headerlink" title="Some Problems"></a>Some Problems</h3><ul>
 <li>Without any flow control, mixed with tcp and udp streams, tcp streams are always starved.</li>
-<li>Silly window syndrome, when it occurs, small data segments are exchanged across the connection instead of full-size segments, <a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc0813" >RFC0813<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1122" >RFC1122<i class="fas fa-external-link-alt"></i></a>.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. When operating as a receiver, small windows are not advertised. The receive</span><br><span class="line">   algorithm specified by [RFC1122] is to not send a segment advertising a</span><br><span class="line">   larger window than is currently being advertised (which can be 0) until the</span><br><span class="line">   window can be increased by either one full-size segment (i.e., the receive</span><br><span class="line">   MSS) or by one-half of the receiver’s buffer space, whichever is smaller.</span><br><span class="line">   Note that there are two cases where this rule can come into play: when buffer</span><br><span class="line">   space has become available because of an application consuming data</span><br><span class="line">   from the network, and when TCP must respond to a window probe.</span><br><span class="line">2. When sending, small segments are not sent and the Nagle algorithm governs</span><br><span class="line">   when to send. Senders avoid SWS by not transmitting a segment</span><br><span class="line">   unless at least one of the following conditions is true:</span><br><span class="line">   a. A full-size (send MSS bytes) segment can be sent.</span><br><span class="line">   b. TCP can send at least one-half of the maximum-size window that the</span><br><span class="line">	  other end has ever advertised on this connection.</span><br><span class="line">   c. TCP can send everything it has to send and either (i) an ACK is not currently</span><br><span class="line">	  expected (i.e., we have no outstanding unacknowledged data) or</span><br><span class="line">	  (ii) the Nagle algorithm is disabled for this connection.</span><br></pre></td></tr></table></figure></li>
+<li>Silly window syndrome, when it occurs, small data segments are exchanged across the connection instead of full-size segments, <a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc0813">RFC0813<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1122">RFC1122<i class="fas fa-external-link-alt"></i></a>.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. When operating as a receiver, small windows are not advertised. The receive</span><br><span class="line">   algorithm specified by [RFC1122] is to not send a segment advertising a</span><br><span class="line">   larger window than is currently being advertised (which can be 0) until the</span><br><span class="line">   window can be increased by either one full-size segment (i.e., the receive</span><br><span class="line">   MSS) or by one-half of the receiver’s buffer space, whichever is smaller.</span><br><span class="line">   Note that there are two cases where this rule can come into play: when buffer</span><br><span class="line">   space has become available because of an application consuming data</span><br><span class="line">   from the network, and when TCP must respond to a window probe.</span><br><span class="line">2. When sending, small segments are not sent and the Nagle algorithm governs</span><br><span class="line">   when to send. Senders avoid SWS by not transmitting a segment</span><br><span class="line">   unless at least one of the following conditions is true:</span><br><span class="line">   a. A full-size (send MSS bytes) segment can be sent.</span><br><span class="line">   b. TCP can send at least one-half of the maximum-size window that the</span><br><span class="line">	  other end has ever advertised on this connection.</span><br><span class="line">   c. TCP can send everything it has to send and either (i) an ACK is not currently</span><br><span class="line">	  expected (i.e., we have no outstanding unacknowledged data) or</span><br><span class="line">	  (ii) the Nagle algorithm is disabled for this connection.</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Other-Choice-but-TCP"><a href="#Other-Choice-but-TCP" class="headerlink" title="Other Choice but TCP"></a>Other Choice but TCP</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4960" >SCTP(Stream Control Transmission Protocol)<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4340" >DCCP(Datagram Congestion Control Protocol)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4960">SCTP(Stream Control Transmission Protocol)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4340">DCCP(Datagram Congestion Control Protocol)<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li>TCP/IP Illustrated, Volume I The Protocols(Second Edition)</li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://intronetworks.cs.luc.edu/current/html/tcp.html" >An Introduction to Computer Networks: Chapter 12, TCP Transport<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://intronetworks.cs.luc.edu/current/html/tcp.html">An Introduction to Computer Networks: Chapter 12, TCP Transport<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -377,6 +383,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -393,6 +428,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

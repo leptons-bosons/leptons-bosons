@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -177,7 +183,7 @@
         <div class="article-content markdown-body">
             <h3 id="Scenarios-amp-Chanllenges"><a href="#Scenarios-amp-Chanllenges" class="headerlink" title="Scenarios &amp; Chanllenges"></a>Scenarios &amp; Chanllenges</h3><ul>
 <li>Cloud Native: the number of connections grow with thousands times<ul>
-<li>ScaleUp-&gt;ScaleOut-&gt;Mesh, <strong>see references item 1</strong><br><img src="/leptons-bosons/./images/ScaleupsScaleoutMesh.png" alt="ScaleUp-&gt;ScaleOut-&gt;Mesh"></li>
+<li>ScaleUp-&gt;ScaleOut-&gt;Mesh, <strong>see references item 1</strong><br><img src="/leptons-bosons/.io//ScaleupsScaleoutMesh.png" alt="ScaleUp-&gt;ScaleOut-&gt;Mesh"></li>
 </ul>
 </li>
 <li>Serverless: IO delay of stateful applications<ul>
@@ -188,19 +194,19 @@
 </ul>
 <h3 id="Key-Technology"><a href="#Key-Technology" class="headerlink" title="Key Technology"></a>Key Technology</h3><ul>
 <li>Live migration for pass-through devices</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.mellanox.com/files/doc-2020/sb-mellanox-nvme-snap.pdf" >NVMe device emulation using a SmartNIC, Mellanox NVMe-SNAP<i class="fas fa-external-link-alt"></i></a></li>
-<li>Standardization: <a class="link"   target="_blank" rel="noopener" href="http://docs.oasis-open.org/virtio/virtio/" >virtio<i class="fas fa-external-link-alt"></i></a>, Michael S. Tsirkin, Cornelia Huck<ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://archive.fosdem.org/2018/schedule/event/virtio/attachments/slides/2167/export/events/attachments/virtio/slides/2167/fosdem_virtio1_1.pdf" >What’s New in Virtio 1.1<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.linux-kvm.org/images/5/55/02x07A-Wei_Wang-Design_of-Vhost-pci.pdf" >Design of Vhost-pci<i class="fas fa-external-link-alt"></i></a>: share memory between 2 VMs, security?</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.mellanox.com/files/doc-2020/sb-mellanox-nvme-snap.pdf">NVMe device emulation using a SmartNIC, Mellanox NVMe-SNAP<i class="fas fa-external-link-alt"></i></a></li>
+<li>Standardization: <a class="link" target="_blank" rel="noopener" href="http://docs.oasis-open.org/virtio/virtio/">virtio<i class="fas fa-external-link-alt"></i></a>, Michael S. Tsirkin, Cornelia Huck<ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://archive.fosdem.org/2018/schedule/event/virtio/attachments/slides/2167/export/events/attachments/virtio/slides/2167/fosdem_virtio1_1.pdf">What’s New in Virtio 1.1<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.linux-kvm.org/images/5/55/02x07A-Wei_Wang-Design_of-Vhost-pci.pdf">Design of Vhost-pci<i class="fas fa-external-link-alt"></i></a>: share memory between 2 VMs, security?</li>
 <li>vDPA, Full Offloading, <strong>see references item 3</strong></li>
 </ul>
 </li>
 </ul>
-<h3 id="Nvidia-DPU-Archtecture-DOCA"><a href="#Nvidia-DPU-Archtecture-DOCA" class="headerlink" title="Nvidia DPU Archtecture, DOCA"></a>Nvidia DPU Archtecture, <a class="link"   target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/programming-the-entire-data-center-infrastructure-with-the-nvidia-doca-sdk/" >DOCA<i class="fas fa-external-link-alt"></i></a></h3><ul>
-<li>Functional Diagram, <strong>see references item 4</strong><br><img src="/leptons-bosons/./images/FunctionalDiagram.png" alt="Functional Diagram"></li>
-<li>Network Offload Diagram, <strong>see references item 4</strong><br><img src="/leptons-bosons/./images/NetworkOffload.png" alt="Network Offload Diagram"></li>
+<h3 id="Nvidia-DPU-Archtecture-DOCA"><a href="#Nvidia-DPU-Archtecture-DOCA" class="headerlink" title="Nvidia DPU Archtecture, DOCA"></a>Nvidia DPU Archtecture, <a class="link" target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/programming-the-entire-data-center-infrastructure-with-the-nvidia-doca-sdk/">DOCA<i class="fas fa-external-link-alt"></i></a></h3><ul>
+<li>Functional Diagram, <strong>see references item 4</strong><br><img src="/leptons-bosons/.io//FunctionalDiagram.png" alt="Functional Diagram"></li>
+<li>Network Offload Diagram, <strong>see references item 4</strong><br><img src="/leptons-bosons/.io//NetworkOffload.png" alt="Network Offload Diagram"></li>
 </ul>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[1] <a class="link"   target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/networking/products/data-processing-unit/" >Nvidia Data Processing Units<i class="fas fa-external-link-alt"></i></a><br>[2] <a class="link"   target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf" >Cloud Programming Simplified: A Berkeley View on Serverless Computing<i class="fas fa-external-link-alt"></i></a><br>[3] <a class="link"   target="_blank" rel="noopener" href="https://kvmforum2019.sched.com/event/TmxF/virtio-without-the-virt-towards-implementations-in-hardware-michael-tsirkin-red-hat" >VirtIO without the Virt<i class="fas fa-external-link-alt"></i></a><br>[4] <a class="link"   target="_blank" rel="noopener" href="https://docs.mellanox.com/display/BlueFieldSWv25111213/BlueField+Software+Overview" >BlueField Software Manual<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[1] <a class="link" target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/networking/products/data-processing-unit/">Nvidia Data Processing Units<i class="fas fa-external-link-alt"></i></a><br>[2] <a class="link" target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf">Cloud Programming Simplified: A Berkeley View on Serverless Computing<i class="fas fa-external-link-alt"></i></a><br>[3] <a class="link" target="_blank" rel="noopener" href="https://kvmforum2019.sched.com/event/TmxF/virtio-without-the-virt-towards-implementations-in-hardware-michael-tsirkin-red-hat">VirtIO without the Virt<i class="fas fa-external-link-alt"></i></a><br>[4] <a class="link" target="_blank" rel="noopener" href="https://docs.mellanox.com/display/BlueFieldSWv25111213/BlueField+Software+Overview">BlueField Software Manual<i class="fas fa-external-link-alt"></i></a></p>
 
         </div>
 
@@ -340,6 +346,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -356,6 +391,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

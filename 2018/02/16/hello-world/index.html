@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -175,49 +181,49 @@
         
 
         <div class="article-content markdown-body">
-            <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
+            <p>Welcome to <a class="link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link" target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
 <h3 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h3><ul>
-<li><p>Create a new <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >post<i class="fas fa-external-link-alt"></i></a></p>
+<li><p>Create a new <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">post<i class="fas fa-external-link-alt"></i></a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash $ hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>Run <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >server<i class="fas fa-external-link-alt"></i></a></p>
+<li><p>Run <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">server<i class="fas fa-external-link-alt"></i></a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash $ npm install hexo-server; hexo server</span><br><span class="line">bash $ hexo server</span><br></pre></td></tr></table></figure></li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generate<i class="fas fa-external-link-alt"></i></a> static files</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generate<i class="fas fa-external-link-alt"></i></a> static files</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash $ hexo generate</span><br></pre></td></tr></table></figure></li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html" >Deploy<i class="fas fa-external-link-alt"></i></a> to remote sites</p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">Deploy<i class="fas fa-external-link-alt"></i></a> to remote sites</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash $ hexo deploy</span><br></pre></td></tr></table></figure></li>
 <li><p>Shortcut for clean, generate, deploy</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash $ hexo clean; hexo ge; hexo de</span><br></pre></td></tr></table></figure></li>
-<li><p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/themes/" >Hexo themes<i class="fas fa-external-link-alt"></i></a></p>
+<li><p><a class="link" target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo themes<i class="fas fa-external-link-alt"></i></a></p>
 </li>
 </ul>
 <h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://daringfireball.net/projects/markdown/syntax" >markdown syntax #1<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.jianshu.com/p/20e82ddb37cb#picturelinksize" >markdown syntax #2<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://www.markdownpad.com/" >MarkdownPad<i class="fas fa-external-link-alt"></i></a>: a full-featured Markdown editor for Windows</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://daringfireball.net/projects/markdown/syntax">markdown syntax #1<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.jianshu.com/p/20e82ddb37cb#picturelinksize">markdown syntax #2<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://www.markdownpad.com/">MarkdownPad<i class="fas fa-external-link-alt"></i></a>: a full-featured Markdown editor for Windows</li>
 </ul>
 <h3 id="Favicon-generator"><a href="#Favicon-generator" class="headerlink" title="Favicon generator"></a>Favicon generator</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.axialis.com/" >axialis<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.flaticon.com/" >flaticon<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://iconsflow.com/" >icons flow<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://realfavicongenerator.net/" >realfavicon<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://fontawesome.com/icons?from=io#brand" >font awesome icon<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.axialis.com/">axialis<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.flaticon.com/">flaticon<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://iconsflow.com/">icons flow<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://realfavicongenerator.net/">realfavicon<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://fontawesome.com/icons?from=io#brand">font awesome icon<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <h3 id="Web-framework"><a href="#Web-framework" class="headerlink" title="Web framework"></a>Web framework</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="http://flask.pocoo.org/" >flask<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://nginx.org/en/" >nginx<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.djangoproject.com/" >django<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://flask.pocoo.org/">flask<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://nginx.org/en/">nginx<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.djangoproject.com/">django<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <h3 id="Linux-notes"><a href="#Linux-notes" class="headerlink" title="Linux notes"></a>Linux notes</h3><ul>
 <li>First please run <code>hexo init</code> on an empty folder and then copy your files into it</li>
-<li>Must install the newest <a class="link"   target="_blank" rel="noopener" href="https://github.com/nodesource/distributions" >nodejs<i class="fas fa-external-link-alt"></i></a>, not the default version of OS</li>
+<li>Must install the newest <a class="link" target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">nodejs<i class="fas fa-external-link-alt"></i></a>, not the default version of OS</li>
 <li>Local hexo not found in, solved by update the nodejs, <em>npm install -g n; n 8.12.0 or n latest</em></li>
 <li>/usr/bin/env: node: No such file or directory, solved by <em>ln -s /usr/bin/nodejs /usr/bin/node</em></li>
 <li>ERROR Deployer not found: git, solved by <em>npm install hexo-deployer-git –save</em></li>
 </ul>
 <h3 id="Demo-tutor"><a href="#Demo-tutor" class="headerlink" title="Demo tutor"></a>Demo tutor</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/chengxs/p/7496265.html" >CNAME deploy<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-create-a-blog-with-hexo-on-ubuntu-14-04" >hexo tutor for ubuntu<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/visugar/p/6821777.html" >hexo tutor for windows<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/chengxs/p/7496265.html">CNAME deploy<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-create-a-blog-with-hexo-on-ubuntu-14-04">hexo tutor for ubuntu<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/visugar/p/6821777.html">hexo tutor for windows<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -343,6 +349,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -359,6 +394,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -185,16 +191,16 @@
         <div class="article-content markdown-body">
             <p>DPDK 17.02’s rte_flow, the framework of hardware acceleration.</p>
 <ul>
-<li>flowtable-hwaccel-flowchart<br><img src="/leptons-bosons/flowtable-hwaccel-flowchart.png" alt="flowtable-hwaccel-flowchart"></li>
+<li>flowtable-hwaccel-flowchart<br><img src="/leptons-bosons/.io//flowtable-hwaccel-flowchart.png" alt="flowtable-hwaccel-flowchart"></li>
 </ul>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.napatech.com/" >napatech’s<i class="fas fa-external-link-alt"></i></a> illustration:</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.napatech.com/">napatech’s<i class="fas fa-external-link-alt"></i></a> illustration:</p>
 <ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.napatech.com/hw-acceleration-via-rte_flow/" >Acceleration in HW is Boosting Performance. In DPDK 17.02 rte_Flow is the Enabler<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.napatech.com/acl-hw-acceleration-vpp/" >ACL HW acceleration in VPP shows great performance improvements<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.napatech.com/hw-acceleration-via-rte_flow/">Acceleration in HW is Boosting Performance. In DPDK 17.02 rte_Flow is the Enabler<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.napatech.com/acl-hw-acceleration-vpp/">ACL HW acceleration in VPP shows great performance improvements<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <p>DPDK’s flow acceleration framework</p>
 <ul>
-<li><p>flow attribute, item and action, see <a class="link"   target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/lib/librte_ethdev/rte_flow.h" >rte_flow.h<i class="fas fa-external-link-alt"></i></a></p>
+<li><p>flow attribute, item and action, see <a class="link" target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/lib/librte_ethdev/rte_flow.h">rte_flow.h<i class="fas fa-external-link-alt"></i></a></p>
 <ul>
 <li>Pattern items fall in two categories:<ul>
 <li>Matching protocol headers and packet data, usually associated with a specification structure. These must be stacked in the same order as the protocol layers to match inside packets, starting from the lowest.</li>
@@ -207,10 +213,10 @@
 <li>Actions related to the flow rule itself, such as updating counters or making it non-terminating.</li>
 </ul>
 </li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/lib/librte_ethdev/rte_ethdev_core.h#n360" >eth_filter_ctrl_t<i class="fas fa-external-link-alt"></i></a>, e.g. <a class="link"   target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/drivers/net/ixgbe/ixgbe_ethdev.c#n6734" >ixgbe_dev_filter_ctrl<i class="fas fa-external-link-alt"></i></a>, <a class="link"   target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/drivers/net/i40e/i40e_ethdev.c#n9862" >i40e_dev_filter_ctrl<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/lib/librte_ethdev/rte_ethdev_core.h#n360">eth_filter_ctrl_t<i class="fas fa-external-link-alt"></i></a>, e.g. <a class="link" target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/drivers/net/ixgbe/ixgbe_ethdev.c#n6734">ixgbe_dev_filter_ctrl<i class="fas fa-external-link-alt"></i></a>, <a class="link" target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/drivers/net/i40e/i40e_ethdev.c#n9862">i40e_dev_filter_ctrl<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 </li>
-<li><p>example of flow aaceleartion, <a class="link"   target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/examples/flow_filtering/flow_blocks.c" >generate_ipv4_flow<i class="fas fa-external-link-alt"></i></a></p>
+<li><p>example of flow aaceleartion, <a class="link" target="_blank" rel="noopener" href="http://git.dpdk.org/dpdk/tree/examples/flow_filtering/flow_blocks.c">generate_ipv4_flow<i class="fas fa-external-link-alt"></i></a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">initialize of struct rte_flow_attr</span><br><span class="line">	--&gt; struct rte_flow_item</span><br><span class="line">		--&gt; struct rte_flow_action</span><br><span class="line">			--&gt; rte_flow_create()</span><br><span class="line">				--&gt; eth_filter_ctrl_t, e.g. ixgbe_dev_filter_ctrl</span><br><span class="line">					--&gt; struct rte_flow_ops&#x27;s create, e.g. ixgbe_flow_create</span><br></pre></td></tr></table></figure></li>
 </ul>
 
@@ -352,6 +358,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -368,6 +403,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

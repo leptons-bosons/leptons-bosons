@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -180,23 +186,23 @@
 
         <div class="article-content markdown-body">
             <h3 id="Vim-Modes"><a href="#Vim-Modes" class="headerlink" title="Vim Modes"></a>Vim Modes</h3><ul>
-<li>Vim modes switch<br><img src="/leptons-bosons/vim-modes.png" alt="Vim Modes Switch"></li>
-<li>Remap &lt;Esc&gt; key, changing <a class="link"   target="_blank" rel="noopener" href="http://learnvimscriptthehardway.stevelosh.com/chapters/06.html" >the leader key<i class="fas fa-external-link-alt"></i></a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cat ~/.vimrc </span><br><span class="line">inoremap jk &lt;Esc&gt;</span><br><span class="line">let mapleader=&quot;&lt;Space&gt;&quot;</span><br></pre></td></tr></table></figure></li>
+<li>Vim modes switch<br><img src="/leptons-bosons/.io//vim-modes.png" alt="Vim Modes Switch"></li>
+<li>Remap &lt;Esc&gt; key, changing <a class="link" target="_blank" rel="noopener" href="http://learnvimscriptthehardway.stevelosh.com/chapters/06.html">the leader key<i class="fas fa-external-link-alt"></i></a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cat ~/.vimrc </span><br><span class="line">inoremap jk &lt;Esc&gt;</span><br><span class="line">let mapleader=&quot;&lt;Space&gt;&quot;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Free-Online-Resources-to-Learn-Vim"><a href="#Free-Online-Resources-to-Learn-Vim" class="headerlink" title="Free Online Resources to Learn Vim"></a>Free Online Resources to Learn Vim</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.vim.org/" >vim<i class="fas fa-external-link-alt"></i></a>, vimtutor</li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.openvim.com/" >openvim<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://vimcasts.org/" >vimcasts<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://www.vimgenius.com/" >vim genius<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://vim.rtorr.com/" >vim cheet sheet<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.vim.org/scripts/script.php?script_id=3409" >HJKL-learning game<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://vim-adventures.com/" >vim-adventures game<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.vim.org/">vim<i class="fas fa-external-link-alt"></i></a>, vimtutor</li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.openvim.com/">openvim<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://vimcasts.org/">vimcasts<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://www.vimgenius.com/">vim genius<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://vim.rtorr.com/">vim cheet sheet<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.vim.org/scripts/script.php?script_id=3409">HJKL-learning game<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://vim-adventures.com/">vim-adventures game<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <h3 id="Vedios-and-Blogs"><a href="#Vedios-and-Blogs" class="headerlink" title="Vedios and Blogs"></a>Vedios and Blogs</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="http://derekwyatt.org/vim/tutorials/index.html" >vim vedios<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://vimeo.com/search?q=welcom+to+vim" >basics of vim<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.labnol.org/internet/learning-vim-for-beginners/28820/" >Learning Vim for Beginners<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://medium.com/actualize-network/how-to-learn-vim-a-four-week-plan-cd8b376a9b85" >How To Learn Vim: A Four Week Plan<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://derekwyatt.org/vim/tutorials/index.html">vim vedios<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://vimeo.com/search?q=welcom+to+vim">basics of vim<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.labnol.org/internet/learning-vim-for-beginners/28820/">Learning Vim for Beginners<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://medium.com/actualize-network/how-to-learn-vim-a-four-week-plan-cd8b376a9b85">How To Learn Vim: A Four Week Plan<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <h3 id="Frequent-Commands"><a href="#Frequent-Commands" class="headerlink" title="Frequent Commands"></a>Frequent Commands</h3><ul>
 <li>One line<ul>
@@ -216,8 +222,8 @@
 </li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://danielmiessler.com/study/vim/" >A vim Tutorial and Primer<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="http://learnvimscriptthehardway.stevelosh.com/" >Learn Vimscript the Hard Way<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://danielmiessler.com/study/vim/">A vim Tutorial and Primer<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="http://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the Hard Way<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -358,6 +364,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -374,6 +409,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

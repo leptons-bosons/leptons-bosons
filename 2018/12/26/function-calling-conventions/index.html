@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -194,8 +200,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble main </span><br><span class="line">Dump of assembler code for function main:</span><br><span class="line">   0x000000000040069b &lt;+0&gt;:	push   %rbp</span><br><span class="line">   0x000000000040069c &lt;+1&gt;:	mov    %rsp,%rbp</span><br><span class="line">   0x000000000040069f &lt;+4&gt;:	sub    $0x20,%rsp</span><br><span class="line">...</span><br><span class="line">   0x0000000000400744 &lt;+169&gt;:	jmp    0x400774 &lt;main+217&gt;</span><br><span class="line">   0x0000000000400746 &lt;+171&gt;:	mov    $0x0,%edi ----------------------------------------------------#1</span><br><span class="line">   0x000000000040074b &lt;+176&gt;:	callq  0x400666 &lt;sum_till_max&gt; --------------------------------------#2</span><br><span class="line">   0x0000000000400750 &lt;+181&gt;:	mov    %rax,-0x8(%rbp)</span><br><span class="line">   0x0000000000400754 &lt;+185&gt;:	mov    0x2008f6(%rip),%eax        # 0x601050 &lt;max_add_end&gt;</span><br><span class="line">...</span><br><span class="line">(gdb) disassemble sum_till_max </span><br><span class="line">Dump of assembler code for function sum_till_max:</span><br><span class="line">   0x0000000000400666 &lt;+0&gt;: 	push   %rbp ---------------------------------------------------------#3</span><br><span class="line">   0x0000000000400667 &lt;+1&gt;: 	mov    %rsp,%rbp ----------------------------------------------------#4</span><br><span class="line">   0x000000000040066a &lt;+4&gt;: 	sub    $0x20,%rsp ---------------------------------------------------#5</span><br><span class="line">   0x000000000040066e &lt;+8&gt;: 	mov    %edi,-0x14(%rbp)</span><br><span class="line">   0x0000000000400671 &lt;+11&gt;:	addl   $0x1,-0x14(%rbp) ---------------------------------------------#6</span><br><span class="line">   0x0000000000400675 &lt;+15&gt;:	mov    -0x14(%rbp),%eax</span><br><span class="line">   0x0000000000400678 &lt;+18&gt;:	mov    %rax,-0x8(%rbp)</span><br><span class="line">   0x000000000040067c &lt;+22&gt;:	mov    0x2009ce(%rip),%eax        # 0x601050 &lt;max_add_end&gt;</span><br><span class="line">   0x0000000000400682 &lt;+28&gt;:	cmp    %eax,-0x14(%rbp)</span><br><span class="line">   0x0000000000400685 &lt;+31&gt;:	jae    0x400695 &lt;sum_till_max+47&gt;</span><br><span class="line">   0x0000000000400687 &lt;+33&gt;:	mov    -0x14(%rbp),%eax</span><br><span class="line">   0x000000000040068a &lt;+36&gt;:	mov    %eax,%edi</span><br><span class="line">   0x000000000040068c &lt;+38&gt;:	callq  0x400666 &lt;sum_till_max&gt;</span><br><span class="line">   0x0000000000400691 &lt;+43&gt;:	add    %rax,-0x8(%rbp)</span><br><span class="line">   0x0000000000400695 &lt;+47&gt;:	mov    -0x8(%rbp),%rax</span><br><span class="line">   0x0000000000400699 &lt;+51&gt;:	leaveq --------------------------------------------------------------#7</span><br><span class="line">   0x000000000040069a &lt;+52&gt;:	retq ----------------------------------------------------------------#8</span><br><span class="line">End of assembler dump.</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://manybutfinite.com/post/journey-to-the-stack/" >journey to the stack<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions" >x86 Disassembly/Calling Conventions<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://manybutfinite.com/post/journey-to-the-stack/">journey to the stack<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions">x86 Disassembly/Calling Conventions<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -336,6 +342,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -352,6 +387,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 

@@ -22,8 +22,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"username.github.io","root":"/leptons-bosons/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -75,9 +75,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -225,10 +231,10 @@
 <ul>
 <li>UML Notations</li>
 </ul>
-<p>– Relationships: Dependency Notation, Association Notation, Generalization Notation, Extensibility Notation<br>– Relationships between classes<br><img src="/leptons-bosons/07-relationships-between-classes.png" alt="Relationships between classes"><br>– Class Diagram Example: Order System<br><img src="/leptons-bosons/17-class-diagram-example-order-system.png" alt="Class Diagram Example: Order System"><br>– Class Diagram Example: GUI<br><img src="/leptons-bosons/18-uml-class-diagram-example-gui.png" alt="Class Diagram Example: GUI"></p>
+<p>– Relationships: Dependency Notation, Association Notation, Generalization Notation, Extensibility Notation<br>– Relationships between classes<br><img src="/leptons-bosons/.io//07-relationships-between-classes.png" alt="Relationships between classes"><br>– Class Diagram Example: Order System<br><img src="/leptons-bosons/.io//17-class-diagram-example-order-system.png" alt="Class Diagram Example: Order System"><br>– Class Diagram Example: GUI<br><img src="/leptons-bosons/.io//18-uml-class-diagram-example-gui.png" alt="Class Diagram Example: GUI"></p>
 <h1 id="Referencs"><a href="#Referencs" class="headerlink" title="Referencs"></a>Referencs</h1><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/" >UML Class Diagram Tutorial<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://tallyfy.com/uml-diagram/#composite-structure-diagram" >All You Need to Know About UML Diagrams: Types and 5+ Examples<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/">UML Class Diagram Tutorial<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://tallyfy.com/uml-diagram/#composite-structure-diagram">All You Need to Know About UML Diagrams: Types and 5+ Examples<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 
         </div>
@@ -369,6 +375,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -385,6 +420,10 @@
 
 <script src="/leptons-bosons/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/leptons-bosons/js/local-search.js"></script>
 
 
 
