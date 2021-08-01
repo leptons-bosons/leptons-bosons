@@ -33,28 +33,28 @@
 </tr>
 </tbody></table>
 <h3 id="O-log2n"><a href="#O-log2n" class="headerlink" title="O(log2n)"></a>O(log2n)</h3><ul>
-<li><p>logarithmic time<br><img src="/leptons-bosons/.io//log2n.png" alt="logarithmic time"></p>
+<li><p>logarithmic time<br><img src="/leptons-bosons/.io//2018/08/04/Big-O/log2n.png" alt="logarithmic time"></p>
 </li>
 <li><p>code of binary search</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">static int array[] = &#123;9, 15, 21, 23, 57, 98, 101, 111&#125;;</span><br><span class="line">static int asize = sizeof(array) / sizeof(int);</span><br><span class="line"></span><br><span class="line">static void dump_array(int array[], int size, const char *prefix)</span><br><span class="line">&#123;</span><br><span class="line">  int i;</span><br><span class="line"></span><br><span class="line">  if (NULL != prefix) &#123;</span><br><span class="line">    printf(&quot;%s: &quot;, prefix);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  for (i = 0; i &lt; asize; i++) &#123;</span><br><span class="line">    printf(&quot;array[%d] = %d, &quot;, i, array[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">  return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static int bsearch(int array[], int size, int key)</span><br><span class="line">&#123;</span><br><span class="line">  int i, low, high, guess;</span><br><span class="line"> </span><br><span class="line">  low = 0; high = size - 1;</span><br><span class="line"></span><br><span class="line">  while (low &lt;= high) &#123;</span><br><span class="line">    guess = (low + high) / 2;</span><br><span class="line"></span><br><span class="line">    if (key &gt; array[guess]) &#123;</span><br><span class="line">      low = guess + 1;</span><br><span class="line">    &#125; else if (key &lt; array[guess]) &#123;</span><br><span class="line">      high = guess - 1;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      printf(&quot;key %d index is %d\n&quot;, key, guess);</span><br><span class="line">      return guess;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">  int i, key[] = &#123;0, 9, 15, 57, 98, 101, 111, 230&#125;;</span><br><span class="line"></span><br><span class="line">  dump_array(array, asize, &quot;Array&quot;);</span><br><span class="line"></span><br><span class="line">  for (i = 0; i &lt; sizeof(key) / sizeof(int); i++) &#123;</span><br><span class="line">    if (bsearch(array, asize, key[i]) &lt; 0) &#123;</span><br><span class="line">      printf(&quot;key %d is not in array\n&quot;, key[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="O-n"><a href="#O-n" class="headerlink" title="O(n)"></a>O(n)</h3><ul>
-<li><p>linear time<br><img src="/leptons-bosons/.io//n.png" alt="linear time"></p>
+<li><p>linear time<br><img src="/leptons-bosons/.io//2018/08/04/Big-O/n.png" alt="linear time"></p>
 </li>
 <li><p>code of simple search</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">static int array[] = &#123;9, 15, 21, 23, 57, 98, 101, 111&#125;;</span><br><span class="line">static int asize = sizeof(array) / sizeof(int);</span><br><span class="line"></span><br><span class="line">static void dump_array(int array[], int size, const char *prefix)</span><br><span class="line">&#123;</span><br><span class="line">  int i;</span><br><span class="line"></span><br><span class="line">  if (NULL != prefix) &#123;</span><br><span class="line">    printf(&quot;%s: &quot;, prefix);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  for (i = 0; i &lt; asize; i++) &#123;</span><br><span class="line">    printf(&quot;array[%d] = %d, &quot;, i, array[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">  return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static int ssearch(int array[], int size, int key)</span><br><span class="line">&#123;</span><br><span class="line">  int i;</span><br><span class="line"> </span><br><span class="line">  for (i = 0; i &lt; size; i++) &#123;</span><br><span class="line">    if (key == array[i]) &#123;</span><br><span class="line">      printf(&quot;key %d index is %d\n&quot;, key, i);</span><br><span class="line">      return i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">  int i, key[] = &#123;0, 9, 15, 57, 98, 101, 111, 230&#125;;</span><br><span class="line"></span><br><span class="line">  dump_array(array, asize, &quot;Array&quot;);</span><br><span class="line"></span><br><span class="line">  for (i = 0; i &lt; sizeof(key) / sizeof(int); i++) &#123;</span><br><span class="line">    if (ssearch(array, asize, key[i]) &lt; 0) &#123;</span><br><span class="line">      printf(&quot;key %d is not in array\n&quot;, key[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="O-nlog2n"><a href="#O-nlog2n" class="headerlink" title="O(nlog2n)"></a>O(nlog2n)</h3><ul>
-<li>linear-multiply-log<br><img src="/leptons-bosons/.io//nlog2n.png" alt="linear-multiply-log"></li>
+<li>linear-multiply-log<br><img src="/leptons-bosons/.io//2018/08/04/Big-O/nlog2n.png" alt="linear-multiply-log"></li>
 </ul>
 <h3 id="O-n2"><a href="#O-n2" class="headerlink" title="O(n2)"></a>O(n2)</h3><ul>
-<li><p>square time<br><img src="/leptons-bosons/.io//n2.png" alt="square time"></p>
+<li><p>square time<br><img src="/leptons-bosons/.io//2018/08/04/Big-O/n2.png" alt="square time"></p>
 </li>
 <li><p>code of selection sort</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">static int array[] = &#123;15, 9, 23, 21, 111, 101, 98&#125;;</span><br><span class="line">static int asize = sizeof(array) / sizeof(int);</span><br><span class="line"></span><br><span class="line">static void dump_array(int array[], int size, const char *prefix)</span><br><span class="line">&#123;</span><br><span class="line">  int i;</span><br><span class="line"></span><br><span class="line">  if (NULL != prefix) &#123;</span><br><span class="line">    printf(&quot;%s: &quot;, prefix);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  for (i = 0; i &lt; asize; i++) &#123;</span><br><span class="line">    printf(&quot;array[%d] = %d, &quot;, i, array[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">  return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void ssort(int array[], int size)</span><br><span class="line">&#123;</span><br><span class="line">  int i, j, hit;</span><br><span class="line"> </span><br><span class="line">  for (i = 0; i &lt; size; i++) &#123;</span><br><span class="line"></span><br><span class="line">    hit = i;</span><br><span class="line">    for (j = i; j &lt; size; j++) &#123;</span><br><span class="line">      if (array[j] &lt; array[hit]) &#123;</span><br><span class="line">        hit = j;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (i != hit) &#123;</span><br><span class="line">      int swap;</span><br><span class="line"></span><br><span class="line">      swap = array[i];</span><br><span class="line">      array[i] = array[hit];</span><br><span class="line">      array[hit] = swap;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">  dump_array(array, asize, &quot;Before sort&quot;);</span><br><span class="line"></span><br><span class="line">  ssort(array, asize);</span><br><span class="line"></span><br><span class="line">  dump_array(array, asize, &quot; After sort&quot;);</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="O-n-1"><a href="#O-n-1" class="headerlink" title="O(n!)"></a>O(n!)</h3><ul>
-<li>factorial time<br><img src="/leptons-bosons/.io//n!.png" alt="factorial time"></li>
+<li>factorial time<br><img src="/leptons-bosons/.io//2018/08/04/Big-O/n!.png" alt="factorial time"></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a class="link" href="https://algs4.cs.princeton.edu/home/">Algorithms, 4th Edition<i class="fas fa-external-link-alt"></i></a><br>Grokking Algorithms: An illustrated guide for programmers and other curious people</p>
 ]]></content>
@@ -133,8 +133,8 @@
     <title>Algorithm: Graph</title>
     <url>/leptons-bosons/2019/12/01/algorithm-graph/</url>
     <content><![CDATA[<h1 id="DFS-and-BFS"><a href="#DFS-and-BFS" class="headerlink" title="DFS and BFS"></a>DFS and BFS</h1><p>DFS with recursive, while BFS with queue, caution for loops.</p>
-<p>DFS pseudocode steps:<br>I. if node is Null return<br>II. access node<br>III. access left node, recursive<br>IV. access right node, recursive<br><img src="/leptons-bosons/.io//DFS.png" alt="DFS"></p>
-<p>BFS pseudocode steps:<br>I. create queue<br>II. if node is not Null<br>III. push left/right node in queue<br>IV. pop queue, goto step II<br><img src="/leptons-bosons/.io//BFS.png" alt="BFS"></p>
+<p>DFS pseudocode steps:<br>I. if node is Null return<br>II. access node<br>III. access left node, recursive<br>IV. access right node, recursive<br><img src="/leptons-bosons/.io//2019/12/01/algorithm-graph/DFS.png" alt="DFS"></p>
+<p>BFS pseudocode steps:<br>I. create queue<br>II. if node is not Null<br>III. push left/right node in queue<br>IV. pop queue, goto step II<br><img src="/leptons-bosons/.io//2019/12/01/algorithm-graph/BFS.png" alt="BFS"></p>
 <h1 id="Shortest-Path-Algorithm"><a href="#Shortest-Path-Algorithm" class="headerlink" title="Shortest Path Algorithm"></a>Shortest Path Algorithm</h1><ul>
 <li><a class="link" href="https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/">Floyd Warshall Algorithm<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
@@ -214,11 +214,11 @@
 </tr>
 </tbody></table>
 <ul>
-<li>solution of knapsack problem<br><img src="/leptons-bosons/.io//knapsack-problem.png" alt="solution of knapsack problem"></li>
+<li>solution of knapsack problem<br><img src="/leptons-bosons/.io//2018/08/31/algorithm-the-last/knapsack-problem.png" alt="solution of knapsack problem"></li>
 </ul>
 <h4 id="longest-common-substring"><a href="#longest-common-substring" class="headerlink" title="longest common substring"></a>longest common substring</h4><ul>
 <li>calculate the longest common substring between <em>blue</em> and <em>clues</em>, <em>fosh</em> compare with <em>fish</em>, <em>fort</em>, longest common substring is used for word wrap.</li>
-<li>solution of longest common substring<br><img src="/leptons-bosons/.io//longest-common-substring.png" alt="solution of longest common substring"></li>
+<li>solution of longest common substring<br><img src="/leptons-bosons/.io//2018/08/31/algorithm-the-last/longest-common-substring.png" alt="solution of longest common substring"></li>
 </ul>
 <h3 id="K-Nearest-Neighbors"><a href="#K-Nearest-Neighbors" class="headerlink" title="K-Nearest-Neighbors"></a>K-Nearest-Neighbors</h3><ul>
 <li>Classification, categorization into a group.</li>
@@ -259,17 +259,17 @@
   <entry>
     <title>AWS Virtualization</title>
     <url>/leptons-bosons/2020/08/02/aws-virtualization/</url>
-    <content><![CDATA[<h3 id="AWS-Virtualization-Evolution-History"><a href="#AWS-Virtualization-Evolution-History" class="headerlink" title="AWS Virtualization Evolution History"></a>AWS Virtualization Evolution History</h3><p>AWS virtualization evolution history: cpu/memory, io(network, storage), hypervisor.<br><img src="/leptons-bosons/.io//aws-ec2-types.png" alt="AWS Virtualization Evolution History"></p>
+    <content><![CDATA[<h3 id="AWS-Virtualization-Evolution-History"><a href="#AWS-Virtualization-Evolution-History" class="headerlink" title="AWS Virtualization Evolution History"></a>AWS Virtualization Evolution History</h3><p>AWS virtualization evolution history: cpu/memory, io(network, storage), hypervisor.<br><img src="/leptons-bosons/.io//2020/08/02/aws-virtualization/aws-ec2-types.png" alt="AWS Virtualization Evolution History"></p>
 <h3 id="AWS-Nitro-System"><a href="#AWS-Nitro-System" class="headerlink" title="AWS Nitro System"></a>AWS Nitro System</h3><p>AWS nitro system: nitro card, nitro security chip, nitro hypervisor.</p>
 <ul>
-<li>Nitro System<br><img src="/leptons-bosons/.io//aws-nitro-three-parts.png" alt="AWS Nitro System"></li>
-<li>Nitro Diagram：simple and clean<br><img src="/leptons-bosons/.io//nitro-diagram.png" alt="AWS Nitro Diagram：simple and clean"></li>
-<li>Nitro hypervisor based on KVM<br><img src="/leptons-bosons/.io//c5-nitro-hypervisor-based-on-kvm-with-custom-vmm.png" alt="Nitro hypervisor"></li>
-<li>Nitro hypervisor jitter：close to bare metal performance<br><img src="/leptons-bosons/.io//nitro-hypervisor-jitter.png" alt="Nitro hypervisor jitter"></li>
+<li>Nitro System<br><img src="/leptons-bosons/.io//2020/08/02/aws-virtualization/aws-nitro-three-parts.png" alt="AWS Nitro System"></li>
+<li>Nitro Diagram：simple and clean<br><img src="/leptons-bosons/.io//2020/08/02/aws-virtualization/nitro-diagram.png" alt="AWS Nitro Diagram：simple and clean"></li>
+<li>Nitro hypervisor based on KVM<br><img src="/leptons-bosons/.io//2020/08/02/aws-virtualization/c5-nitro-hypervisor-based-on-kvm-with-custom-vmm.png" alt="Nitro hypervisor"></li>
+<li>Nitro hypervisor jitter：close to bare metal performance<br><img src="/leptons-bosons/.io//2020/08/02/aws-virtualization/nitro-hypervisor-jitter.png" alt="Nitro hypervisor jitter"></li>
 <li>Nitro next: has published Graviton(arm) and amd instance, closed-loop of public cloud ecology</li>
 </ul>
 <h3 id="A-Tip-of-AWS-Ecosystem-Strategy"><a href="#A-Tip-of-AWS-Ecosystem-Strategy" class="headerlink" title="A Tip of AWS Ecosystem Strategy"></a>A Tip of AWS Ecosystem Strategy</h3><ul>
-<li>Alliance with vmware, seize traditional IT customers, and lead the data to AWS(Data is the portal)<br><img src="/leptons-bosons/.io//alliance-with-vmware.png" alt="Alliance with vmware"></li>
+<li>Alliance with vmware, seize traditional IT customers, and lead the data to AWS(Data is the portal)<br><img src="/leptons-bosons/.io//2020/08/02/aws-virtualization/alliance-with-vmware.png" alt="Alliance with vmware"></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a class="link" href="http://www.brendangregg.com/blog/2017-11-29/aws-ec2-virtualization-2017.html">AWS EC2 Virtualization 2017: Introducing Nitro<i class="fas fa-external-link-alt"></i></a></li>
@@ -339,7 +339,7 @@ SAMPLE OUTPUT:
 21
 16
 </code></pre>
-<h3 id="Binarty-Index-Tree-Layout"><a href="#Binarty-Index-Tree-Layout" class="headerlink" title="Binarty Index Tree Layout"></a>Binarty Index Tree Layout</h3><p>//for ease, we make sure our given array is 1-based indexed<br>int a[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};<br><img src="/leptons-bosons/.io//binary-index-tree.jpg" alt="Binary Index Tree Layout"></p>
+<h3 id="Binarty-Index-Tree-Layout"><a href="#Binarty-Index-Tree-Layout" class="headerlink" title="Binarty Index Tree Layout"></a>Binarty Index Tree Layout</h3><p>//for ease, we make sure our given array is 1-based indexed<br>int a[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};<br><img src="/leptons-bosons/.io//2020/01/10/binary-index-tree/binary-index-tree.jpg" alt="Binary Index Tree Layout"></p>
 <h3 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h3><ul>
 <li><p>Main</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdint.h&gt;</span><br><span class="line"></span><br><span class="line">#define V_MAX (500000 + 1)</span><br><span class="line">#define MOD_BASE (1000000000 + 7)</span><br><span class="line"></span><br><span class="line">//#define DBG(f_, ...) do &#123; printf((f_), ##__VA_ARGS__); &#125; while(0)</span><br><span class="line">#define DBG(f_, ...)</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int *arr;</span><br><span class="line">    long long *BIT;</span><br><span class="line">    int i, size, opts, value;</span><br><span class="line">    long long phi[V_MAX], sums[V_MAX];</span><br><span class="line">    char opt;</span><br><span class="line">    int x, y;</span><br><span class="line">    </span><br><span class="line">    scanf(&quot;%d\n&quot;, &amp;size);</span><br><span class="line">    arr = malloc(sizeof(int) * (size + 1));</span><br><span class="line">    if (!arr) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    BIT = malloc(sizeof(long long) * (size + 1));</span><br><span class="line">    if (!BIT) &#123;</span><br><span class="line">        free(arr);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    memset(arr, 0, sizeof(int) * (size + 1));</span><br><span class="line">    memset(BIT, 0, sizeof(int) * (size + 1));</span><br><span class="line">    </span><br><span class="line">    memset(phi, 0, sizeof(phi));</span><br><span class="line">    memset(sums, 0, sizeof(sums));</span><br><span class="line">    SumOfGCDs(sums, phi, V_MAX);</span><br><span class="line">    </span><br><span class="line">    DBG(&quot;Array size %d\n&quot;, size);</span><br><span class="line">    i = 0;</span><br><span class="line">    while ((++i) &lt;= size &amp;&amp; (scanf(&quot;%d&quot;, &amp;value) != EOF)) &#123;</span><br><span class="line">        if (value &gt;= V_MAX) &#123;</span><br><span class="line">            continue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        arr[i] = sums[value];</span><br><span class="line">        Update(BIT, i, arr[i], size);</span><br><span class="line">        </span><br><span class="line">        DBG(&quot;arr[%d] = %d, gcdsum=%d\n&quot;, i, value, arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    scanf(&quot;%d\n&quot;, &amp;opts);</span><br><span class="line">    DBG(&quot;Options %d\n&quot;, opts);</span><br><span class="line">    i = 0;</span><br><span class="line">    while ((++i) &lt;= opts &amp;&amp; (scanf(&quot;%c %d %d\n&quot;, &amp;opt, &amp;x, &amp;y) != EOF)) &#123;</span><br><span class="line">        int nValue;</span><br><span class="line">        </span><br><span class="line">        DBG(&quot;Opt: %c %d %d\n&quot;, opt, x, y);</span><br><span class="line">        switch (opt) &#123;</span><br><span class="line">            case &#x27;C&#x27;:</span><br><span class="line">                printf(&quot;%d\n&quot;, (Query(BIT, y) - Query(BIT, x - 1)) % MOD_BASE);</span><br><span class="line">                break;</span><br><span class="line">            case &#x27;U&#x27;:</span><br><span class="line">                nValue = sums[y];</span><br><span class="line">                Update(BIT, x, -arr[x], size);</span><br><span class="line">                Update(BIT, x, nValue, size);</span><br><span class="line">                arr[x] = nValue;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    free(arr);</span><br><span class="line">    free(BIT);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
@@ -372,7 +372,7 @@ SAMPLE OUTPUT:
     <title>Block IO Path in Kernel</title>
     <url>/leptons-bosons/2018/04/01/bio-path/</url>
     <content><![CDATA[<h3 id="Block-io-Path"><a href="#Block-io-Path" class="headerlink" title="Block io Path"></a>Block io Path</h3><ul>
-<li><p>Block io Path Overview<br><img src="/leptons-bosons/.io//bio-path.jpg" alt="Block io Path Overview"></p>
+<li><p>Block io Path Overview<br><img src="/leptons-bosons/.io//2018/04/01/bio-path/bio-path.jpg" alt="Block io Path Overview"></p>
 </li>
 <li><p>Linux VFS cache path, submit_bh –&gt; submit_bio.</p>
 </li>
@@ -447,7 +447,7 @@ SAMPLE OUTPUT:
 <ul>
 <li>UML Notations</li>
 </ul>
-<p>– Relationships: Dependency Notation, Association Notation, Generalization Notation, Extensibility Notation<br>– Relationships between classes<br><img src="/leptons-bosons/.io//07-relationships-between-classes.png" alt="Relationships between classes"><br>– Class Diagram Example: Order System<br><img src="/leptons-bosons/.io//17-class-diagram-example-order-system.png" alt="Class Diagram Example: Order System"><br>– Class Diagram Example: GUI<br><img src="/leptons-bosons/.io//18-uml-class-diagram-example-gui.png" alt="Class Diagram Example: GUI"></p>
+<p>– Relationships: Dependency Notation, Association Notation, Generalization Notation, Extensibility Notation<br>– Relationships between classes<br><img src="/leptons-bosons/.io//2019/10/02/design-patterns/07-relationships-between-classes.png" alt="Relationships between classes"><br>– Class Diagram Example: Order System<br><img src="/leptons-bosons/.io//2019/10/02/design-patterns/17-class-diagram-example-order-system.png" alt="Class Diagram Example: Order System"><br>– Class Diagram Example: GUI<br><img src="/leptons-bosons/.io//2019/10/02/design-patterns/18-uml-class-diagram-example-gui.png" alt="Class Diagram Example: GUI"></p>
 <h1 id="Referencs"><a href="#Referencs" class="headerlink" title="Referencs"></a>Referencs</h1><ul>
 <li><a class="link" href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/">UML Class Diagram Tutorial<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" href="https://tallyfy.com/uml-diagram/#composite-structure-diagram">All You Need to Know About UML Diagrams: Types and 5+ Examples<i class="fas fa-external-link-alt"></i></a></li>
@@ -501,9 +501,9 @@ SAMPLE OUTPUT:
 <td align="left">IO Area Network(IAN)</td>
 </tr>
 </tbody></table>
-<p>Network Technology Choices in the Data Center(bandwidth, latency and reliability):<br><img src="/leptons-bosons/.io//datacenter_choice.png" alt=" Network Technology Choices in the Data Center"></p>
+<p>Network Technology Choices in the Data Center(bandwidth, latency and reliability):<br><img src="/leptons-bosons/.io//2018/08/26/ethernet-fibrechannel-infiniband/datacenter_choice.png" alt=" Network Technology Choices in the Data Center"></p>
 <h3 id="RoadMap"><a href="#RoadMap" class="headerlink" title="RoadMap"></a>RoadMap</h3><ul>
-<li><p>Fibre Channel RoadMap<br><img src="/leptons-bosons/.io//fibrechannle_roadmap.png" alt="Fibre Channel RoadMap"></p>
+<li><p>Fibre Channel RoadMap<br><img src="/leptons-bosons/.io//2018/08/26/ethernet-fibrechannel-infiniband/fibrechannle_roadmap.png" alt="Fibre Channel RoadMap"></p>
 </li>
 <li><p>Fibre Channel is doomed:</p>
 <ul>
@@ -512,17 +512,17 @@ SAMPLE OUTPUT:
 <li>Flash: Fast Storage Needs Fast Networking, but speed of FC’s improvement is slower than ethernet</li>
 </ul>
 </li>
-<li><p>Ethernet RoadMap<br><img src="/leptons-bosons/.io//ethernet_roadmap.png" alt="Ethernet RoadMap"></p>
+<li><p>Ethernet RoadMap<br><img src="/leptons-bosons/.io//2018/08/26/ethernet-fibrechannel-infiniband/ethernet_roadmap.png" alt="Ethernet RoadMap"></p>
 </li>
-<li><p>InfiniBand RoadMap<br><img src="/leptons-bosons/.io//InfiniBand_roadmap.jpg" alt="InfiniBand RoadMap"></p>
+<li><p>InfiniBand RoadMap<br><img src="/leptons-bosons/.io//2018/08/26/ethernet-fibrechannel-infiniband/InfiniBand_roadmap.jpg" alt="InfiniBand RoadMap"></p>
 </li>
 </ul>
 <h3 id="Reliability-congestion-control-over-subscription-or-over-commit"><a href="#Reliability-congestion-control-over-subscription-or-over-commit" class="headerlink" title="Reliability, congestion control, over-subscription or over-commit"></a>Reliability, congestion control, over-subscription or over-commit</h3><ul>
-<li><p>Fibre Channel, Lossless data delivery with buffer to buffer credit, congestion strategy is “pause it”.<br><img src="/leptons-bosons/.io//fibrechannel_cogestion.png" alt="Fibre Channel Congestion Bandwidth"></p>
+<li><p>Fibre Channel, Lossless data delivery with buffer to buffer credit, congestion strategy is “pause it”.<br><img src="/leptons-bosons/.io//2018/08/26/ethernet-fibrechannel-infiniband/fibrechannel_cogestion.png" alt="Fibre Channel Congestion Bandwidth"></p>
 </li>
 <li><p><a class="link" href="https://fibrechannel.org/wp-content/uploads/2018/02/FCIA_Fibre_Channel_Performance_Congestion_Slowdrain_and_Over_Utilization_Final.pdf">Fibre Channel Performance: Congestion, Slow Drain, and Over Utilization<i class="fas fa-external-link-alt"></i></a></p>
 </li>
-<li><p>Ethernet, based on Transport Layer Protocols, congestion strategy is “drop it”.<br><img src="/leptons-bosons/.io//ethernet_congestion_control.jpg" alt="TCP Congestion Bandwidth Utiliztion"></p>
+<li><p>Ethernet, based on Transport Layer Protocols, congestion strategy is “drop it”.<br><img src="/leptons-bosons/.io//2018/08/26/ethernet-fibrechannel-infiniband/ethernet_congestion_control.jpg" alt="TCP Congestion Bandwidth Utiliztion"></p>
 </li>
 </ul>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>There are a variety of switched fabrics and networks to apply to the problem of server I/O. The selection of the “best” technology depends on particular situations, legacy installations, and the desired application. The Ethernet technologies are well suited for client-server connections in a LAN environment, and Fibre Channel technology is the well suited for storage applications in a SAN. InfiniBand is a new technology well suited for interconnection of CPU-memory complexes to I/O in an IAN. A fabric-based IAN enables clustering as well as connections to I/O controllers.</p>
@@ -648,7 +648,7 @@ SAMPLE OUTPUT:
     <url>/leptons-bosons/2018/06/30/flow-acceleration/</url>
     <content><![CDATA[<p>DPDK 17.02’s rte_flow, the framework of hardware acceleration.</p>
 <ul>
-<li>flowtable-hwaccel-flowchart<br><img src="/leptons-bosons/.io//flowtable-hwaccel-flowchart.png" alt="flowtable-hwaccel-flowchart"></li>
+<li>flowtable-hwaccel-flowchart<br><img src="/leptons-bosons/.io//2018/06/30/flow-acceleration/flowtable-hwaccel-flowchart.png" alt="flowtable-hwaccel-flowchart"></li>
 </ul>
 <p><a class="link" href="https://www.napatech.com/">napatech’s<i class="fas fa-external-link-alt"></i></a> illustration:</p>
 <ul>
@@ -830,7 +830,7 @@ SAMPLE OUTPUT:
 <li>Question type 2: What is the shortest path from node A to node B?</li>
 </ul>
 </li>
-<li><p>A-&gt;H, with breadth first search, the shortest path is A-&gt;C-&gt;G-&gt;H<br><img src="/leptons-bosons/.io//breadth-first.png" alt="unweighted directed graph: A-&gt;H"></p>
+<li><p>A-&gt;H, with breadth first search, the shortest path is A-&gt;C-&gt;G-&gt;H<br><img src="/leptons-bosons/.io//2018/08/28/graph-greedy-algorithms/breadth-first.png" alt="unweighted directed graph: A-&gt;H"></p>
 </li>
 <li><p>Caution: once you check someone, make sure you don’t check them again. Otherwise, you might end up in an infinite loop.</p>
 </li>
@@ -839,8 +839,8 @@ SAMPLE OUTPUT:
 <li>Dijkstra’s algorithm is used to calculate the shortest path for a weighted graph.</li>
 <li>Dijkstra’s algorithm works when all the weights are positive.</li>
 <li>If you have negative weights, use the <a class="link" href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman-Ford algorithm<i class="fas fa-external-link-alt"></i></a>.</li>
-<li>Same graph as shown above but with weighted value(the cost of the path), A-&gt;H, we will get another path(A-&gt;B-&gt;F-&gt;G-&gt;H):<br><img src="/leptons-bosons/.io//dijkstra-algorithm.png" alt="weighted directed graph: A-&gt;H"></li>
-<li>Dijkstra’s algorithm iteration for the above graph:<br><img src="/leptons-bosons/.io//dijkstra-algorithm-iteration.png" alt="dijkstra&#39;s algorithm iteration"></li>
+<li>Same graph as shown above but with weighted value(the cost of the path), A-&gt;H, we will get another path(A-&gt;B-&gt;F-&gt;G-&gt;H):<br><img src="/leptons-bosons/.io//2018/08/28/graph-greedy-algorithms/dijkstra-algorithm.png" alt="weighted directed graph: A-&gt;H"></li>
+<li>Dijkstra’s algorithm iteration for the above graph:<br><img src="/leptons-bosons/.io//2018/08/28/graph-greedy-algorithms/dijkstra-algorithm-iteration.png" alt="dijkstra&#39;s algorithm iteration"></li>
 </ul>
 <h3 id="Gready-algorithm"><a href="#Gready-algorithm" class="headerlink" title="Gready algorithm"></a>Gready algorithm</h3><ul>
 <li>Typical applicated case, NP(nondeterministic polynomial time)-complete problems:<ul>
@@ -868,43 +868,6 @@ SAMPLE OUTPUT:
         <tag>breadth-first search</tag>
         <tag>dijkstra</tag>
         <tag>greedy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Next Generation of Infrastructure Architecture</title>
-    <url>/leptons-bosons/2021/03/28/infrastructure-architecture/</url>
-    <content><![CDATA[<h3 id="Scenarios-amp-Chanllenges"><a href="#Scenarios-amp-Chanllenges" class="headerlink" title="Scenarios &amp; Chanllenges"></a>Scenarios &amp; Chanllenges</h3><ul>
-<li>Cloud Native: the number of connections grow with thousands times<ul>
-<li>ScaleUp-&gt;ScaleOut-&gt;Mesh, <strong>see references item 1</strong><br><img src="/leptons-bosons/.io//ScaleupsScaleoutMesh.png" alt="ScaleUp-&gt;ScaleOut-&gt;Mesh"></li>
-</ul>
-</li>
-<li>Serverless: IO delay of stateful applications<ul>
-<li>Ephemeral Storage and Serverless Durable Storage, <strong>see references item 2</strong><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  To expand support to stateful applications, serverless frameworks need to provide a way for tasks</span><br><span class="line">to coordinate. For instance, if task A uses task B’s output there must be a way for A to know</span><br><span class="line">when its input is available, even if A and B reside on different nodes. Many protocols aiming to</span><br><span class="line">ensure data consistency also require similar coordination.</span><br><span class="line">  None of the existing cloud storage services come with notification capabilities. While cloud</span><br><span class="line">providers do offer stand-alone notification services, such as SNS [42] and SQS [43], these services</span><br><span class="line">add significant latency, sometimes hundreds of milliseconds. Also, they can be costly when used</span><br><span class="line">for fine grained coordination. There have been some proposed research systems such as Pocket [44]</span><br><span class="line">that do not have many of these drawbacks, but they have not yet been adopted by cloud providers.</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>Security: Zero-Trust</li>
-</ul>
-<h3 id="Key-Technology"><a href="#Key-Technology" class="headerlink" title="Key Technology"></a>Key Technology</h3><ul>
-<li>Live migration for pass-through devices</li>
-<li><a class="link" href="https://www.mellanox.com/files/doc-2020/sb-mellanox-nvme-snap.pdf">NVMe device emulation using a SmartNIC, Mellanox NVMe-SNAP<i class="fas fa-external-link-alt"></i></a></li>
-<li>Standardization: <a class="link" href="http://docs.oasis-open.org/virtio/virtio/">virtio<i class="fas fa-external-link-alt"></i></a>, Michael S. Tsirkin, Cornelia Huck<ul>
-<li><a class="link" href="https://archive.fosdem.org/2018/schedule/event/virtio/attachments/slides/2167/export/events/attachments/virtio/slides/2167/fosdem_virtio1_1.pdf">What’s New in Virtio 1.1<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" href="https://www.linux-kvm.org/images/5/55/02x07A-Wei_Wang-Design_of-Vhost-pci.pdf">Design of Vhost-pci<i class="fas fa-external-link-alt"></i></a>: share memory between 2 VMs, security?</li>
-<li>vDPA, Full Offloading, <strong>see references item 3</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="Nvidia-DPU-Archtecture-DOCA"><a href="#Nvidia-DPU-Archtecture-DOCA" class="headerlink" title="Nvidia DPU Archtecture, DOCA"></a>Nvidia DPU Archtecture, <a class="link" href="https://developer.nvidia.com/blog/programming-the-entire-data-center-infrastructure-with-the-nvidia-doca-sdk/">DOCA<i class="fas fa-external-link-alt"></i></a></h3><ul>
-<li>Functional Diagram, <strong>see references item 4</strong><br><img src="/leptons-bosons/.io//FunctionalDiagram.png" alt="Functional Diagram"></li>
-<li>Network Offload Diagram, <strong>see references item 4</strong><br><img src="/leptons-bosons/.io//NetworkOffload.png" alt="Network Offload Diagram"></li>
-</ul>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[1] <a class="link" href="https://www.nvidia.com/en-us/networking/products/data-processing-unit/">Nvidia Data Processing Units<i class="fas fa-external-link-alt"></i></a><br>[2] <a class="link" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf">Cloud Programming Simplified: A Berkeley View on Serverless Computing<i class="fas fa-external-link-alt"></i></a><br>[3] <a class="link" href="https://kvmforum2019.sched.com/event/TmxF/virtio-without-the-virt-towards-implementations-in-hardware-michael-tsirkin-red-hat">VirtIO without the Virt<i class="fas fa-external-link-alt"></i></a><br>[4] <a class="link" href="https://docs.mellanox.com/display/BlueFieldSWv25111213/BlueField+Software+Overview">BlueField Software Manual<i class="fas fa-external-link-alt"></i></a></p>
-]]></content>
-      <categories>
-        <category>quotes</category>
-      </categories>
-      <tags>
-        <tag>Infrastructure Architecture</tag>
       </tags>
   </entry>
   <entry>
@@ -963,49 +926,40 @@ SAMPLE OUTPUT:
       </tags>
   </entry>
   <entry>
-    <title>The KVM Weather Report</title>
-    <url>/leptons-bosons/2020/11/22/kvm-weather-report/</url>
-    <content><![CDATA[<h3 id="The-Reports"><a href="#The-Reports" class="headerlink" title="The Reports"></a>The Reports</h3><ul>
-<li><a class="link" href="https://events.static.linuxfound.org/slides/2011/linuxcon-japan/lcj2011_kvm_weather_report.pdf">The KVM Weather Report, Jes Sorensen, 2011<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" href="https://events.static.linuxfound.org/sites/events/files/cojp13_natapov.pdf">KVM Weather Report, Gleb Natapov, 2013<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" href="https://events.static.linuxfound.org/sites/events/files/cojp13_quintela.pdf">KVM Live Migration: Weather forecast, Juan Quintela, 2013<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" href="https://www.socallinuxexpo.org/sites/default/files/presentations/kvm-weather-report.pdf">KVM Weather Report, Amit Shah, 2016<i class="fas fa-external-link-alt"></i></a></li>
+    <title>Next Generation of Infrastructure Architecture</title>
+    <url>/leptons-bosons/2021/03/28/infrastructure-architecture/</url>
+    <content><![CDATA[<h3 id="Scenarios-amp-Chanllenges"><a href="#Scenarios-amp-Chanllenges" class="headerlink" title="Scenarios &amp; Chanllenges"></a>Scenarios &amp; Chanllenges</h3><ul>
+<li>Cloud Native: the number of connections grow with thousands times<ul>
+<li>ScaleUp-&gt;ScaleOut-&gt;Mesh, <strong>see references item 1</strong><br><img src="/leptons-bosons/.io//2021/03/28/infrastructure-architecture/ScaleupsScaleoutMesh.png" alt="ScaleUp-&gt;ScaleOut-&gt;Mesh"></li>
 </ul>
-<h3 id="More-for-aarch64"><a href="#More-for-aarch64" class="headerlink" title="More for aarch64"></a>More for aarch64</h3><ul>
-<li><a class="link" href="http://www.cs.columbia.edu/~nieh/pubs/asplos2014_kvmarm.pdf">KVM/ARM: The Design and Implementation of the Linux ARM Hypervisor, Christoffer Dall, Jason Nieh, 2014<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" href="https://hkg15.pathable.com/static/attachments/112961/1424963684.pdf?1424963684">KVM/arm64 Architectural Evoluations, Marc Zyngier, 2015<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" href="https://events.static.linuxfound.org/sites/events/files/slides/KoreaLinuxForum2015.pdf">ARM-KVM: Weather Report Korea Linux Forum, Mario Smarduch, 2015<i class="fas fa-external-link-alt"></i></a></li>
+</li>
+<li>Serverless: IO delay of stateful applications<ul>
+<li>Ephemeral Storage and Serverless Durable Storage, <strong>see references item 2</strong><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  To expand support to stateful applications, serverless frameworks need to provide a way for tasks</span><br><span class="line">to coordinate. For instance, if task A uses task B’s output there must be a way for A to know</span><br><span class="line">when its input is available, even if A and B reside on different nodes. Many protocols aiming to</span><br><span class="line">ensure data consistency also require similar coordination.</span><br><span class="line">  None of the existing cloud storage services come with notification capabilities. While cloud</span><br><span class="line">providers do offer stand-alone notification services, such as SNS [42] and SQS [43], these services</span><br><span class="line">add significant latency, sometimes hundreds of milliseconds. Also, they can be costly when used</span><br><span class="line">for fine grained coordination. There have been some proposed research systems such as Pocket [44]</span><br><span class="line">that do not have many of these drawbacks, but they have not yet been adopted by cloud providers.</span><br></pre></td></tr></table></figure></li>
 </ul>
+</li>
+<li>Security: Zero-Trust</li>
+</ul>
+<h3 id="Key-Technology"><a href="#Key-Technology" class="headerlink" title="Key Technology"></a>Key Technology</h3><ul>
+<li>Live migration for pass-through devices</li>
+<li><a class="link" href="https://www.mellanox.com/files/doc-2020/sb-mellanox-nvme-snap.pdf">NVMe device emulation using a SmartNIC, Mellanox NVMe-SNAP<i class="fas fa-external-link-alt"></i></a></li>
+<li>Standardization: <a class="link" href="http://docs.oasis-open.org/virtio/virtio/">virtio<i class="fas fa-external-link-alt"></i></a>, Michael S. Tsirkin, Cornelia Huck<ul>
+<li><a class="link" href="https://archive.fosdem.org/2018/schedule/event/virtio/attachments/slides/2167/export/events/attachments/virtio/slides/2167/fosdem_virtio1_1.pdf">What’s New in Virtio 1.1<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://www.linux-kvm.org/images/5/55/02x07A-Wei_Wang-Design_of-Vhost-pci.pdf">Design of Vhost-pci<i class="fas fa-external-link-alt"></i></a>: share memory between 2 VMs, security?</li>
+<li>vDPA, Full Offloading, <strong>see references item 3</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Nvidia-DPU-Archtecture-DOCA"><a href="#Nvidia-DPU-Archtecture-DOCA" class="headerlink" title="Nvidia DPU Archtecture, DOCA"></a>Nvidia DPU Archtecture, <a class="link" href="https://developer.nvidia.com/blog/programming-the-entire-data-center-infrastructure-with-the-nvidia-doca-sdk/">DOCA<i class="fas fa-external-link-alt"></i></a></h3><ul>
+<li>Functional Diagram, <strong>see references item 4</strong><br><img src="/leptons-bosons/.io//2021/03/28/infrastructure-architecture/FunctionalDiagram.png" alt="Functional Diagram"></li>
+<li>Network Offload Diagram, <strong>see references item 4</strong><br><img src="/leptons-bosons/.io//2021/03/28/infrastructure-architecture/NetworkOffload.png" alt="Network Offload Diagram"></li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[1] <a class="link" href="https://www.nvidia.com/en-us/networking/products/data-processing-unit/">Nvidia Data Processing Units<i class="fas fa-external-link-alt"></i></a><br>[2] <a class="link" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf">Cloud Programming Simplified: A Berkeley View on Serverless Computing<i class="fas fa-external-link-alt"></i></a><br>[3] <a class="link" href="https://kvmforum2019.sched.com/event/TmxF/virtio-without-the-virt-towards-implementations-in-hardware-michael-tsirkin-red-hat">VirtIO without the Virt<i class="fas fa-external-link-alt"></i></a><br>[4] <a class="link" href="https://docs.mellanox.com/display/BlueFieldSWv25111213/BlueField+Software+Overview">BlueField Software Manual<i class="fas fa-external-link-alt"></i></a></p>
 ]]></content>
       <categories>
         <category>quotes</category>
       </categories>
       <tags>
-        <tag>KVM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Collection of Linux Weather Forcast</title>
-    <url>/leptons-bosons/2018/10/03/linux-weather-forecast/</url>
-    <content><![CDATA[<p><a class="link" href="https://www.linux.com/news/category/linux-kernel">Weather Forcast<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Short-term-Forcast"><a href="#Short-term-Forcast" class="headerlink" title="Short-term Forcast"></a>Short-term Forcast</h3><ul>
-<li><a class="link" href="https://lwn.net/Articles/748879/">Time-based packet transmission<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" href="https://lwn.net/Articles/758353/">CAKE queueing discipline<i class="fas fa-external-link-alt"></i></a>: offers significantly better networking performance, especially in home or small-business settings.</li>
-<li><a class="link" href="https://lwn.net/Articles/758963/">The block I/O latency controller<i class="fas fa-external-link-alt"></i></a>: allows an administrator to provide block (disk) I/O response-time guarantees to specific processes.</li>
-</ul>
-<h3 id="Kernel-4-18"><a href="#Kernel-4-18" class="headerlink" title="Kernel-4.18"></a>Kernel-4.18</h3><ul>
-<li><a class="link" href="https://lwn.net/Articles/747551/">bpfilter<i class="fas fa-external-link-alt"></i></a>: expected to be the base on which the next generation of kernel firewalling systems is built.</li>
-<li><a class="link" href="https://lwn.net/Articles/754681/">A reworked TCP zero-copy receive API<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" href="https://lwn.net/Articles/750845/">Accelerating networking with AF_XDP<i class="fas fa-external-link-alt"></i></a>: a larger effort to win back users of user-space networking stacks by providing better facilities in the kernel.</li>
-<li><a class="link" href="https://lwn.net/Articles/760690/">Statistics from the 4.18 development cycle<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" href="https://www.linux.com/news/2018/9/linux-weather-forecast">Linux Weather Forecast 2018.09<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>quotes</category>
-      </categories>
-      <tags>
-        <tag>kernel</tag>
+        <tag>Infrastructure Architecture</tag>
       </tags>
   </entry>
   <entry>
@@ -1181,57 +1135,49 @@ SAMPLE OUTPUT:
       </tags>
   </entry>
   <entry>
-    <title>Netfilter Framework</title>
-    <url>/leptons-bosons/2018/09/07/netfilter/</url>
-    <content><![CDATA[<p><a class="link" href="http://ipset.netfilter.org/">IP sets<i class="fas fa-external-link-alt"></i></a>, <a class="link" href="http://www.linuxvirtualserver.org/">ipvs<i class="fas fa-external-link-alt"></i></a> all based on the Linux kernel <a class="link" href="https://www.netfilter.org/">netfilter<i class="fas fa-external-link-alt"></i></a> subsystem.</p>
-<h3 id="Key-Structures-Variables-and-Functions"><a href="#Key-Structures-Variables-and-Functions" class="headerlink" title="Key Structures, Variables and Functions"></a>Key Structures, Variables and Functions</h3><ul>
-<li>net/netfilter/core.c: <a href="https://elixir.bootlin.com/linux/latest/ident/nf_hooks_needed">struct static_key <em>nf_hooks_needed[][]</em></a>, in the old kernel version <em>nf_hooks[][]</em> is defined.</li>
-<li>include/uapi/linux/netfilter.h: <a href="https://elixir.bootlin.com/linux/latest/ident/nf_inet_hooks">enum <em>nf_inet_hooks</em></a></li>
-<li>include/uapi/linux/netfilter.h: <a href="https://elixir.bootlin.com/linux/latest/ident/NFPROTO_NUMPROTO"><em>NFPROTO_NUMPROTO</em></a></li>
-<li>include/uapi/linux/netfilter_ipv4.h: <a href="https://elixir.bootlin.com/linux/latest/ident/nf_ip_hook_priorities">enum <em>nf_iphook_priorities</em></a>, list the most common tables(priority from high to low):<ul>
-<li>NF_IP_PRI_RAW(-300), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/packet_raw">packet_raw<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_CONNTRACK(-200), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_conntrack_l3proto_ipv4_init">nf_conntrack_l3proto_ipv4_init<i class="fas fa-external-link-alt"></i></a>, <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops">ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_MANGLE(-150), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/packet_mangler">packet_mangler<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_NAT_DST(-100), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_table">nf_nat_ipv4_table<i class="fas fa-external-link-alt"></i></a>, <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_ops">nf_nat_ipv4_ops<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_FILTER(0), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/packet_filter">packet_filter<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_NAT_SRC(100), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_table">nf_nat_ipv4_table<i class="fas fa-external-link-alt"></i></a>, <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_ops">nf_nat_ipv4_ops<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_CONNTRACK_HELPER(300), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops">ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
-<li>NF_IP_PRI_CONNTRACK_CONFIRM(INT_MAX), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops">ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
+    <title>The KVM Weather Report</title>
+    <url>/leptons-bosons/2020/11/22/kvm-weather-report/</url>
+    <content><![CDATA[<h3 id="The-Reports"><a href="#The-Reports" class="headerlink" title="The Reports"></a>The Reports</h3><ul>
+<li><a class="link" href="https://events.static.linuxfound.org/slides/2011/linuxcon-japan/lcj2011_kvm_weather_report.pdf">The KVM Weather Report, Jes Sorensen, 2011<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://events.static.linuxfound.org/sites/events/files/cojp13_natapov.pdf">KVM Weather Report, Gleb Natapov, 2013<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://events.static.linuxfound.org/sites/events/files/cojp13_quintela.pdf">KVM Live Migration: Weather forecast, Juan Quintela, 2013<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://www.socallinuxexpo.org/sites/default/files/presentations/kvm-weather-report.pdf">KVM Weather Report, Amit Shah, 2016<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
-</li>
-<li><a href="https://elixir.bootlin.com/linux/latest/ident/NF_HOOK"><em>NF_HOOK()</em></a></li>
-<li><a href="https://elixir.bootlin.com/linux/latest/ident/ipt_register_table"><em>ipt_register_table()</em></a></li>
-<li><a href="https://elixir.bootlin.com/linux/latest/ident/nf_register_net_hook"><em>nf_register_net_hook()</em></a>, in the old kernel version <em>nf_register_hook</em> is defined.</li>
-</ul>
-<h3 id="Netfilter-Hooks-and-Tables"><a href="#Netfilter-Hooks-and-Tables" class="headerlink" title="Netfilter Hooks and Tables"></a>Netfilter Hooks and Tables</h3><ul>
-<li><p>Netfilter Hooks in Kernel<br><img src="/leptons-bosons/.io//hooks-in-kernel.png" alt="Netfilter Hooks in Kernel"></p>
-</li>
-<li><p>Tables in Netfilter Hooks<br><img src="/leptons-bosons/.io//tables-in-hook.png" alt="Tables in Netfilter Hooks"><br>Note: Dnat table in LOCAL_OUT actually is POST_RETOUING, but after modifty destination address/port called <a href="https://elixir.bootlin.com/linux/latest/ident/ip_route_me_harder"><em>ip_route_me_harder()</em></a>, used by iptable_nat and iptable_mangle + ip_queue, in <em>function nf_nat_ipv4_local_fn()</em>.</p>
-</li>
-<li><p>Detail of Connection Tracking Hooks<br><img src="/leptons-bosons/.io//conntrack-hooks.png" alt="Detail of Connection Tracking Hooks"><br>For packet received, routing decision is done by <a href="https://elixir.bootlin.com/linux/latest/ident/ip_mkroute_input"><em>ip_mkroute_input()</em></a> called by <em>ip_rcv_finish()</em>, while the local out packet routing is <a href="https://elixir.bootlin.com/linux/latest/ident/__mkroute_output"><em>__mkroute_output()</em></a>.</p>
-</li>
-<li><p>Transport Layer Trace(CentOS 7.4.1708 kernel-3.10.0.693)<br>inet_init(): struct net_protocol inet_protos[MAX_INET_PROTOS], e.g. udp_protocol, tcp_protocol, igmp_protocol, icmp_protocol.</p>
-<ul>
-<li>UDP receive path:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip_rcv_finish() --&gt; ip_route_input_slow() --&gt;ip_route_input_slow()</span><br><span class="line">	--&gt; forward: ip_mkroute_input() --&gt; rth-&gt;dst.input = ip_forward;</span><br><span class="line">	--&gt; local_input: rth-&gt;dst.input= ip_local_deliver; </span><br><span class="line">		--&gt; skb_dst(skb)-&gt;input() --&gt; ip_local_deliver() --&gt; ip_local_deliver_finish() --&gt; ipprot-&gt;handler()</span><br><span class="line">			--&gt; udp_rcv() --&gt; __udp4_lib_rcv() --&gt; udp_queue_rcv_skb() --&gt; __udp_enqueue_schedule_skb() --&gt; sk-&gt;sk_data_ready() --&gt; sock_def_readable()</span><br><span class="line">				--&gt;__wake_up_common() --&gt; curr-&gt;func() --&gt; default_wake_function() --&gt; try_to_wake_up() --&gt; ttwu_queue()</span><br></pre></td></tr></table></figure></li>
-<li>UDP send path:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">udp_sendmsg() --&gt; ip_route_output_flow() --&gt; (struct xfrm_policy_afinfo *) -&gt;dst_lookup() --&gt; struct xfrm_policy_afinfo xfrm4_policy_afinfo</span><br><span class="line">	--&gt; xfrm4_dst_lookup() --&gt; __ip_route_output_key() --&gt; __mkroute_output()</span><br><span class="line">		--&gt; rth-&gt;dst.input = ip_local_deliver;</span><br><span class="line">		--&gt; rth-&gt;dst.output = ip_output;</span><br><span class="line">			--&gt; udp_send_skb() --&gt; ip_local_out() --&gt; ip_output()</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h3 id="Userspace-Tools"><a href="#Userspace-Tools" class="headerlink" title="Userspace Tools"></a>Userspace Tools</h3><ul>
-<li>iptables, ip6tables, arptables, ebtables</li>
-<li><a class="link" href="https://lwn.net/Articles/564095/">nftables<i class="fas fa-external-link-alt"></i></a></li>
-<li>bpfilter, <a class="link" href="https://lwn.net/Articles/747551/">BPF comes to firewalls<i class="fas fa-external-link-alt"></i></a></li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li>Linux Kernel Networking: Implemetation and Theory</li>
+<h3 id="More-for-aarch64"><a href="#More-for-aarch64" class="headerlink" title="More for aarch64"></a>More for aarch64</h3><ul>
+<li><a class="link" href="http://www.cs.columbia.edu/~nieh/pubs/asplos2014_kvmarm.pdf">KVM/ARM: The Design and Implementation of the Linux ARM Hypervisor, Christoffer Dall, Jason Nieh, 2014<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://hkg15.pathable.com/static/attachments/112961/1424963684.pdf?1424963684">KVM/arm64 Architectural Evoluations, Marc Zyngier, 2015<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://events.static.linuxfound.org/sites/events/files/slides/KoreaLinuxForum2015.pdf">ARM-KVM: Weather Report Korea Linux Forum, Mario Smarduch, 2015<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 ]]></content>
       <categories>
-        <category>original</category>
+        <category>quotes</category>
+      </categories>
+      <tags>
+        <tag>KVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Collection of Linux Weather Forcast</title>
+    <url>/leptons-bosons/2018/10/03/linux-weather-forecast/</url>
+    <content><![CDATA[<p><a class="link" href="https://www.linux.com/news/category/linux-kernel">Weather Forcast<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Short-term-Forcast"><a href="#Short-term-Forcast" class="headerlink" title="Short-term Forcast"></a>Short-term Forcast</h3><ul>
+<li><a class="link" href="https://lwn.net/Articles/748879/">Time-based packet transmission<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://lwn.net/Articles/758353/">CAKE queueing discipline<i class="fas fa-external-link-alt"></i></a>: offers significantly better networking performance, especially in home or small-business settings.</li>
+<li><a class="link" href="https://lwn.net/Articles/758963/">The block I/O latency controller<i class="fas fa-external-link-alt"></i></a>: allows an administrator to provide block (disk) I/O response-time guarantees to specific processes.</li>
+</ul>
+<h3 id="Kernel-4-18"><a href="#Kernel-4-18" class="headerlink" title="Kernel-4.18"></a>Kernel-4.18</h3><ul>
+<li><a class="link" href="https://lwn.net/Articles/747551/">bpfilter<i class="fas fa-external-link-alt"></i></a>: expected to be the base on which the next generation of kernel firewalling systems is built.</li>
+<li><a class="link" href="https://lwn.net/Articles/754681/">A reworked TCP zero-copy receive API<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://lwn.net/Articles/750845/">Accelerating networking with AF_XDP<i class="fas fa-external-link-alt"></i></a>: a larger effort to win back users of user-space networking stacks by providing better facilities in the kernel.</li>
+<li><a class="link" href="https://lwn.net/Articles/760690/">Statistics from the 4.18 development cycle<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://www.linux.com/news/2018/9/linux-weather-forecast">Linux Weather Forecast 2018.09<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>quotes</category>
       </categories>
       <tags>
         <tag>kernel</tag>
-        <tag>netfilter</tag>
       </tags>
   </entry>
   <entry>
@@ -1245,7 +1191,7 @@ SAMPLE OUTPUT:
 <li>Stack</li>
 <li>Heap</li>
 </ol>
-<p>A typical memory layout of a running process<br><img src="/leptons-bosons/.io//memory-layout.png" alt="A typical memory layout of a running process"></p>
+<p>A typical memory layout of a running process<br><img src="/leptons-bosons/.io//2018/11/16/memory-layout/memory-layout.png" alt="A typical memory layout of a running process"></p>
 <h3 id="Text-Segment"><a href="#Text-Segment" class="headerlink" title="Text Segment"></a>Text Segment</h3><p>A text segment , also known as a code segment or simply as text, is one of the sections of a program in an object file or in memory, which contains executable instructions.</p>
 <p>As a memory region, a text segment may be placed below the heap or stack in order to prevent heaps and stack overflows from overwriting it.</p>
 <p>Usually, the text segment is sharable so that only a single copy needs to be in memory for frequently executed programs, such as text editors, the C compiler, the shells, and so on. Also, the text segment is often read-only, to prevent a program from accidentally modifying its instructions.</p>
@@ -1275,7 +1221,7 @@ SAMPLE OUTPUT:
 <li><p>Let us initialize the global variable which will then be stored in Data Segment (DS)</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt; </span><br><span class="line">  </span><br><span class="line">int global = 10; /* initialized global variable stored in DS*/</span><br><span class="line">  </span><br><span class="line">int main(void) </span><br><span class="line">&#123; </span><br><span class="line">    static int i = 100; /* Initialized static variable stored in DS*/</span><br><span class="line">    return 0; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="Heap-Details"><a href="#Heap-Details" class="headerlink" title="Heap Details"></a>Heap Details</h3><p>Heap Zoom In<br><img src="/leptons-bosons/.io//heap-zoom-in.png" alt="Heap Zoom In"><br>When malloc size is less than M_MMAP_THRESHOLD, which could set by mallopt(), brk() will be used, otherwise mmap() will be used. With brk() the memory blocks are not immediately returned to system, the C library aggregates them until a sufficiently large, contiguous chunk can be freed at once.</p>
+<h3 id="Heap-Details"><a href="#Heap-Details" class="headerlink" title="Heap Details"></a>Heap Details</h3><p>Heap Zoom In<br><img src="/leptons-bosons/.io//2018/11/16/memory-layout/heap-zoom-in.png" alt="Heap Zoom In"><br>When malloc size is less than M_MMAP_THRESHOLD, which could set by mallopt(), brk() will be used, otherwise mmap() will be used. With brk() the memory blocks are not immediately returned to system, the C library aggregates them until a sufficiently large, contiguous chunk can be freed at once.</p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a class="link" href="https://en.m.wikibooks.org/wiki/X86_Assembly/X86_Architecture">x86 Architecture<i class="fas fa-external-link-alt"></i></a><br><a class="link" href="https://www.linuxjournal.com/article/6390">Advanced Memory Allocation<i class="fas fa-external-link-alt"></i></a><br><a class="link" href="https://manybutfinite.com/post/anatomy-of-a-program-in-memory/">Anatomy of a Program in Memory<i class="fas fa-external-link-alt"></i></a><br><a class="link" href="https://manybutfinite.com/post/how-the-kernel-manages-your-memory/">How The Kernel Manages Your Memory<i class="fas fa-external-link-alt"></i></a><br><a class="link" href="https://manybutfinite.com/post/memory-translation-and-segmentation/">Memory Translation and Segmentation<i class="fas fa-external-link-alt"></i></a></p>
 ]]></content>
       <categories>
@@ -1287,23 +1233,77 @@ SAMPLE OUTPUT:
       </tags>
   </entry>
   <entry>
+    <title>Netfilter Framework</title>
+    <url>/leptons-bosons/2018/09/07/netfilter/</url>
+    <content><![CDATA[<p><a class="link" href="http://ipset.netfilter.org/">IP sets<i class="fas fa-external-link-alt"></i></a>, <a class="link" href="http://www.linuxvirtualserver.org/">ipvs<i class="fas fa-external-link-alt"></i></a> all based on the Linux kernel <a class="link" href="https://www.netfilter.org/">netfilter<i class="fas fa-external-link-alt"></i></a> subsystem.</p>
+<h3 id="Key-Structures-Variables-and-Functions"><a href="#Key-Structures-Variables-and-Functions" class="headerlink" title="Key Structures, Variables and Functions"></a>Key Structures, Variables and Functions</h3><ul>
+<li>net/netfilter/core.c: <a href="https://elixir.bootlin.com/linux/latest/ident/nf_hooks_needed">struct static_key <em>nf_hooks_needed[][]</em></a>, in the old kernel version <em>nf_hooks[][]</em> is defined.</li>
+<li>include/uapi/linux/netfilter.h: <a href="https://elixir.bootlin.com/linux/latest/ident/nf_inet_hooks">enum <em>nf_inet_hooks</em></a></li>
+<li>include/uapi/linux/netfilter.h: <a href="https://elixir.bootlin.com/linux/latest/ident/NFPROTO_NUMPROTO"><em>NFPROTO_NUMPROTO</em></a></li>
+<li>include/uapi/linux/netfilter_ipv4.h: <a href="https://elixir.bootlin.com/linux/latest/ident/nf_ip_hook_priorities">enum <em>nf_iphook_priorities</em></a>, list the most common tables(priority from high to low):<ul>
+<li>NF_IP_PRI_RAW(-300), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/packet_raw">packet_raw<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_CONNTRACK(-200), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_conntrack_l3proto_ipv4_init">nf_conntrack_l3proto_ipv4_init<i class="fas fa-external-link-alt"></i></a>, <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops">ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_MANGLE(-150), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/packet_mangler">packet_mangler<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_NAT_DST(-100), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_table">nf_nat_ipv4_table<i class="fas fa-external-link-alt"></i></a>, <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_ops">nf_nat_ipv4_ops<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_FILTER(0), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/packet_filter">packet_filter<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_NAT_SRC(100), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_table">nf_nat_ipv4_table<i class="fas fa-external-link-alt"></i></a>, <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/nf_nat_ipv4_ops">nf_nat_ipv4_ops<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_CONNTRACK_HELPER(300), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops">ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
+<li>NF_IP_PRI_CONNTRACK_CONFIRM(INT_MAX), <a class="link" href="https://elixir.bootlin.com/linux/latest/ident/ipv4_conntrack_ops">ipv4_conntrack_ops<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</li>
+<li><a href="https://elixir.bootlin.com/linux/latest/ident/NF_HOOK"><em>NF_HOOK()</em></a></li>
+<li><a href="https://elixir.bootlin.com/linux/latest/ident/ipt_register_table"><em>ipt_register_table()</em></a></li>
+<li><a href="https://elixir.bootlin.com/linux/latest/ident/nf_register_net_hook"><em>nf_register_net_hook()</em></a>, in the old kernel version <em>nf_register_hook</em> is defined.</li>
+</ul>
+<h3 id="Netfilter-Hooks-and-Tables"><a href="#Netfilter-Hooks-and-Tables" class="headerlink" title="Netfilter Hooks and Tables"></a>Netfilter Hooks and Tables</h3><ul>
+<li><p>Netfilter Hooks in Kernel<br><img src="/leptons-bosons/.io//2018/09/07/netfilter/hooks-in-kernel.png" alt="Netfilter Hooks in Kernel"></p>
+</li>
+<li><p>Tables in Netfilter Hooks<br><img src="/leptons-bosons/.io//2018/09/07/netfilter/tables-in-hook.png" alt="Tables in Netfilter Hooks"><br>Note: Dnat table in LOCAL_OUT actually is POST_RETOUING, but after modifty destination address/port called <a href="https://elixir.bootlin.com/linux/latest/ident/ip_route_me_harder"><em>ip_route_me_harder()</em></a>, used by iptable_nat and iptable_mangle + ip_queue, in <em>function nf_nat_ipv4_local_fn()</em>.</p>
+</li>
+<li><p>Detail of Connection Tracking Hooks<br><img src="/leptons-bosons/.io//2018/09/07/netfilter/conntrack-hooks.png" alt="Detail of Connection Tracking Hooks"><br>For packet received, routing decision is done by <a href="https://elixir.bootlin.com/linux/latest/ident/ip_mkroute_input"><em>ip_mkroute_input()</em></a> called by <em>ip_rcv_finish()</em>, while the local out packet routing is <a href="https://elixir.bootlin.com/linux/latest/ident/__mkroute_output"><em>__mkroute_output()</em></a>.</p>
+</li>
+<li><p>Transport Layer Trace(CentOS 7.4.1708 kernel-3.10.0.693)<br>inet_init(): struct net_protocol inet_protos[MAX_INET_PROTOS], e.g. udp_protocol, tcp_protocol, igmp_protocol, icmp_protocol.</p>
+<ul>
+<li>UDP receive path:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip_rcv_finish() --&gt; ip_route_input_slow() --&gt;ip_route_input_slow()</span><br><span class="line">	--&gt; forward: ip_mkroute_input() --&gt; rth-&gt;dst.input = ip_forward;</span><br><span class="line">	--&gt; local_input: rth-&gt;dst.input= ip_local_deliver; </span><br><span class="line">		--&gt; skb_dst(skb)-&gt;input() --&gt; ip_local_deliver() --&gt; ip_local_deliver_finish() --&gt; ipprot-&gt;handler()</span><br><span class="line">			--&gt; udp_rcv() --&gt; __udp4_lib_rcv() --&gt; udp_queue_rcv_skb() --&gt; __udp_enqueue_schedule_skb() --&gt; sk-&gt;sk_data_ready() --&gt; sock_def_readable()</span><br><span class="line">				--&gt;__wake_up_common() --&gt; curr-&gt;func() --&gt; default_wake_function() --&gt; try_to_wake_up() --&gt; ttwu_queue()</span><br></pre></td></tr></table></figure></li>
+<li>UDP send path:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">udp_sendmsg() --&gt; ip_route_output_flow() --&gt; (struct xfrm_policy_afinfo *) -&gt;dst_lookup() --&gt; struct xfrm_policy_afinfo xfrm4_policy_afinfo</span><br><span class="line">	--&gt; xfrm4_dst_lookup() --&gt; __ip_route_output_key() --&gt; __mkroute_output()</span><br><span class="line">		--&gt; rth-&gt;dst.input = ip_local_deliver;</span><br><span class="line">		--&gt; rth-&gt;dst.output = ip_output;</span><br><span class="line">			--&gt; udp_send_skb() --&gt; ip_local_out() --&gt; ip_output()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="Userspace-Tools"><a href="#Userspace-Tools" class="headerlink" title="Userspace Tools"></a>Userspace Tools</h3><ul>
+<li>iptables, ip6tables, arptables, ebtables</li>
+<li><a class="link" href="https://lwn.net/Articles/564095/">nftables<i class="fas fa-external-link-alt"></i></a></li>
+<li>bpfilter, <a class="link" href="https://lwn.net/Articles/747551/">BPF comes to firewalls<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li>Linux Kernel Networking: Implemetation and Theory</li>
+</ul>
+]]></content>
+      <categories>
+        <category>original</category>
+      </categories>
+      <tags>
+        <tag>kernel</tag>
+        <tag>netfilter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Openstack Bridge</title>
     <url>/leptons-bosons/2018/03/31/openstack-bridge/</url>
     <content><![CDATA[<h3 id="Openstack-Bridge-Oview"><a href="#Openstack-Bridge-Oview" class="headerlink" title="Openstack Bridge Oview"></a>Openstack Bridge Oview</h3><ul>
-<li>Bridge Overview<br><img src="/leptons-bosons/.io//Bridge-Overview.jpg" alt="Bridge Overview"></li>
+<li>Bridge Overview<br><img src="/leptons-bosons/.io//2018/03/31/openstack-bridge/Bridge-Overview.jpg" alt="Bridge Overview"></li>
 </ul>
 <h3 id="Packet-Travel-Path-I"><a href="#Packet-Travel-Path-I" class="headerlink" title="Packet Travel Path I"></a>Packet Travel Path I</h3><ul>
 <li>Packet From Uplink to GuestOS<br>![Packet From Uplink to GuestOS](Packet-From Uplink-to-VM.jpg)</li>
 </ul>
 <h3 id="Packet-Travel-Path-II"><a href="#Packet-Travel-Path-II" class="headerlink" title="Packet Travel Path II"></a>Packet Travel Path II</h3><ul>
-<li>Packet From GuestOS to Uplink<br><img src="/leptons-bosons/.io//Packet-From-VM-to-Uplink.jpg" alt="Packet From GuestOS to Uplink"></li>
+<li>Packet From GuestOS to Uplink<br><img src="/leptons-bosons/.io//2018/03/31/openstack-bridge/Packet-From-VM-to-Uplink.jpg" alt="Packet From GuestOS to Uplink"></li>
 </ul>
 <h3 id="Packet-Travel-Path-III"><a href="#Packet-Travel-Path-III" class="headerlink" title="Packet Travel Path III"></a>Packet Travel Path III</h3><ul>
-<li>Vxlan Packet Receive Flow<br><img src="/leptons-bosons/.io//Vxlan-Receive-Flow.jpg" alt="Vxlan Packet Receive Flow"></li>
+<li>Vxlan Packet Receive Flow<br><img src="/leptons-bosons/.io//2018/03/31/openstack-bridge/Vxlan-Receive-Flow.jpg" alt="Vxlan Packet Receive Flow"></li>
 <li>Create VxLAN Port<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ovs-vsctl add-br br0</span><br><span class="line">$ ovs-vsctl add-port br0 vxlan1 -- set interface vxlan1 type=vxlan \</span><br><span class="line">    options:remote_ip=192.168.1.2 options:key=flow options:dst_port=8472</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Packet-Travel-Path-IV"><a href="#Packet-Travel-Path-IV" class="headerlink" title="Packet Travel Path IV"></a>Packet Travel Path IV</h3><ul>
-<li>Virtio net Front-end xmit<br><img src="/leptons-bosons/.io//front-end-xmit.png" alt="Virtio net Front-end xmit"></li>
+<li>Virtio net Front-end xmit<br><img src="/leptons-bosons/.io//2018/03/31/openstack-bridge/front-end-xmit.png" alt="Virtio net Front-end xmit"></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a class="link" href="https://developer.openstack.org/firstapp-libcloud/networking.html">OpenStack Networking<i class="fas fa-external-link-alt"></i></a></li>
@@ -1351,7 +1351,7 @@ SAMPLE OUTPUT:
 <li><strong>nat</strong>: Specifies the address and port translation for the connection being tracked.</li>
 </ul>
 <h3 id="Setup-Enviroment"><a href="#Setup-Enviroment" class="headerlink" title="Setup Enviroment"></a>Setup Enviroment</h3><ul>
-<li><p>Topology for conntrack testing<br><img src="/leptons-bosons/.io//ovs-conntrack-bridge.png" alt="Topology for conntrack testing"></p>
+<li><p>Topology for conntrack testing<br><img src="/leptons-bosons/.io//2018/09/02/ovs-conntrack/ovs-conntrack-bridge.png" alt="Topology for conntrack testing"></p>
 </li>
 <li><p>Start openvswitch service</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ /usr/local/share/openvswitch/scripts/ovs-ctl start</span><br></pre></td></tr></table></figure></li>
@@ -1367,8 +1367,8 @@ SAMPLE OUTPUT:
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=SYN_SENT)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=ESTABLISHED)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=ESTABLISHED)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=ESTABLISHED)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=ESTABLISHED)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=FIN_WAIT_1)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=LAST_ACK)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=TIME_WAIT)</span><br><span class="line">$</span><br><span class="line"># ovs-appctl dpctl/dump-flows</span><br><span class="line">recirc_id(0),in_port(3),ct_state(-trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:ct,recirc(0xa)</span><br><span class="line">recirc_id(0xa),in_port(3),ct_state(-new+est+trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:2</span><br><span class="line"># ovs-appctl dpctl/dump-flows</span><br><span class="line">recirc_id(0xb),in_port(2),ct_state(-new+est+trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:3</span><br><span class="line">recirc_id(0),in_port(2),ct_state(-trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:ct,recirc(0xb)</span><br><span class="line"># ovs-appctl dpctl/dump-flows</span><br><span class="line">recirc_id(0xd),in_port(3),ct_state(-new+est+trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:2</span><br><span class="line">recirc_id(0),in_port(3),ct_state(-trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:ct,recirc(0xd)</span><br><span class="line"># ovs-appctl dpctl/dump-flows</span><br><span class="line">recirc_id(0xf),in_port(3),ct_state(-new+est+trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:2</span><br><span class="line">recirc_id(0),in_port(3),ct_state(-trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:ct,recirc(0xf)</span><br><span class="line">$</span><br><span class="line"># ovs-ofctl dump-flows br0</span><br><span class="line"> cookie=0x0, duration=2676.690s, table=0, n_packets=8, n_bytes=434, priority=50,ct_state=-trk,tcp,in_port=&quot;veth_l0&quot; actions=ct(table=0)</span><br><span class="line"> cookie=0x0, duration=1314.571s, table=0, n_packets=4, n_bytes=216, priority=50,ct_state=-trk,tcp,in_port=&quot;veth_r0&quot; actions=ct(table=0)</span><br><span class="line"> cookie=0x0, duration=1330.738s, table=0, n_packets=2, n_bytes=108, priority=50,ct_state=+new,tcp,in_port=&quot;veth_l0&quot; actions=ct(commit),output:&quot;veth_r0&quot;</span><br><span class="line"> cookie=0x0, duration=1304.278s, table=0, n_packets=4, n_bytes=216, priority=50,ct_state=+est,tcp,in_port=&quot;veth_r0&quot; actions=output:&quot;veth_l0&quot;</span><br><span class="line"> cookie=0x0, duration=1291.799s, table=0, n_packets=6, n_bytes=326, priority=50,ct_state=+est,tcp,in_port=&quot;veth_l0&quot; actions=output:&quot;veth_r0&quot;</span><br><span class="line"> cookie=0x0, duration=2694.702s, table=0, n_packets=8, n_bytes=648, priority=10,in_port=&quot;veth_l0&quot; actions=output:&quot;veth_r0&quot;</span><br><span class="line"> cookie=0x0, duration=2686.050s, table=0, n_packets=8, n_bytes=648, priority=10,in_port=&quot;veth_r0&quot; actions=output:&quot;veth_l0&quot;</span><br><span class="line"> cookie=0x0, duration=2720.196s, table=0, n_packets=0, n_bytes=0, priority=0 actions=NORMA</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Shorten-Packet-Path-in-Openstack-with-conntrack-support"><a href="#Shorten-Packet-Path-in-Openstack-with-conntrack-support" class="headerlink" title="Shorten Packet Path in Openstack with conntrack support"></a>Shorten Packet Path in Openstack with conntrack support</h3><ul>
-<li>Ovs in Openstack without conntrack support<br><img src="/leptons-bosons/.io//old-ovs-in-openstack.png" alt="Ovs in Openstack without conntrack support"></li>
-<li>Ovs in Openstack with conntrack support<br><img src="/leptons-bosons/.io//new-ovs-conntract.png" alt="Ovs in Openstack with conntrack support"></li>
+<li>Ovs in Openstack without conntrack support<br><img src="/leptons-bosons/.io//2018/09/02/ovs-conntrack/old-ovs-in-openstack.png" alt="Ovs in Openstack without conntrack support"></li>
+<li>Ovs in Openstack with conntrack support<br><img src="/leptons-bosons/.io//2018/09/02/ovs-conntrack/new-ovs-conntract.png" alt="Ovs in Openstack with conntrack support"></li>
 <li>Query conntrack info in kernel<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ cat /proc/net/nf_conntrack</span><br><span class="line">$ cat /proc/sys/net/nf_conntrack_max</span><br><span class="line">$ nstat</span><br><span class="line">$ cat /proc/net/snmp</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
@@ -1458,10 +1458,10 @@ SAMPLE OUTPUT:
 <li>vcpu thread: qemu_kvm_cpu_thread_fn()</li>
 </ul>
 <h3 id="KVM-and-Qemu-Interaction-Diagram"><a href="#KVM-and-Qemu-Interaction-Diagram" class="headerlink" title="KVM and Qemu Interaction Diagram"></a>KVM and Qemu Interaction Diagram</h3><ul>
-<li>KVM and Qemu Interaction Diagram<br><img src="/leptons-bosons/.io//kvm-qemu-interaction.png" alt="KVM and Qemu interaction diagram"></li>
+<li>KVM and Qemu Interaction Diagram<br><img src="/leptons-bosons/.io//2018/12/16/qemu-kvm/kvm-qemu-interaction.png" alt="KVM and Qemu interaction diagram"></li>
 </ul>
 <h3 id="GuestOS-KVM-and-Qemu-Iteraction-Diagram-virtio-net"><a href="#GuestOS-KVM-and-Qemu-Iteraction-Diagram-virtio-net" class="headerlink" title="GuestOS, KVM and Qemu Iteraction Diagram: virtio-net"></a>GuestOS, KVM and Qemu Iteraction Diagram: virtio-net</h3><ul>
-<li>GuestOS, KVM and Qemu Iteraction Diagram: virtio-net<br><img src="/leptons-bosons/.io//virtio-net.png" alt="GuestOS, KVM and Qemu Iteraction Diagram: virtio-net"></li>
+<li>GuestOS, KVM and Qemu Iteraction Diagram: virtio-net<br><img src="/leptons-bosons/.io//2018/12/16/qemu-kvm/virtio-net.png" alt="GuestOS, KVM and Qemu Iteraction Diagram: virtio-net"></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a class="link" href="http://blog.vmsplice.net/2011/03/qemu-internals-overall-architecture-and.html">QEMU Internals: Overall architecture and threading model<i class="fas fa-external-link-alt"></i></a></li>
@@ -1562,7 +1562,7 @@ SAMPLE OUTPUT:
 <li><a class="link" href="http://www.scsita.org/content/">SCSI Trade Alliance<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
 <h3 id="Roadmaps"><a href="#Roadmaps" class="headerlink" title="Roadmaps"></a>Roadmaps</h3><ul>
-<li>SAS Roadmap<br><img src="/leptons-bosons/.io//SAS_roadmap.jpg" alt="SAS Roadmap"></li>
+<li>SAS Roadmap<br><img src="/leptons-bosons/.io//2018/11/06/sas-sata/SAS_roadmap.jpg" alt="SAS Roadmap"></li>
 </ul>
 <h3 id="Compare"><a href="#Compare" class="headerlink" title="Compare"></a>Compare</h3><ul>
 <li><a class="link" href="https://www.webopedia.com/DidYouKnow/Computer_Science/sas_sata.asp">SAS, SATA, SCSI and ATA<i class="fas fa-external-link-alt"></i></a></li>
@@ -1620,7 +1620,7 @@ SAMPLE OUTPUT
 2
 1
 </code></pre>
-<h3 id="Segment-Tree-Layout"><a href="#Segment-Tree-Layout" class="headerlink" title="Segment Tree Layout"></a>Segment Tree Layout</h3><p><img src="/leptons-bosons/.io//problem-tree.png" alt="Segment Tree Layout"></p>
+<h3 id="Segment-Tree-Layout"><a href="#Segment-Tree-Layout" class="headerlink" title="Segment Tree Layout"></a>Segment Tree Layout</h3><p><img src="/leptons-bosons/.io//2020/01/05/segment-tree/problem-tree.png" alt="Segment Tree Layout"></p>
 <h3 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h3><ul>
 <li><p>Main</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;limits.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int Power2RoundUp(int size)</span><br><span class="line">&#123;</span><br><span class="line">    int cnt = 0;</span><br><span class="line">    </span><br><span class="line">    do &#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        size = (size &gt;&gt; 1);</span><br><span class="line">    &#125; while (size &gt; 0);</span><br><span class="line">    </span><br><span class="line">    return (1 &lt;&lt; (cnt + 1));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void PrintfSegTree(int *st, int size, int init)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    </span><br><span class="line">    printf(&quot;----------\n&quot;);</span><br><span class="line">    for (i = 0; i &lt; size; i++) &#123;</span><br><span class="line">        if (st[i] != init) &#123;</span><br><span class="line">            printf(&quot;%d: %d\n&quot;, i, st[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Write your code here</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int size, roundUp, opts;</span><br><span class="line">    int *arr, *st;</span><br><span class="line">    char opt;</span><br><span class="line">    int x, y;</span><br><span class="line">    </span><br><span class="line">    scanf(&quot;%d %d\n&quot;, &amp;size, &amp;opts);</span><br><span class="line">    if (size &lt;= 0) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    roundUp = Power2RoundUp(size);</span><br><span class="line">    arr = malloc(sizeof(int) * size);</span><br><span class="line">    st = malloc(sizeof(int) * roundUp);</span><br><span class="line">    if (!arr || !st) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    i = 0;</span><br><span class="line">    while ((++i) &lt;= size &amp;&amp; (scanf(&quot;%d&quot;, &amp;arr[i - 1]) != EOF)) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    for (i = 0; i &lt; roundUp; i++) &#123;</span><br><span class="line">        st[i] = INT_MAX;</span><br><span class="line">    &#125;</span><br><span class="line">    ConstructSegTree(st, arr, size);</span><br><span class="line">    //PrintfSegTree(st, roundUp, INT_MAX);</span><br><span class="line">    </span><br><span class="line">    i = 0;</span><br><span class="line">    while ((++i) &lt;= opts &amp;&amp; (scanf(&quot;\n%c %d %d&quot;, &amp;opt, &amp;x, &amp;y) != EOF)) &#123;</span><br><span class="line">        int target;</span><br><span class="line">        </span><br><span class="line">        switch (opt) &#123;</span><br><span class="line">            case &#x27;q&#x27;:</span><br><span class="line">                target = INT_MAX;</span><br><span class="line">                QuerySegTree(st, 1, 0, size - 1, x - 1, y - 1, &amp;target);</span><br><span class="line">                printf(&quot;%d\n&quot;, target);</span><br><span class="line">                break;</span><br><span class="line">            case &#x27;u&#x27;:</span><br><span class="line">                //PrintfSegTree(st, roundUp, INT_MAX);</span><br><span class="line">                UpdateSegTree(st, 1, 0, size - 1, x - 1, y);</span><br><span class="line">                //PrintfSegTree(st, roundUp, INT_MAX);</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    free(arr);</span><br><span class="line">    free(st);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
@@ -1702,7 +1702,7 @@ SAMPLE OUTPUT
 </li>
 </ul>
 <h3 id="TCP-Sliding-Windows"><a href="#TCP-Sliding-Windows" class="headerlink" title="TCP Sliding Windows"></a>TCP Sliding Windows</h3><ul>
-<li>TCP Sliding Windows<br><img src="/leptons-bosons/.io//sliding-window.jpg" alt="TCP Sliding Windows"></li>
+<li>TCP Sliding Windows<br><img src="/leptons-bosons/.io//2018/02/19/tcp-ip/sliding-window.jpg" alt="TCP Sliding Windows"></li>
 </ul>
 <h3 id="TCP-Congestion-Control"><a href="#TCP-Congestion-Control" class="headerlink" title="TCP Congestion Control"></a>TCP Congestion Control</h3><ul>
 <li><p>Self-Clock based on ACK</p>
@@ -1730,15 +1730,15 @@ SAMPLE OUTPUT
 </ul>
 <p>Congestion avoidance dictates that cwnd be incremented by segsize*segsize/cwnd each time an ACK is received, where segsize is the segment size and cwnd is maintained in bytes. This is a <em>linear growth</em> of cwnd, compared to slow start’s <em>exponential growth</em>.</p>
 <ul>
-<li><p>TCP Congestion Control illustrate<br><img src="/leptons-bosons/.io//congestion_control.jpg" alt="TCP Congestion Control illustrate"></p>
+<li><p>TCP Congestion Control illustrate<br><img src="/leptons-bosons/.io//2018/02/19/tcp-ip/congestion_control.jpg" alt="TCP Congestion Control illustrate"></p>
 </li>
-<li><p>Bandwith Utilization of Competion Between Multiple-Flows<br><img src="/leptons-bosons/.io//competion-between-multiple-flows.jpg" alt="Bandwith Utilization of Competion Between Multiple-Flows"></p>
+<li><p>Bandwith Utilization of Competion Between Multiple-Flows<br><img src="/leptons-bosons/.io//2018/02/19/tcp-ip/competion-between-multiple-flows.jpg" alt="Bandwith Utilization of Competion Between Multiple-Flows"></p>
 </li>
 </ul>
 <h3 id="TCP-Connection-Establishment-and-Termination"><a href="#TCP-Connection-Establishment-and-Termination" class="headerlink" title="TCP Connection Establishment and Termination"></a>TCP Connection Establishment and Termination</h3><ul>
-<li>Connection Set-Up: Three-Way Handshake<br><img src="/leptons-bosons/.io//tcpopen3way.png" alt="Connection Set-Up: Three-Way Handshake"></li>
-<li>Connection Close: Modified Three-Way Handshake<br><img src="/leptons-bosons/.io//tcpclose.png" alt="Connection Close: Modified Three-Way Handshake"></li>
-<li>TCP State Machine<br><img src="/leptons-bosons/.io//tcpfsm.png" alt="TCP State Transition"></li>
+<li>Connection Set-Up: Three-Way Handshake<br><img src="/leptons-bosons/.io//2018/02/19/tcp-ip/tcpopen3way.png" alt="Connection Set-Up: Three-Way Handshake"></li>
+<li>Connection Close: Modified Three-Way Handshake<br><img src="/leptons-bosons/.io//2018/02/19/tcp-ip/tcpclose.png" alt="Connection Close: Modified Three-Way Handshake"></li>
+<li>TCP State Machine<br><img src="/leptons-bosons/.io//2018/02/19/tcp-ip/tcpfsm.png" alt="TCP State Transition"></li>
 </ul>
 <h3 id="Some-Problems"><a href="#Some-Problems" class="headerlink" title="Some Problems"></a>Some Problems</h3><ul>
 <li>Without any flow control, mixed with tcp and udp streams, tcp streams are always starved.</li>
@@ -1766,8 +1766,8 @@ SAMPLE OUTPUT
     <url>/leptons-bosons/2018/02/21/tcp-syn-packet/</url>
     <content><![CDATA[<p>Except the purpose to establish the connection, some other important information in tcp SYN packet but usually be ignored. </p>
 <h3 id="Example-of-SYN-packet-tcp-header"><a href="#Example-of-SYN-packet-tcp-header" class="headerlink" title="Example of SYN packet tcp header"></a>Example of SYN packet tcp header</h3><ul>
-<li>TCP Header Layout<br><img src="/leptons-bosons/.io//tcp-header-layout.jpg" alt="TCP Header Layout"></li>
-<li>TCP SYN Packet Parsed by wireshark<br><img src="/leptons-bosons/.io//tcp-syn-packet.jpg" alt="TCP SYN Packet"></li>
+<li>TCP Header Layout<br><img src="/leptons-bosons/.io//2018/02/21/tcp-syn-packet/tcp-header-layout.jpg" alt="TCP Header Layout"></li>
+<li>TCP SYN Packet Parsed by wireshark<br><img src="/leptons-bosons/.io//2018/02/21/tcp-syn-packet/tcp-syn-packet.jpg" alt="TCP SYN Packet"></li>
 </ul>
 <h3 id="Summary-of-tcp-header-options-up-to-40-Bytes"><a href="#Summary-of-tcp-header-options-up-to-40-Bytes" class="headerlink" title="Summary of tcp header options(up to 40 Bytes)"></a>Summary of tcp header options(up to 40 Bytes)</h3><table>
 <thead>
@@ -1870,7 +1870,7 @@ SAMPLE OUTPUT
     <title>Learn Vim</title>
     <url>/leptons-bosons/2018/09/08/vim/</url>
     <content><![CDATA[<h3 id="Vim-Modes"><a href="#Vim-Modes" class="headerlink" title="Vim Modes"></a>Vim Modes</h3><ul>
-<li>Vim modes switch<br><img src="/leptons-bosons/.io//vim-modes.png" alt="Vim Modes Switch"></li>
+<li>Vim modes switch<br><img src="/leptons-bosons/.io//2018/09/08/vim/vim-modes.png" alt="Vim Modes Switch"></li>
 <li>Remap &lt;Esc&gt; key, changing <a class="link" href="http://learnvimscriptthehardway.stevelosh.com/chapters/06.html">the leader key<i class="fas fa-external-link-alt"></i></a><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># cat ~/.vimrc </span><br><span class="line">inoremap jk &lt;Esc&gt;</span><br><span class="line">let mapleader=&quot;&lt;Space&gt;&quot;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Free-Online-Resources-to-Learn-Vim"><a href="#Free-Online-Resources-to-Learn-Vim" class="headerlink" title="Free Online Resources to Learn Vim"></a>Free Online Resources to Learn Vim</h3><ul>
@@ -2002,13 +2002,13 @@ SAMPLE OUTPUT
 <li><p>CPU Virtualization</p>
 <ul>
 <li>VHE and VTx<ul>
-<li>aarch64, Virtualization Host Extensions(VHE), vmid/asid<br><img src="/leptons-bosons/.io//arch64-vhe.png" alt="Virtualization Host Extensions(VHE)"></li>
-<li>x86_64 VTx: vmcs, root and non-root mode, vpid.<br><img src="/leptons-bosons/.io//x86_64-vt-x_cpu-virtualization.png" alt="x86_64 CPU Virtualization with VT-x"></li>
+<li>aarch64, Virtualization Host Extensions(VHE), vmid/asid<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/arch64-vhe.png" alt="Virtualization Host Extensions(VHE)"></li>
+<li>x86_64 VTx: vmcs, root and non-root mode, vpid.<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-vt-x_cpu-virtualization.png" alt="x86_64 CPU Virtualization with VT-x"></li>
 </ul>
 </li>
 <li>Privilege levels<ul>
 <li>aarch64 excpetion level, EL 0(userspace applications), EL 1(guest kernel), EL 2(host kernel/hypervisor), EL 3(secure)</li>
-<li>x86_64 ring, ring 0(hypervisor under root mode, guest under non-root mode), ring 1, ring 2, ring3(applications)<br><img src="/leptons-bosons/.io//x86_64-ring.png" alt="x86_64 rings"></li>
+<li>x86_64 ring, ring 0(hypervisor under root mode, guest under non-root mode), ring 1, ring 2, ring3(applications)<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ring.png" alt="x86_64 rings"></li>
 </ul>
 </li>
 </ul>
@@ -2016,8 +2016,8 @@ SAMPLE OUTPUT
 <li><p>Memory Virtualization</p>
 <ul>
 <li>GVA to PHA translation<ul>
-<li>aarch64, stage 2 translation, GVA –mmu-&gt; IPA/GPA –mmu-&gt; HPA<br><img src="/leptons-bosons/.io//arch64-stage-2.png" alt="Stage 2 translation"></li>
-<li>x86_64, extended page tables(EPT)<br><img src="/leptons-bosons/.io//x86_64-ept.png" alt="EPT"></li>
+<li>aarch64, stage 2 translation, GVA –mmu-&gt; IPA/GPA –mmu-&gt; HPA<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/arch64-stage-2.png" alt="Stage 2 translation"></li>
+<li>x86_64, extended page tables(EPT)<br><img src="/leptons-bosons/.io//2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ept.png" alt="EPT"></li>
 </ul>
 </li>
 </ul>
@@ -2074,15 +2074,15 @@ SAMPLE OUTPUT
     <url>/leptons-bosons/2018/08/03/why-25g-nic/</url>
     <content><![CDATA[<h3 id="Backgroud"><a href="#Backgroud" class="headerlink" title="Backgroud"></a>Backgroud</h3><p>Choose 25g nic or 40g nic in server?</p>
 <h3 id="About-PCIe-full-duplex-communication"><a href="#About-PCIe-full-duplex-communication" class="headerlink" title="About PCIe, full-duplex communication"></a>About PCIe, full-duplex communication</h3><ul>
-<li><p>Lanes and Links<br><img src="/leptons-bosons/.io//pcie-lanes-and-links-.jpg" alt="Lanes and Links"></p>
+<li><p>Lanes and Links<br><img src="/leptons-bosons/.io//2018/08/03/why-25g-nic/pcie-lanes-and-links-.jpg" alt="Lanes and Links"></p>
 </li>
-<li><p>PCI Express link performance, each direction<br><img src="/leptons-bosons/.io//PCI-Express-link-performance-.jpg" alt="PCI Express link performance, each direction"></p>
+<li><p>PCI Express link performance, each direction<br><img src="/leptons-bosons/.io//2018/08/03/why-25g-nic/PCI-Express-link-performance-.jpg" alt="PCI Express link performance, each direction"></p>
 </li>
 </ul>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>For PCIe 3.0x8, 25G dual-ports NIC is better for PCIe bandwidth efficient.</p>
 <h3 id="Append"><a href="#Append" class="headerlink" title="Append"></a>Append</h3><ul>
 <li>PCIe Standard: <a class="link" href="https://pcisig.com/">PCI-SIG<i class="fas fa-external-link-alt"></i></a></li>
-<li>PCIe Roadmap<br><img src="/leptons-bosons/.io//pcie-roadmap.png" alt="PCIe Roadmap"></li>
+<li>PCIe Roadmap<br><img src="/leptons-bosons/.io//2018/08/03/why-25g-nic/pcie-roadmap.png" alt="PCIe Roadmap"></li>
 </ul>
 ]]></content>
       <categories>
@@ -2097,7 +2097,7 @@ SAMPLE OUTPUT
   <entry>
     <title>Wubi Input</title>
     <url>/leptons-bosons/2018/02/16/wubi-input/</url>
-    <content><![CDATA[<h3 id="Wubi-Input-Base-Code"><a href="#Wubi-Input-Base-Code" class="headerlink" title="Wubi Input Base Code"></a>Wubi Input Base Code</h3><p><img src="/leptons-bosons/.io//wubi-input.jpg" alt="Wubi Input Base Code"></p>
+    <content><![CDATA[<h3 id="Wubi-Input-Base-Code"><a href="#Wubi-Input-Base-Code" class="headerlink" title="Wubi Input Base Code"></a>Wubi Input Base Code</h3><p><img src="/leptons-bosons/.io//2018/02/16/wubi-input/wubi-input.jpg" alt="Wubi Input Base Code"></p>
 ]]></content>
       <categories>
         <category>quotes</category>
@@ -2190,7 +2190,7 @@ SAMPLE OUTPUT
 <p>One-to-one correspondence with netlink sock’s id.</p>
 <h3 id="Netlink-message-layout"><a href="#Netlink-message-layout" class="headerlink" title="Netlink message layout"></a>Netlink message layout</h3><h4 id="layout-illustrate"><a href="#layout-illustrate" class="headerlink" title="layout illustrate"></a>layout illustrate</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line"> *  &lt;------- NLA_HDRLEN ------&gt; &lt;-- NLA_ALIGN(payload)--&gt;</span><br><span class="line"> * +---------------------+- - -+- - - - - - - - - -+- - -+</span><br><span class="line"> * |        Header       | Pad |     Payload       | Pad |</span><br><span class="line"> * |   (struct nlattr)   | ing |                   | ing |</span><br><span class="line"> * +---------------------+- - -+- - - - - - - - - -+- - -+</span><br><span class="line"> *  &lt;-------------- nlattr-&gt;nla_len --------------&gt;</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
 <h3 id="Summary-with-flow-chart"><a href="#Summary-with-flow-chart" class="headerlink" title="Summary with flow chart"></a>Summary with flow chart</h3><ul>
-<li>generic netlink flow chart in OvS<br><img src="/leptons-bosons/.io//netlink-flow.jpg" alt="generic netlink flow chart in OvS"></li>
+<li>generic netlink flow chart in OvS<br><img src="/leptons-bosons/.io//2018/04/19/netlink/netlink-flow.jpg" alt="generic netlink flow chart in OvS"></li>
 </ul>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a class="link" href="https://wiki.linuxfoundation.org/networking/generic_netlink_howto">generic netlink howto<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="Append-generic-netlink-example-code"><a href="#Append-generic-netlink-example-code" class="headerlink" title="Append: generic netlink example code"></a>Append: generic netlink example code</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── kernel</span><br><span class="line">│   └── netlink_instance.c</span><br><span class="line">├── Makefile</span><br><span class="line">├── pub</span><br><span class="line">│   └── genl_ins_pub.h</span><br><span class="line">└── user</span><br><span class="line">    └── user_netlink.c</span><br></pre></td></tr></table></figure>
